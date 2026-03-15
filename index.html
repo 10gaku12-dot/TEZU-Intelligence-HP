@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>株式会社TEZU Intelligence | AI導入コンサル</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --dark: #060608;
+      --dark2: #0d0d10;
+      --gold: #d6a451;
+      --gold-light: #f0c46a;
+      --cyan: #00e5ff;
+      --cyan-dim: rgba(0,229,255,0.15);
+      --white: #ffffff;
+      --gray: #777777;
+      --gray-light: #bbbbbb;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Noto Sans JP','Inter',sans-serif;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ─── スクロールバー ─── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold),var(--cyan)); border-radius: 2px; }
+
+    /* ─── NAVIGATION ─── */
+    #main-nav {
+      position: fixed !important;
+      top: 0 !important; left: 0 !important; right: 0 !important;
+      z-index: 9999 !important;
+      display: flex !important;
+      align-items: center !important;
+      height: 56px !important;
+      padding: 0 40px !important;
+      background: rgba(0,0,0,0.88) !important;
+      backdrop-filter: blur(20px) !important;
+      border-bottom: 1px solid rgba(214,164,81,0.2) !important;
+      box-sizing: border-box !important;
+    }
+    /* ナビ左：会社名 */
+    #nav-brand {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    #nav-brand em { color: var(--gold); font-style: normal; }
+
+    /* ナビ右：全リンク右寄せ */
+    #nav-links {
+      margin-left: auto !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 28px !important;
+    }
+    #nav-links a {
+      color: #aaaaaa !important;
+      text-decoration: none !important;
+      font-size: 12px !important;
+      letter-spacing: 0.08em !important;
+      font-weight: 400 !important;
+      white-space: nowrap !important;
+      transition: color 0.2s !important;
+    }
+    #nav-links a:hover { color: var(--gold) !important; }
+    #nav-links a.nav-cta {
+      background: var(--gold) !important;
+      color: #000000 !important;
+      padding: 7px 18px !important;
+      border-radius: 2px !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      letter-spacing: 0.1em !important;
+    }
+    #nav-links a.nav-cta:hover { background: var(--gold-light) !important; color: #000000 !important; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 120px 7% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 背景グラデーション */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,229,255,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 80% 70%, rgba(214,164,81,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 20% 30%, rgba(124,58,237,0.05) 0%, transparent 60%),
+        linear-gradient(160deg, #000 0%, #04040a 100%);
+    }
+
+    /* サイバーグリッド背景 */
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      0%   { background-position: 0 0; }
+      100% { background-position: 80px 80px; }
+    }
+
+    /* 走査線 */
+    .hero-scanline {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+    }
+
+    /* ヒーローロゴ：中央上部 */
+    .hero-logo-wrap {
+      position: absolute;
+      top: 68px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .hero-logo-wrap .logo-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      color: var(--gray-light);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .hero-logo-wrap .logo-text em { color: var(--gold); font-style: normal; }
+    .hero-logo-wrap img {
+      width: 260px; height: 260px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 40px rgba(214,164,81,0.5)) drop-shadow(0 0 80px rgba(0,229,255,0.15));
+      animation: floatLogo 5s ease-in-out infinite;
+    }
+    @keyframes floatLogo {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    /* ヒーローコンテンツ */
+    .hero-content { position: relative; z-index: 2; max-width: 680px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--cyan);
+      color: var(--cyan);
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      padding: 5px 14px;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Inter',sans-serif;
+    }
+    .hero-badge::before {
+      content: '▶';
+      font-size: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 16px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+      display: block;
+      text-shadow: 0 0 40px rgba(214,164,81,0.4);
+    }
+    .hero-title-sub {
+      font-size: clamp(26px, 3.5vw, 48px);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: var(--gray-light);
+      max-width: 520px;
+      line-height: 1.9;
+      margin-bottom: 44px;
+      font-weight: 300;
+    }
+
+    /* AIキーワードタイピング */
+    .hero-typing-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 44px;
+      font-family: 'Inter', monospace;
+      font-size: 13px;
+      color: var(--cyan);
+    }
+    .hero-typing-label {
+      color: var(--gray);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+    }
+    #typing-text {
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+    .cursor-blink {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--cyan);
+      vertical-align: middle;
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+      padding: 15px 36px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      border: none;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: left 0.4s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(214,164,81,0.35); }
+    .btn-primary:hover::after { left: 160%; }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 15px 36px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(255,255,255,0.2);
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.25s;
+      border-radius: 2px;
+    }
+    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,229,255,0.15); }
+
+    /* 統計 */
+    .hero-stats {
+      position: relative; z-index: 2;
+      display: flex;
+      gap: 56px;
+      margin-top: 68px;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item {}
+    .stat-num {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--gold);
+      font-style: italic;
+      line-height: 1;
+      font-family: 'Inter',sans-serif;
+      text-shadow: 0 0 20px rgba(214,164,81,0.3);
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--gray);
+      letter-spacing: 0.12em;
+      margin-top: 6px;
+    }
+
+    /* キャラクター（ヒーロー右下） */
+    .hero-chara {
+      position: absolute;
+      right: 5%;
+      bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 2;
+      animation: floatChara 4s ease-in-out infinite;
+    }
+    @keyframes floatChara {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-12px); }
+    }
+    .hero-chara .chara-img { width: 210px; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 108px 7%; position: relative; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Inter',sans-serif;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    .section-title span { color: var(--gold); }
+    .section-desc {
+      font-size: 15px;
+      color: var(--gray-light);
+      max-width: 580px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+    .gold-line {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      margin: 20px 0;
+    }
+
+    /* ─── AI TICKER（上部スクロール帯） ─── */
+    .ai-ticker {
+      width: 100%;
+      background: rgba(0,229,255,0.04);
+      border-top: 1px solid rgba(0,229,255,0.12);
+      border-bottom: 1px solid rgba(0,229,255,0.12);
+      padding: 10px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 60px;
+      white-space: nowrap;
+      animation: ticker 30s linear infinite;
+    }
+    .ticker-item {
+      font-family: 'Inter',sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(0,229,255,0.5);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .ticker-item span { color: var(--gold); margin-right: 8px; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ─── PROBLEMS ─── */
+    #problems { background: var(--dark); }
+    #problems::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .problems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      margin-top: 56px;
+      background: rgba(255,255,255,0.04);
+    }
+    .problem-card {
+      background: var(--dark2);
+      padding: 36px 30px;
+      border-left: 3px solid transparent;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .problem-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .problem-card:hover { background: #121218; border-left-color: var(--gold); }
+    .problem-card:hover::after { transform: scaleX(1); }
+    .problem-icon {
+      font-size: 26px;
+      margin-bottom: 16px;
+    }
+    .problem-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--white);
+      line-height: 1.4;
+    }
+    .problem-card p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    /* ─── SERVICES ─── */
+    #services { background: var(--black); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1px;
+      margin-top: 56px;
+      background: rgba(214,164,81,0.08);
+    }
+    .service-card {
+      background: var(--dark2);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    /* ゴールド＆シアンのスキャン演出 */
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,229,255,0.04), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .service-card:hover { background: #0e0e14; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover::after { opacity: 1; }
+
+    .service-num {
+      font-size: 10px;
+      color: var(--cyan);
+      letter-spacing: 0.25em;
+      font-weight: 600;
+      font-family: 'Inter',sans-serif;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.3;
+      color: var(--white);
+    }
+    .service-card p { font-size: 13px; color: var(--gray); line-height: 1.8; }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 20px;
+    }
+    .tag {
+      font-size: 10px;
+      padding: 4px 10px;
+      border: 1px solid rgba(0,229,255,0.25);
+      color: var(--cyan);
+      letter-spacing: 0.1em;
+      border-radius: 1px;
+      font-family: 'Inter',sans-serif;
+    }
+
+    /* ─── PROCESS ─── */
+    #process { background: var(--dark); }
+    #process::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 64px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px; left: 12.5%; right: 12.5%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--cyan) 50%, rgba(0,229,255,0.2) 100%);
+    }
+    .step { padding: 0 20px; text-align: center; }
+    .step-circle {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--black);
+      border: 1px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--gold);
+      font-family: 'Inter',sans-serif;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(214,164,81,0.2), inset 0 0 20px rgba(214,164,81,0.03);
+      transition: all 0.3s;
+    }
+    .step:hover .step-circle {
+      border-color: var(--cyan);
+      color: var(--cyan);
+      box-shadow: 0 0 24px rgba(0,229,255,0.3);
+    }
+    .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--white); }
+    .step p { font-size: 12px; color: var(--gray); line-height: 1.75; }
+
+    /* ─── WHY ─── */
+    #why { background: var(--black); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      margin-top: 56px;
+    }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .why-item {
+      display: flex;
+      gap: 18px;
+      padding: 22px 24px;
+      background: var(--dark2);
+      border-left: 2px solid var(--gold);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-item::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; width: 2px;
+      background: var(--cyan);
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+    .why-item:hover { background: #0e0e14; }
+    .why-item:hover::after { transform: scaleY(1); }
+    .why-item-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+    .why-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 5px; color: var(--white); }
+    .why-item p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+    /* 右側ビジュアル */
+    .why-visual {
+      background: var(--dark2);
+      border: 1px solid rgba(214,164,81,0.12);
+      padding: 48px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .why-visual::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(0,229,255,0.04), transparent 60%);
+      animation: pulseBg 4s ease-in-out infinite;
+    }
+    @keyframes pulseBg {
+      0%,100% { transform: scale(1); opacity: 1; }
+      50%      { transform: scale(1.1); opacity: 0.6; }
+    }
+    .why-big-num {
+      font-size: 88px;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+      font-family: 'Inter',sans-serif;
+      text-shadow: 0 0 40px rgba(214,164,81,0.3);
+      position: relative;
+    }
+    .why-big-label { font-size: 13px; color: var(--gray-light); margin-top: 10px; letter-spacing: 0.1em; }
+    .why-divider { width: 40px; height: 1px; background: linear-gradient(90deg,var(--gold),var(--cyan)); margin: 24px auto; }
+    .why-quote { font-size: 13px; color: var(--gray); font-style: italic; line-height: 1.8; position: relative; }
+
+    /* ─── PROFILE ─── */
+    #profile { background: var(--dark); }
+    #profile::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .profile-inner {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .profile-img-wrap { position: relative; }
+    .profile-img-placeholder {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #141418 0%, #08080c 100%);
+      border: 1px solid rgba(214,164,81,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      color: rgba(214,164,81,0.3);
+      overflow: hidden;
+      position: relative;
+    }
+    .profile-img-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.5) 100%);
+      z-index: 1;
+    }
+    .profile-img-placeholder img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    /* ゴールドの装飾コーナー */
+    .profile-img-wrap::before {
+      content: '';
+      position: absolute;
+      top: -8px; left: -8px;
+      width: 40px; height: 40px;
+      border-top: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+    }
+    .profile-img-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: -8px; right: -8px;
+      width: 40px; height: 40px;
+      border-bottom: 2px solid var(--cyan);
+      border-right: 2px solid var(--cyan);
+    }
+    .profile-name {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 900;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .profile-title {
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+    .profile-bio {
+      font-size: 14px;
+      color: var(--gray-light);
+      line-height: 2.0;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .career-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .career-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 13px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,0.02);
+      border-left: 2px solid rgba(214,164,81,0.4);
+    }
+    .career-dot {
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .career-item span { color: var(--gray-light); line-height: 1.6; }
+    .career-item strong { color: var(--white); font-weight: 600; }
+    /* 資格 */
+    .qualifications { margin-top: 32px; }
+    .qual-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Inter',sans-serif;
+      margin-bottom: 14px;
+    }
+    .qual-list { display: flex; flex-direction: column; gap: 8px; }
+    .qual-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--dark2);
+      padding: 11px 16px;
+      border-left: 2px solid var(--gold);
+      font-size: 13px;
+      color: var(--gray-light);
+      line-height: 1.5;
+      transition: border-color 0.3s;
+    }
+    .qual-item:hover { border-left-color: var(--cyan); }
+    .qual-icon { font-size: 15px; flex-shrink: 0; }
+
+    /* ─── CTA ─── */
+    #cta {
+      background: linear-gradient(135deg, #050508 0%, #0a0810 50%, #050508 100%);
+      text-align: center;
+      border-top: 1px solid rgba(0,229,255,0.1);
+    }
+    #cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,229,255,0.04), transparent 60%),
+        radial-gradient(ellipse 40% 60% at 50% 100%, rgba(214,164,81,0.05), transparent 60%);
+      pointer-events: none;
+    }
+    .cta-title {
+      font-size: clamp(32px, 4vw, 54px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .cta-title span { color: var(--gold); font-style: italic; }
+    .cta-desc {
+      font-size: 15px;
+      color: var(--gray-light);
+      max-width: 500px;
+      margin: 0 auto 44px;
+      line-height: 1.85;
+      font-weight: 300;
+      position: relative; z-index: 1;
+    }
+    .cta-line-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #06c755;
+      color: var(--white);
+      padding: 18px 44px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.25s;
+      letter-spacing: 0.05em;
+      position: relative; z-index: 1;
+      box-shadow: 0 0 30px rgba(6,199,85,0.2);
+    }
+    .cta-line-btn:hover { background: #05b34c; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(6,199,85,0.3); }
+    .cta-note {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 18px;
+      letter-spacing: 0.08em;
+      position: relative; z-index: 1;
+    }
+    .cta-chara-wrap {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+      position: relative; z-index: 1;
+    }
+    .cta-chara { display: flex; flex-direction: column; align-items: center; }
+    .cta-chara .chara-img { width: 180px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #030305;
+      padding: 60px 7%;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), var(--cyan), var(--gold), transparent);
+    }
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 11px; color: var(--gray); letter-spacing: 0.1em; }
+    .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nav a {
+      font-size: 12px;
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 36px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy { font-size: 11px; color: #444; letter-spacing: 0.08em; font-family: 'Inter',sans-serif; }
+    .footer-gold-bar { width: 32px; height: 1px; background: linear-gradient(90deg,var(--gold),var(--cyan)); }
+
+    /* ─── CHARA & SPEECH BUBBLE ─── */
+    .speech-bubble {
+      position: relative;
+      background: #fff;
+      color: #111;
+      border-radius: 16px;
+      padding: 12px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      margin-bottom: 10px;
+      white-space: nowrap;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -11px; left: 50%;
+      transform: translateX(-50%);
+      border-width: 11px 8px 0;
+      border-style: solid;
+      border-color: #fff transparent transparent;
+    }
+    .speech-bubble.bubble-gold { background: var(--gold); color: #000; }
+    .speech-bubble.bubble-gold::after { border-color: var(--gold) transparent transparent; }
+    .chara-img {
+      width: 160px;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.4));
+      mix-blend-mode: multiply;
+      -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
+    }
+    .section-chara { display: flex; flex-direction: column; align-items: center; margin: 36px 0 8px; }
+
+    /* ─── スクロールアニメーション ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── レスポンシブ ─── */
+    @media (max-width: 900px) {
+      #main-nav { padding: 0 20px !important; }
+      #nav-brand { display: none; }
+      #nav-links { gap: 16px !important; }
+      #nav-links a { font-size: 11px !important; }
+      section { padding: 72px 5%; }
+      #hero { padding: 100px 5% 60px; }
+      .hero-logo-wrap img { width: 180px; height: 180px; }
+      .hero-chara { display: none; }
+      .hero-stats { gap: 28px; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .why-grid { grid-template-columns: 1fr; gap: 40px; }
+      .profile-inner { grid-template-columns: 1fr; }
+      .profile-img-wrap { max-width: 280px; }
+      footer { padding: 40px 5%; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 44px; }
+      .hero-title-sub { font-size: 26px; }
+      .process-steps { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; }
+      #nav-links { gap: 12px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="main-nav">
+    <a href="#" id="nav-brand">TEZU<em>Intelligence</em></a>
+    <div id="nav-links">
+      <a href="#problems">お悩み</a>
+      <a href="#services">サービス</a>
+      <a href="#process">導入の流れ</a>
+      <a href="#why">選ばれる理由</a>
+      <a href="#profile">代表者紹介</a>
+      <a href="#cta" class="nav-cta">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-scanline"></div>
+
+    <!-- 中央上部ロゴ -->
+    <div class="hero-logo-wrap">
+      <span class="logo-text">TEZU<em>Intelligence</em></span>
+      <img src="logo.png" alt="TEZU Intelligence ロゴ" />
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="hero-content fade-up">
+      <div class="hero-badge">AI Strategy Consultant</div>
+      <h1 class="hero-title">
+        <em>AI導入で</em>
+      </h1>
+      <p class="hero-title-sub">あなたのビジネスを<br>次のステージへ</p>
+      <p class="hero-desc">
+        中小企業・個人事業主に特化したAI導入コンサルティング。<br>
+        ChatGPTをはじめとする最新AI技術で、<br>業務効率化・売上向上を実現します。
+      </p>
+      <!-- タイピングエフェクト -->
+      <div class="hero-typing-wrap">
+        <span class="hero-typing-label">AI SOLUTION ▶</span>
+        <span id="typing-text"></span><span class="cursor-blink"></span>
+      </div>
+      <div class="hero-buttons">
+        <a href="#cta" class="btn-primary">無料相談はこちら</a>
+        <a href="#services" class="btn-outline">サービスを見る</a>
+      </div>
+    </div>
+
+    <!-- 右下キャラクター -->
+    <div class="hero-chara">
+      <div class="speech-bubble bubble-gold">AI導入で業務効率が<br><strong>最大3倍</strong>になった<br>企業も続出！</div>
+      <img src="chara_point.png" class="chara-img" alt="" />
+    </div>
+
+    <!-- 統計 -->
+    <div class="hero-stats fade-up">
+      <div class="stat-item">
+        <div class="stat-num" data-count="100">0</div>
+        <div class="stat-label">支援実績（社）</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">平均生産性向上</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="98">0</div>
+        <div class="stat-label">顧客満足度（%）</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── AI TICKER ─── -->
+  <div class="ai-ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><span>▸</span>ChatGPT</span>
+      <span class="ticker-item"><span>▸</span>業務自動化</span>
+      <span class="ticker-item"><span>▸</span>生成AI</span>
+      <span class="ticker-item"><span>▸</span>AIコンサル</span>
+      <span class="ticker-item"><span>▸</span>LLM活用</span>
+      <span class="ticker-item"><span>▸</span>ROI最大化</span>
+      <span class="ticker-item"><span>▸</span>DX推進</span>
+      <span class="ticker-item"><span>▸</span>コスト削減</span>
+      <span class="ticker-item"><span>▸</span>AI戦略</span>
+      <span class="ticker-item"><span>▸</span>中小企業向け</span>
+      <!-- 2周分（ループ用） -->
+      <span class="ticker-item"><span>▸</span>ChatGPT</span>
+      <span class="ticker-item"><span>▸</span>業務自動化</span>
+      <span class="ticker-item"><span>▸</span>生成AI</span>
+      <span class="ticker-item"><span>▸</span>AIコンサル</span>
+      <span class="ticker-item"><span>▸</span>LLM活用</span>
+      <span class="ticker-item"><span>▸</span>ROI最大化</span>
+      <span class="ticker-item"><span>▸</span>DX推進</span>
+      <span class="ticker-item"><span>▸</span>コスト削減</span>
+      <span class="ticker-item"><span>▸</span>AI戦略</span>
+      <span class="ticker-item"><span>▸</span>中小企業向け</span>
+    </div>
+  </div>
+
+  <!-- ─── PROBLEMS ─── -->
+  <section id="problems">
+    <div class="section-inner">
+      <p class="section-label fade-up">Problems</p>
+      <h2 class="section-title fade-up">こんな<span>お悩み</span>ありませんか？</h2>
+      <div class="gold-line fade-up"></div>
+      <p class="section-desc fade-up">多くの経営者・事業主が直面するAI活用の壁。<br>私たちが丁寧に解決へと導きます。</p>
+      <div class="section-chara fade-up">
+        <div class="speech-bubble">「わかる！」と感じたら<br>ぜひ一度ご相談ください😊</div>
+        <img src="chara_point.png" class="chara-img" alt="" />
+      </div>
+      <div class="problems-grid">
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🤔</div>
+          <h3>AIを使いたいが何から始めればいいかわからない</h3>
+          <p>ChatGPTやAIツールは知っているが、実際にどう業務に活かせるか見当がつかない。</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">⏰</div>
+          <h3>業務が多忙すぎて新しいことを学ぶ時間がない</h3>
+          <p>日々の業務に追われ、AI導入の調査・学習に割ける時間が確保できない。</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">💸</div>
+          <h3>コストをかけてもROIが見えない</h3>
+          <p>投資対効果が不明確で、経営判断としてAI導入に踏み切れずにいる。</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🔧</div>
+          <h3>社内にAIに詳しい人材がいない</h3>
+          <p>IT担当者はいても、AI活用の専門知識を持ったスタッフがいない。</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">📊</div>
+          <h3>競合他社に差をつけられている気がする</h3>
+          <p>他社がAIを活用して効率化・差別化を進めているのに、自社は乗り遅れている。</p>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🛡️</div>
+          <h3>情報漏洩などセキュリティが不安</h3>
+          <p>AIツールに社内情報を入力することへのセキュリティリスクが心配。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ─── -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label fade-up">Services</p>
+      <h2 class="section-title fade-up">提供<span>サービス</span></h2>
+      <div class="gold-line fade-up"></div>
+      <p class="section-desc fade-up">貴社の課題・規模・予算に合わせた最適なAI活用プランをご提案します。</p>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <p class="service-num">01 ／ AI STRATEGY</p>
+          <h3>AI戦略コンサルティング</h3>
+          <p>現状分析から始まり、自社に最適なAI活用戦略を策定。導入ロードマップの作成と優先順位づけを行います。</p>
+          <div class="service-tags">
+            <span class="tag">戦略立案</span>
+            <span class="tag">ロードマップ</span>
+            <span class="tag">ROI算出</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <p class="service-num">02 ／ ChatGPT</p>
+          <h3>ChatGPT業務活用支援</h3>
+          <p>ChatGPTを使った業務効率化を実践的にサポート。プロンプト設計から社内ルール策定まで包括的に対応。</p>
+          <div class="service-tags">
+            <span class="tag">ChatGPT</span>
+            <span class="tag">プロンプト設計</span>
+            <span class="tag">社内研修</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <p class="service-num">03 ／ AUTOMATION</p>
+          <h3>業務自動化・効率化</h3>
+          <p>繰り返し業務・データ処理・レポート作成などをAIで自動化し、社員が付加価値業務に集中できる環境を構築します。</p>
+          <div class="service-tags">
+            <span class="tag">自動化</span>
+            <span class="tag">ワークフロー</span>
+            <span class="tag">コスト削減</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <p class="service-num">04 ／ TRAINING</p>
+          <h3>AI人材育成・研修</h3>
+          <p>経営者から現場スタッフまで、レベルに合わせたAIリテラシー研修を提供。社内でAIを使いこなせる組織へ変革します。</p>
+          <div class="service-tags">
+            <span class="tag">社員研修</span>
+            <span class="tag">AIリテラシー</span>
+            <span class="tag">組織変革</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <p class="service-num">05 ／ SUPPORT</p>
+          <h3>継続サポートプラン</h3>
+          <p>月次レポートと定期ミーティングで、AI導入後も継続的に改善・最適化。長期的な成果創出をサポートします。</p>
+          <div class="service-tags">
+            <span class="tag">月次レポート</span>
+            <span class="tag">定期相談</span>
+            <span class="tag">継続改善</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <p class="service-num">06 ／ SECURITY</p>
+          <h3>AI導入セキュリティ診断</h3>
+          <p>AIツール活用における情報漏洩リスクを評価し、安全なAI活用ガイドラインの策定をサポートします。</p>
+          <div class="service-tags">
+            <span class="tag">セキュリティ</span>
+            <span class="tag">リスク評価</span>
+            <span class="tag">ガイドライン</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ─── -->
+  <section id="process">
+    <div class="section-inner">
+      <p class="section-label fade-up">Process</p>
+      <h2 class="section-title fade-up">AI導入の<span>流れ</span></h2>
+      <div class="gold-line fade-up"></div>
+      <p class="section-desc fade-up">初回無料相談からアフターサポートまで、4つのステップで丁寧に伴走します。</p>
+      <div class="process-steps">
+        <div class="step fade-up">
+          <div class="step-circle">01</div>
+          <h3>無料相談</h3>
+          <p>現状の課題・ご要望を丁寧にヒアリング。AI導入の方向性を一緒に整理します。</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-circle">02</div>
+          <h3>現状診断</h3>
+          <p>業務フロー・ツール・リソースを分析し、AI活用による改善ポイントを特定します。</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-circle">03</div>
+          <h3>プラン提案</h3>
+          <p>費用・期間・期待効果を明示した最適な導入プランをご提案します。</p>
+        </div>
+        <div class="step fade-up">
+          <div class="step-circle">04</div>
+          <h3>導入・サポート</h3>
+          <p>実装から社員研修、継続改善まで。成果が出るまでしっかりサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY ─── -->
+  <section id="why">
+    <div class="section-inner">
+      <p class="section-label fade-up">Why Us</p>
+      <h2 class="section-title fade-up">選ばれる<span>理由</span></h2>
+      <div class="gold-line fade-up"></div>
+      <div class="why-grid">
+        <ul class="why-list">
+          <li class="why-item fade-up">
+            <div class="why-item-icon">⚡</div>
+            <div>
+              <h4>スピーディーな対応</h4>
+              <p>お問い合わせから48時間以内に初回提案。スピーディーな対応で機会損失を防ぎます。</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-item-icon">🎯</div>
+            <div>
+              <h4>中小企業・個人事業主に特化</h4>
+              <p>大企業向けの複雑なシステムではなく、すぐに使える実践的なAI活用を提案します。</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-item-icon">🔒</div>
+            <div>
+              <h4>セキュリティも万全</h4>
+              <p>情報管理・プライバシー保護を踏まえた安全なAI活用方法をご提案します。</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-item-icon">📈</div>
+            <div>
+              <h4>成果にコミット</h4>
+              <p>導入後もKPIをモニタリングし、確実に成果が出るまで継続的に改善を行います。</p>
+            </div>
+          </li>
+        </ul>
+        <div class="why-visual fade-up">
+          <div class="why-big-num">98%</div>
+          <div class="why-big-label">顧客満足度</div>
+          <div class="why-divider"></div>
+          <p class="why-quote">
+            「導入後3ヶ月で業務時間が<br>週20時間以上削減できました」<br>
+            — 都内 IT企業 代表取締役
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROFILE ─── -->
+  <section id="profile">
+    <div class="section-inner">
+      <p class="section-label fade-up">Profile</p>
+      <h2 class="section-title fade-up">代表者<span>プロフィール</span></h2>
+      <div class="gold-line fade-up"></div>
+      <div class="profile-inner">
+        <div class="profile-img-wrap fade-up">
+          <div class="profile-img-placeholder">
+            <img src="代表写真.png" alt="手塚岳人" onerror="this.style.display='none'; this.parentNode.innerHTML='👤';" />
+          </div>
+        </div>
+        <div class="profile-info fade-up">
+          <h3 class="profile-name">手塚　岳人</h3>
+          <p class="profile-title">株式会社TEZU Intelligence ／ 代表取締役<br>AI導入コンサルタント</p>
+          <p class="profile-bio">
+            自衛隊・金融業界でのキャリアを経て、AI導入コンサルタントとして独立。
+            現場での実務経験と最新のAI技術知識を組み合わせ、
+            中小企業・個人事業主が即使えるAI活用支援を提供しています。<br><br>
+            「難しい技術は不要。使えるAIで、あなたのビジネスを変える」をモットーに、
+            100社以上のAI導入をサポートしてきました。
+          </p>
+          <ul class="career-list">
+            <li class="career-item">
+              <div class="career-dot"></div>
+              <span><strong>前職：</strong>陸上自衛隊・保険業界（資産運用特化）での実務経験</span>
+            </li>
+            <li class="career-item">
+              <div class="career-dot"></div>
+              <span><strong>専門：</strong>ChatGPT・生成AI活用、業務効率化、AI戦略立案</span>
+            </li>
+            <li class="career-item">
+              <div class="career-dot"></div>
+              <span><strong>支援実績：</strong>中小企業・個人事業主 100社以上</span>
+            </li>
+            <li class="career-item">
+              <div class="career-dot"></div>
+              <span><strong>得意業種：</strong>小売・サービス・製造・士業・EC</span>
+            </li>
+          </ul>
+          <div class="qualifications">
+            <p class="qual-label">Qualifications</p>
+            <div class="qual-list">
+              <div class="qual-item">
+                <span class="qual-icon">📜</span>
+                <span>日本証券業協会認定　一種外務員資格</span>
+              </div>
+              <div class="qual-item">
+                <span class="qual-icon">💹</span>
+                <span>2級ファイナンシャル・プランニング技能士</span>
+              </div>
+              <div class="qual-item">
+                <span class="qual-icon">🧠</span>
+                <span>メンタルヘルス・マネジメント<sup>®</sup>検定Ⅱ種</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section id="cta">
+    <div class="section-inner" style="text-align:center; position:relative; z-index:1;">
+      <p class="section-label fade-up" style="justify-content:center; display:flex;">Contact</p>
+      <h2 class="cta-title fade-up">AI導入の<span>ご相談</span>は<br>こちらから</h2>
+      <p class="cta-desc fade-up">
+        まずは無料相談から。現状のお悩みをお気軽にお聞かせください。<br>
+        最適な解決策を一緒に考えます。
+      </p>
+      <div class="cta-chara-wrap fade-up">
+        <div class="cta-chara">
+          <div class="speech-bubble bubble-gold">今なら<strong>初回相談無料！</strong><br>一緒に考えましょう🎯</div>
+          <img src="chara_point.png" class="chara-img" alt="" />
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <a href="https://line.me/ti/p/itU8jz37Ut" class="cta-line-btn" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="white" fill-opacity="0.15"/><path d="M11 5C7.686 5 5 7.358 5 10.264c0 2.604 2.308 4.788 5.43 5.197.211.046.5.14.572.322.066.165.043.424.021.59l-.093.554c-.028.165-.132.647.567.352.7-.294 3.775-2.222 5.15-3.804C17.58 12.23 18 11.278 18 10.264 18 7.358 15.314 5 11 5z" fill="white"/></svg>
+            LINEで無料相談する
+          </a>
+          <p class="cta-note">※ 返信は通常24時間以内 ／ 完全無料・しつこい営業一切なし</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">TEZU<span>Intelligence</span></div>
+        <p class="footer-tagline">AI導入コンサルティング</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="#problems">お悩み</a>
+        <a href="#services">サービス</a>
+        <a href="#process">導入の流れ</a>
+        <a href="#why">選ばれる理由</a>
+        <a href="#profile">代表者紹介</a>
+        <a href="#cta">お問い合わせ</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 株式会社TEZU Intelligence. All rights reserved.</p>
+      <div class="footer-gold-bar"></div>
+    </div>
+  </footer>
+
+  <script>
+    // ── スクロールフェードイン ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── ナビスクロール縮小 ──
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (!nav) return;
+      nav.style.height = window.scrollY > 60 ? '46px' : '56px';
+    });
+
+    // ── タイピングエフェクト ──
+    const words = [
+      'ChatGPT 業務活用',
+      '生成AI 戦略立案',
+      '業務自動化 構築',
+      'AI人材 育成',
+      'DX推進 支援',
+    ];
+    let wi = 0, ci = 0, deleting = false;
+    const el = document.getElementById('typing-text');
+    function type() {
+      if (!el) return;
+      const w = words[wi];
+      el.textContent = deleting ? w.substring(0, ci--) : w.substring(0, ci++);
+      let delay = deleting ? 50 : 80;
+      if (!deleting && ci === w.length + 1) { delay = 1800; deleting = true; }
+      else if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 400; }
+      setTimeout(type, delay);
+    }
+    type();
+
+    // ── 数字カウントアップ ──
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseInt(el.dataset.count);
+        if (isNaN(target)) return;
+        let cur = 0;
+        const step = Math.ceil(target / 60);
+        const timer = setInterval(() => {
+          cur = Math.min(cur + step, target);
+          el.textContent = cur + (el.dataset.suffix || '+');
+          if (cur >= target) clearInterval(timer);
+        }, 24);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => {
+      el.dataset.suffix = el.textContent.replace(/\d/g,'');
+      countObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
