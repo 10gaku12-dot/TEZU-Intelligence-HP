@@ -919,25 +919,28 @@
       -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
       mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
     }
-    .section-chara { display: flex; flex-direction: column; align-items: center; margin: 36px 0 8px; }
+    .section-chara { display: flex; flex-direction: column; align-items: center; margin: 28px 0 4px; gap: 0; }
 
     /* ─── 悩んでいる風キャラ（腕組みポーズ）: chara_all.png 下段中央を切り出す ─── */
     .chara-nayami-wrap {
-      overflow: hidden;  /* 右隣ポーズのはみ出しをハードクリップ */
-      width: 172px;      /* 右側の手が写り込む分だけ狭める */
+      overflow: hidden;      /* 右隣ポーズのはみ出しをハードクリップ */
+      width: 196px;          /* 手が写り込まない最大幅 */
       flex-shrink: 0;
+      display: flex;
+      justify-content: flex-start; /* 左寄せでキャラを中央に見せる */
     }
     .chara-nayami {
-      width: 200px;
-      height: 260px;
+      width: 230px;          /* 大きめに表示してチャラに迫力 */
+      height: 308px;
+      flex-shrink: 0;
       background: url('chara_all.png') no-repeat;
       background-size: 300% 200%;    /* 3列×2行のスプライトを拡大 */
       background-position: 50% 100%; /* 中央列・下段（腕組み）を表示 */
       mix-blend-mode: multiply;
-      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.45));
-      /* 中心を左にズラし右端を早めにフェード → 右の手を隠す */
-      -webkit-mask-image: radial-gradient(ellipse 80% 90% at 46% 52%, black 58%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 90% at 46% 52%, black 58%, transparent 100%);
+      filter: drop-shadow(0 8px 28px rgba(0,0,0,0.5));
+      /* chara_point と同じ感覚のマスク・右のみ早めにフェード */
+      -webkit-mask-image: radial-gradient(ellipse 84% 92% at 46% 52%, black 62%, transparent 100%);
+      mask-image: radial-gradient(ellipse 84% 92% at 46% 52%, black 62%, transparent 100%);
     }
 
     /* ─── スクロールアニメーション ─── */
