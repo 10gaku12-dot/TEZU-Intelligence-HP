@@ -921,26 +921,17 @@
     }
     .section-chara { display: flex; flex-direction: column; align-items: center; margin: 28px 0 4px; gap: 0; }
 
-    /* ─── 悩んでいる風キャラ（腕組みポーズ）: chara_all.png 下段中央を切り出す ─── */
+    /* ─── お悩みセクション用キャラ（chara_nayami.png） ─── */
     .chara-nayami-wrap {
-      overflow: hidden;      /* 右隣ポーズのはみ出しをハードクリップ */
-      width: 196px;          /* 手が写り込まない最大幅 */
       flex-shrink: 0;
       display: flex;
-      justify-content: flex-start; /* 左寄せでキャラを中央に見せる */
+      justify-content: center;
     }
     .chara-nayami {
-      width: 230px;          /* 大きめに表示してチャラに迫力 */
-      height: 308px;
-      flex-shrink: 0;
-      background: url('chara_all.png') no-repeat;
-      background-size: 300% 200%;    /* 3列×2行のスプライトを拡大 */
-      background-position: 50% 100%; /* 中央列・下段（腕組み）を表示 */
-      mix-blend-mode: multiply;
-      filter: drop-shadow(0 8px 28px rgba(0,0,0,0.5));
-      /* chara_point と同じ感覚のマスク・右のみ早めにフェード */
-      -webkit-mask-image: radial-gradient(ellipse 84% 92% at 46% 52%, black 62%, transparent 100%);
-      mask-image: radial-gradient(ellipse 84% 92% at 46% 52%, black 62%, transparent 100%);
+      width: 220px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 28px rgba(0,0,0,0.4));
     }
 
     /* ─── スクロールアニメーション ─── */
@@ -1282,10 +1273,9 @@
       <p class="section-desc fade-up">多くの経営者・事業主が直面するAI活用の壁。<br>私たちが丁寧に解決へと導きます。</p>
       <div class="section-chara fade-up">
         <div class="speech-bubble">「わかる！」と感じたら<br>ぜひ一度ご相談ください😊</div>
-        <!-- 腕組み（悩んでいる人風）ポーズ：chara_all.png 下段中央を切り出し -->
-        <!-- ラッパーで右側のはみ出しをクリップ -->
+        <!-- お悩みセクション用キャラ -->
         <div class="chara-nayami-wrap">
-          <div class="chara-nayami" role="img" aria-label="悩んでいるキャラクター"></div>
+          <img src="chara_nayami.png" alt="悩んでいるキャラクター" class="chara-nayami">
         </div>
       </div>
       <div class="problems-grid">
