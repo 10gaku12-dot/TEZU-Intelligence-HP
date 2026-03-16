@@ -1,0 +1,11 @@
+# Netlify 設定ファイル — 株式会社TEZU Intelligence HP
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# /api/* → Netlifyサーバーレス関数にルーティング
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
