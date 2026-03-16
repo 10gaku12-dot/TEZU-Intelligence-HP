@@ -922,6 +922,11 @@
     .section-chara { display: flex; flex-direction: column; align-items: center; margin: 36px 0 8px; }
 
     /* ─── 悩んでいる風キャラ（腕組みポーズ）: chara_all.png 下段中央を切り出す ─── */
+    .chara-nayami-wrap {
+      overflow: hidden;  /* 右隣ポーズのはみ出しをハードクリップ */
+      width: 172px;      /* 右側の手が写り込む分だけ狭める */
+      flex-shrink: 0;
+    }
     .chara-nayami {
       width: 200px;
       height: 260px;
@@ -930,8 +935,9 @@
       background-position: 50% 100%; /* 中央列・下段（腕組み）を表示 */
       mix-blend-mode: multiply;
       filter: drop-shadow(0 6px 20px rgba(0,0,0,0.45));
-      -webkit-mask-image: radial-gradient(ellipse 85% 88% at 50% 50%, black 55%, transparent 100%);
-      mask-image: radial-gradient(ellipse 85% 88% at 50% 50%, black 55%, transparent 100%);
+      /* 中心を左にズラし右端を早めにフェード → 右の手を隠す */
+      -webkit-mask-image: radial-gradient(ellipse 80% 90% at 46% 52%, black 58%, transparent 100%);
+      mask-image: radial-gradient(ellipse 80% 90% at 46% 52%, black 58%, transparent 100%);
     }
 
     /* ─── スクロールアニメーション ─── */
@@ -1273,7 +1279,10 @@
       <div class="section-chara fade-up">
         <div class="speech-bubble">「わかる！」と感じたら<br>ぜひ一度ご相談ください😊</div>
         <!-- 腕組み（悩んでいる人風）ポーズ：chara_all.png 下段中央を切り出し -->
-        <div class="chara-nayami" role="img" aria-label="悩んでいるキャラクター"></div>
+        <!-- ラッパーで右側のはみ出しをクリップ -->
+        <div class="chara-nayami-wrap">
+          <div class="chara-nayami" role="img" aria-label="悩んでいるキャラクター"></div>
+        </div>
       </div>
       <div class="problems-grid">
         <div class="problem-card fade-up">
