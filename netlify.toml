@@ -4,6 +4,9 @@
   publish = "."
   functions = "netlify/functions"
 
+[build.environment]
+  NODE_VERSION = "18"
+
 # /api/* → Netlifyサーバーレス関数にルーティング
 [[redirects]]
   from = "/api/*"
