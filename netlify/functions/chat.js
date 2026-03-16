@@ -170,7 +170,8 @@ exports.handler = async (event) => {
       return {
         statusCode: 502,
         headers,
-        body: JSON.stringify({ error: 'AI応答の取得に失敗しました' }),
+        // デバッグ用：実際のエラー内容を返す（確認後に削除）
+        body: JSON.stringify({ error: `[DEBUG] status=${response.status} / ${errText}` }),
       };
     }
 
