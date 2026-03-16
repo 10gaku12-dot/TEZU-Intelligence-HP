@@ -1310,33 +1310,32 @@
     </div>
   </section>
 
-  <!-- ─── ミニCTA（サービス上） ─── -->
-  <div style="
-    background: linear-gradient(90deg, rgba(214,164,81,0.12) 0%, rgba(214,164,81,0.06) 50%, rgba(214,164,81,0.12) 100%);
-    border-top: 1px solid rgba(214,164,81,0.3);
-    border-bottom: 1px solid rgba(214,164,81,0.3);
-    padding: 28px 40px;
-    text-align: center;
-  ">
-    <div style="display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap;">
-      <p style="font-size:clamp(15px,2vw,18px); font-weight:700; letter-spacing:0.05em;">
-        AI導入の<span style="color:var(--gold);">ご相談</span>はこちらから
+  <!-- ─── ミニCTA（サービス上）→ フルCTAデザインに変更 ─── -->
+  <section id="cta-mid" style="background:var(--dark); position:relative; overflow:hidden;">
+    <!-- 背景グロー装飾 -->
+    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(214,164,81,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="section-inner" style="text-align:center; position:relative; z-index:1;">
+      <p class="section-label fade-up" style="justify-content:center; display:flex;">Contact</p>
+      <h2 class="cta-title fade-up">AI導入の<span>ご相談</span>は<br>こちらから</h2>
+      <p class="cta-desc fade-up">
+        まずは無料相談から。現状のお悩みをお気軽にお聞かせください。<br>
+        最適な解決策を一緒に考えます。
       </p>
-      <a href="https://line.me/ti/p/itU8jz37Ut" target="_blank" style="
-        display: inline-flex; align-items: center; gap: 8px;
-        background: linear-gradient(135deg, var(--gold), var(--gold-light));
-        color: #000; font-size: 15px; font-weight: 800;
-        padding: 12px 32px; border-radius: 40px;
-        text-decoration: none; letter-spacing: 0.05em;
-        box-shadow: 0 4px 20px rgba(214,164,81,0.35);
-        transition: transform 0.2s, box-shadow 0.2s;
-        white-space: nowrap;
-      " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-        <svg width="18" height="18" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="black" fill-opacity="0.15"/><path d="M11 5C7.686 5 5 7.358 5 10.264c0 2.604 2.308 4.788 5.43 5.197.211.046.5.14.572.322.066.165.043.424.021.59l-.093.554c-.028.165-.132.647.567.352.7-.294 3.775-2.222 5.15-3.804C17.58 12.23 18 11.278 18 10.264 18 7.358 15.314 5 11 5z" fill="black"/></svg>
-        LINEで無料相談する
-      </a>
+      <div class="cta-chara-wrap fade-up">
+        <div class="cta-chara">
+          <div class="speech-bubble bubble-gold">今なら<strong>初回相談無料！</strong><br>一緒に考えましょう🎯</div>
+          <img src="chara_point.png" class="chara-img" alt="" />
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+          <a href="https://line.me/ti/p/itU8jz37Ut" class="cta-line-btn" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="white" fill-opacity="0.15"/><path d="M11 5C7.686 5 5 7.358 5 10.264c0 2.604 2.308 4.788 5.43 5.197.211.046.5.14.572.322.066.165.043.424.021.59l-.093.554c-.028.165-.132.647.567.352.7-.294 3.775-2.222 5.15-3.804C17.58 12.23 18 11.278 18 10.264 18 7.358 15.314 5 11 5z" fill="white"/></svg>
+            LINEで無料相談する
+          </a>
+          <p class="cta-note">※ 返信は通常24時間以内 ／ 完全無料・しつこい営業一切なし</p>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <!-- ─── SERVICES ─── -->
   <section id="services">
