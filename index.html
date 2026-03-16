@@ -921,6 +921,19 @@
     }
     .section-chara { display: flex; flex-direction: column; align-items: center; margin: 36px 0 8px; }
 
+    /* ─── 悩んでいる風キャラ（腕組みポーズ）: chara_all.png 下段中央を切り出す ─── */
+    .chara-nayami {
+      width: 200px;
+      height: 260px;
+      background: url('chara_all.png') no-repeat;
+      background-size: 300% 200%;    /* 3列×2行のスプライトを拡大 */
+      background-position: 50% 100%; /* 中央列・下段（腕組み）を表示 */
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.45));
+      -webkit-mask-image: radial-gradient(ellipse 85% 88% at 50% 50%, black 55%, transparent 100%);
+      mask-image: radial-gradient(ellipse 85% 88% at 50% 50%, black 55%, transparent 100%);
+    }
+
     /* ─── スクロールアニメーション ─── */
     .fade-up {
       opacity: 0;
@@ -1259,7 +1272,8 @@
       <p class="section-desc fade-up">多くの経営者・事業主が直面するAI活用の壁。<br>私たちが丁寧に解決へと導きます。</p>
       <div class="section-chara fade-up">
         <div class="speech-bubble">「わかる！」と感じたら<br>ぜひ一度ご相談ください😊</div>
-        <img src="chara_point.png" class="chara-img" alt="" />
+        <!-- 腕組み（悩んでいる人風）ポーズ：chara_all.png 下段中央を切り出し -->
+        <div class="chara-nayami" role="img" aria-label="悩んでいるキャラクター"></div>
       </div>
       <div class="problems-grid">
         <div class="problem-card fade-up">
