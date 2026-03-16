@@ -1437,161 +1437,251 @@
       <p class="section-label fade-up">Demo</p>
       <h2 class="section-title fade-up">3分でわかる<span>AI活用デモ</span></h2>
       <div class="gold-line fade-up"></div>
-      <p class="section-desc fade-up">AIを使うと次のような業務を短縮できます。入力例と出力例でイメージをつかんでください。</p>
+      <p class="section-desc fade-up">AIを使うと日々の業務を短時間で整理できます。<br>以下はAIを使った文章生成の例です。</p>
+
       <div class="demo-grid">
 
-        <!-- デモ1: 営業メール -->
+        <!-- デモ1: 営業メール作成 -->
         <div class="demo-card fade-up">
           <div class="demo-card-header">
-            <span style="font-size:20px;">📧</span>
-            <span style="font-weight:700;font-size:14px;">営業メール作成</span>
-            <span class="demo-badge">20分 → 30秒</span>
-          </div>
-          <div class="demo-io">
+            <span class="demo-icon">📧</span>
             <div>
-              <p class="demo-io-label input-label">INPUT（あなたの指示）</p>
-              <div class="demo-box input-box">「新規開拓の営業メールを作って。相手は不動産会社の社長。件名から本文まで。」</div>
+              <p class="demo-card-title">営業メール作成</p>
+              <p class="demo-card-sub">キーワードを入れるだけで件名〜本文を自動生成</p>
             </div>
-            <div class="demo-arrow">→</div>
-            <div>
-              <p class="demo-io-label output-label">OUTPUT（AI生成）</p>
-              <div class="demo-box output-box">件名：貴社の業務効率化についてご提案があります<br><br>○○社長、はじめまして。TEZU Intelligenceの手塚と申します。不動産業界での業務効率化…</div>
+            <span class="demo-badge">20分→30秒</span>
+          </div>
+          <div class="demo-body">
+            <!-- Input -->
+            <div class="demo-input-wrap">
+              <p class="demo-label input-label">
+                <span class="demo-label-dot input-dot"></span>INPUT（あなたが入力するキーワード）
+              </p>
+              <div class="demo-box input-box">
+                名古屋の不動産会社　新築マンション　30代ファミリー向け
+              </div>
+            </div>
+            <!-- Arrow -->
+            <div class="demo-arrow-wrap">
+              <div class="demo-arrow-line"></div>
+              <div class="demo-arrow-icon">AIが生成 ↓</div>
+              <div class="demo-arrow-line"></div>
+            </div>
+            <!-- Output -->
+            <div class="demo-output-wrap">
+              <p class="demo-label output-label">
+                <span class="demo-label-dot output-dot"></span>OUTPUT（AIが生成した文章）
+              </p>
+              <div class="demo-box output-box">
+                <p class="demo-out-subject">件名：家族で安心して暮らせる新築マンションのご案内</p>
+                <p>〇〇様</p>
+                <p>この度はお問い合わせありがとうございます。名古屋市内でご家族向けの新築マンションをご紹介いたします。</p>
+                <p>30代のファミリー世帯に人気のエリアで、通勤・通学にも便利な立地です。</p>
+                <p>詳細資料もございますので、ご興味があればお気軽にご連絡ください。</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- デモ2: 代表プロフィール -->
+        <!-- デモ2: 代表プロフィール作成 -->
         <div class="demo-card fade-up">
           <div class="demo-card-header">
-            <span style="font-size:20px;">👤</span>
-            <span style="font-weight:700;font-size:14px;">代表プロフィール作成</span>
-            <span class="demo-badge">2時間 → 15分</span>
-          </div>
-          <div class="demo-io">
+            <span class="demo-icon">👤</span>
             <div>
-              <p class="demo-io-label input-label">INPUT（あなたの指示）</p>
-              <div class="demo-box input-box">「元自衛官・保険業界出身のAIコンサルのプロフィールを、信頼感重視で200文字で作成して。」</div>
+              <p class="demo-card-title">代表プロフィール作成</p>
+              <p class="demo-card-sub">経歴を箇条書きにするだけで自己紹介文を作成</p>
             </div>
-            <div class="demo-arrow">→</div>
-            <div>
-              <p class="demo-io-label output-label">OUTPUT（AI生成）</p>
-              <div class="demo-box output-box">陸上自衛隊・保険業界での現場経験を活かしAI導入コンサルタントとして独立。中小企業が「すぐ使える」AI活用を…</div>
+            <span class="demo-badge">2時間→15分</span>
+          </div>
+          <div class="demo-body">
+            <div class="demo-input-wrap">
+              <p class="demo-label input-label">
+                <span class="demo-label-dot input-dot"></span>INPUT（あなたが入力するキーワード）
+              </p>
+              <div class="demo-box input-box">
+                税理士　中小企業支援　創業15年
+              </div>
+            </div>
+            <div class="demo-arrow-wrap">
+              <div class="demo-arrow-line"></div>
+              <div class="demo-arrow-icon">AIが生成 ↓</div>
+              <div class="demo-arrow-line"></div>
+            </div>
+            <div class="demo-output-wrap">
+              <p class="demo-label output-label">
+                <span class="demo-label-dot output-dot"></span>OUTPUT（AIが生成した文章）
+              </p>
+              <div class="demo-box output-box">
+                <p>中小企業の成長支援を専門とする税理士。</p>
+                <p>創業から15年以上にわたり、地域企業の経営・税務サポートに携わる。</p>
+                <p>経営者に寄り添った実践的なアドバイスを強みとし、税務だけでなく資金繰りや経営改善まで幅広く支援している。</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- デモ3: 議事録 -->
+        <!-- デモ3: 会議議事録作成 -->
         <div class="demo-card fade-up">
           <div class="demo-card-header">
-            <span style="font-size:20px;">📝</span>
-            <span style="font-weight:700;font-size:14px;">会議議事録の整理</span>
-            <span class="demo-badge">1時間 → 5分</span>
-          </div>
-          <div class="demo-io">
+            <span class="demo-icon">📝</span>
             <div>
-              <p class="demo-io-label input-label">INPUT（あなたの指示）</p>
-              <div class="demo-box input-box">「以下の会議メモを議事録にまとめて。決定事項・TODO・担当者を整理して。」[メモ貼付]</div>
+              <p class="demo-card-title">会議議事録作成</p>
+              <p class="demo-card-sub">メモを貼るだけで整形された議事録を自動作成</p>
             </div>
-            <div class="demo-arrow">→</div>
-            <div>
-              <p class="demo-io-label output-label">OUTPUT（AI生成）</p>
-              <div class="demo-box output-box">【決定事項】①新規LP公開：10/15 ②予算承認済み<br>【TODO】田中：デザイン確認 鈴木：コピー修正…</div>
-            </div>
+            <span class="demo-badge">1時間→5分</span>
           </div>
-        </div>
-
-        <!-- デモ4: ブログ -->
-        <div class="demo-card fade-up">
-          <div class="demo-card-header">
-            <span style="font-size:20px;">✍️</span>
-            <span style="font-weight:700;font-size:14px;">ブログ・文章作成</span>
-            <span class="demo-badge">2時間 → 10分</span>
-          </div>
-          <div class="demo-io">
-            <div>
-              <p class="demo-io-label input-label">INPUT（あなたの指示）</p>
-              <div class="demo-box input-box">「ChatGPTを使った営業効率化について、中小企業の経営者向けに1000文字で書いて。」</div>
+          <div class="demo-body">
+            <div class="demo-input-wrap">
+              <p class="demo-label input-label">
+                <span class="demo-label-dot input-dot"></span>INPUT（あなたが入力するキーワード）
+              </p>
+              <div class="demo-box input-box">
+                営業会議　売上が伸び悩んでいる　新規営業強化　来月キャンペーン
+              </div>
             </div>
-            <div class="demo-arrow">→</div>
-            <div>
-              <p class="demo-io-label output-label">OUTPUT（AI生成）</p>
-              <div class="demo-box output-box">「ChatGPTで営業が変わる！今すぐできる3つの活用法」…メール作成・提案書・FAQ自動化で…</div>
+            <div class="demo-arrow-wrap">
+              <div class="demo-arrow-line"></div>
+              <div class="demo-arrow-icon">AIが生成 ↓</div>
+              <div class="demo-arrow-line"></div>
+            </div>
+            <div class="demo-output-wrap">
+              <p class="demo-label output-label">
+                <span class="demo-label-dot output-dot"></span>OUTPUT（AIが生成した文章）
+              </p>
+              <div class="demo-box output-box">
+                <p class="demo-out-subject">営業会議　議事録</p>
+                <p>■ 議題　　売上状況と改善策</p>
+                <p>■ 現状　　売上が伸び悩んでいる</p>
+                <p>■ 決定事項　新規営業を強化</p>
+                <p>■ 次のアクション　来月キャンペーン実施</p>
+              </div>
             </div>
           </div>
         </div>
 
       </div>
+
+      <!-- 締め文 -->
       <div class="demo-cta fade-up">
         <p style="font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px;">これ、全部ChatGPTで作れます</p>
-        <p style="font-size:13px;color:var(--gray);">専門知識不要。まずは90分のAI活用診断で、あなたの会社でも使える業務を整理しましょう。</p>
+        <p style="font-size:13px;color:var(--gray);line-height:1.8;">専門知識は不要です。まずは90分のAI活用診断で、<br>あなたの会社でも使える業務を一緒に整理しましょう。</p>
       </div>
     </div>
   </section>
   <style>
+    /* ─── AIデモ ─── */
     .demo-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 56px;
     }
     .demo-card {
       background: var(--dark2);
-      border: 1px solid rgba(214,164,81,0.2);
-      border-radius: 16px;
+      border: 1px solid rgba(214,164,81,0.22);
+      border-radius: 18px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
+    /* カードヘッダー */
     .demo-card-header {
-      background: linear-gradient(90deg, rgba(214,164,81,0.12), rgba(214,164,81,0.04));
-      padding: 16px 22px;
+      background: linear-gradient(90deg, rgba(214,164,81,0.14), rgba(214,164,81,0.04));
+      padding: 18px 20px;
       border-bottom: 1px solid rgba(214,164,81,0.15);
       display: flex;
-      align-items: center;
-      gap: 10px;
+      align-items: flex-start;
+      gap: 12px;
     }
+    .demo-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .demo-card-title { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+    .demo-card-sub { font-size: 11px; color: var(--gray); line-height: 1.5; }
     .demo-badge {
       margin-left: auto;
+      flex-shrink: 0;
       font-size: 10px;
       color: var(--gold);
       border: 1px solid rgba(214,164,81,0.4);
-      padding: 2px 10px;
-      border-radius: 10px;
-      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      border-radius: 12px;
+      letter-spacing: 0.04em;
       white-space: nowrap;
+      align-self: center;
     }
-    .demo-io {
-      padding: 18px 22px;
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 10px;
+    /* カード本体 */
+    .demo-body { padding: 20px; display: flex; flex-direction: column; gap: 0; flex: 1; }
+    /* ラベル */
+    .demo-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 8px;
+      display: flex;
       align-items: center;
+      gap: 6px;
     }
-    .demo-io-label { font-size: 10px; letter-spacing: 0.1em; margin-bottom: 8px; }
     .input-label { color: var(--gray); }
     .output-label { color: var(--gold); }
+    .demo-label-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .input-dot { background: var(--gray); }
+    .output-dot { background: var(--gold); }
+    /* テキストボックス */
     .demo-box {
-      background: #0a0a0f;
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-size: 12px;
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 12.5px;
+      line-height: 1.85;
       color: var(--gray-light);
-      line-height: 1.7;
-      min-height: 70px;
     }
-    .input-box { border: 1px solid rgba(255,255,255,0.07); }
-    .output-box { border: 1px solid rgba(214,164,81,0.2); }
-    .demo-arrow { color: var(--gold); font-size: 20px; flex-shrink: 0; }
+    .demo-box p { margin-bottom: 6px; }
+    .demo-box p:last-child { margin-bottom: 0; }
+    .input-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gray);
+    }
+    .output-box {
+      background: rgba(214,164,81,0.04);
+      border: 1px solid rgba(214,164,81,0.22);
+    }
+    .demo-out-subject {
+      color: var(--white) !important;
+      font-weight: 700;
+      margin-bottom: 10px !important;
+    }
+    /* 矢印 */
+    .demo-arrow-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+    }
+    .demo-arrow-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(214,164,81,0.3), transparent); }
+    .demo-arrow-icon {
+      font-size: 11px;
+      color: var(--gold);
+      white-space: nowrap;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+    }
+    /* 締め */
     .demo-cta {
       margin-top: 48px;
       text-align: center;
-      padding: 28px 36px;
+      padding: 32px 36px;
       background: rgba(214,164,81,0.05);
       border: 1px solid rgba(214,164,81,0.15);
       border-radius: 16px;
     }
-    @media (max-width: 900px) {
-      .demo-grid { grid-template-columns: 1fr; }
-      .demo-io { grid-template-columns: 1fr; }
-      .demo-arrow { transform: rotate(90deg); text-align: center; }
+    /* レスポンシブ */
+    @media (max-width: 1000px) {
+      .demo-grid { grid-template-columns: 1fr; max-width: 560px; margin-left: auto; margin-right: auto; }
+    }
+    @media (max-width: 600px) {
+      .demo-grid { max-width: 100%; }
+      .demo-cta { padding: 24px 20px; }
     }
   </style>
 
