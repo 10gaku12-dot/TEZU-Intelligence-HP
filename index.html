@@ -328,6 +328,10 @@
       z-index: 2;
       animation: floatChara 4s ease-in-out infinite;
     }
+    @keyframes pulse-btn {
+      0%,100% { box-shadow: 0 8px 40px rgba(214,164,81,0.4); }
+      50%      { box-shadow: 0 8px 60px rgba(214,164,81,0.7), 0 0 0 8px rgba(214,164,81,0.1); }
+    }
     @keyframes floatChara {
       0%,100% { transform: translateY(0); }
       50%      { transform: translateY(-12px); }
@@ -1403,6 +1407,123 @@
           <div class="step-circle">04</div>
           <h3>導入・サポート</h3>
           <p>実装から社員研修、継続改善まで。成果が出るまでしっかりサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 入口商品 ─── -->
+  <section id="first-step" style="
+    background: linear-gradient(135deg, #050505 0%, #0a0800 50%, #050505 100%);
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- 背景グロー -->
+    <div style="
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:800px; height:800px;
+      background: radial-gradient(ellipse, rgba(214,164,81,0.08) 0%, transparent 70%);
+      pointer-events:none;
+    "></div>
+
+    <div class="section-inner" style="position:relative; z-index:1;">
+      <p class="section-label fade-up" style="color:var(--gold);">First Step</p>
+      <h2 class="section-title fade-up">まず<span>ここから</span>始める</h2>
+      <div class="gold-line fade-up"></div>
+      <p class="section-desc fade-up">「AIって何から始めればいい？」その答えが、この90分で見つかります。</p>
+
+      <!-- メインカード -->
+      <div class="fade-up" style="
+        max-width: 780px;
+        margin: 56px auto 0;
+        background: linear-gradient(135deg, #111008 0%, #1a1500 100%);
+        border: 1px solid rgba(214,164,81,0.5);
+        border-radius: 24px;
+        padding: 56px 60px;
+        position: relative;
+        box-shadow: 0 0 80px rgba(214,164,81,0.12), 0 0 160px rgba(214,164,81,0.06);
+      ">
+        <!-- おすすめバッジ -->
+        <div style="
+          position: absolute;
+          top: -18px; left: 50%;
+          transform: translateX(-50%);
+          background: linear-gradient(90deg, var(--gold), var(--gold-light));
+          color: #000;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.2em;
+          padding: 6px 28px;
+          border-radius: 20px;
+          white-space: nowrap;
+        ">🌟 まずはここから！おすすめ入口メニュー</div>
+
+        <!-- タイトル・価格 -->
+        <div style="text-align:center; margin-bottom:48px;">
+          <p style="font-size:13px; letter-spacing:0.25em; color:var(--gold); margin-bottom:12px; font-weight:500;">AI CONSULTING</p>
+          <h3 style="font-size:clamp(32px,5vw,52px); font-weight:900; letter-spacing:0.05em; margin-bottom:20px; line-height:1.1;">
+            AI業務診断
+          </h3>
+          <div style="display:flex; align-items:baseline; justify-content:center; gap:8px; margin-bottom:8px;">
+            <span style="font-size:clamp(40px,6vw,72px); font-weight:900; color:var(--gold); line-height:1;">¥30,000</span>
+            <span style="font-size:16px; color:var(--gray-light);">（税込）</span>
+          </div>
+          <p style="font-size:15px; color:var(--gray-light); letter-spacing:0.1em;">
+            ⏱ 所要時間：<strong style="color:var(--white);">90分</strong>　|　オンライン対応可
+          </p>
+        </div>
+
+        <!-- 区切り線 -->
+        <div style="height:1px; background:linear-gradient(90deg, transparent, rgba(214,164,81,0.4), transparent); margin-bottom:40px;"></div>
+
+        <!-- 内容リスト -->
+        <p style="font-size:12px; letter-spacing:0.2em; color:var(--gold); margin-bottom:24px; font-weight:600;">CONTENTS</p>
+        <div style="display:flex; flex-direction:column; gap:18px; margin-bottom:48px;">
+          <div style="display:flex; align-items:flex-start; gap:16px; padding:20px 24px; background:rgba(214,164,81,0.06); border-radius:12px; border-left:3px solid var(--gold);">
+            <span style="font-size:28px; flex-shrink:0;">🔍</span>
+            <div>
+              <p style="font-weight:700; font-size:17px; margin-bottom:4px;">AIで自動化できる業務診断</p>
+              <p style="font-size:13px; color:var(--gray-light); line-height:1.6;">現在の業務フローを分析し、AIで効率化できる箇所を特定。具体的な削減時間・コストをご提示します。</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:16px; padding:20px 24px; background:rgba(214,164,81,0.06); border-radius:12px; border-left:3px solid var(--gold);">
+            <span style="font-size:28px; flex-shrink:0;">🤖</span>
+            <div>
+              <p style="font-weight:700; font-size:17px; margin-bottom:4px;">ChatGPT活用設計</p>
+              <p style="font-size:13px; color:var(--gray-light); line-height:1.6;">貴社の業種・規模に最適なChatGPTの活用方法を設計。すぐに実践できる具体的な使い方をお伝えします。</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:16px; padding:20px 24px; background:rgba(214,164,81,0.06); border-radius:12px; border-left:3px solid var(--gold);">
+            <span style="font-size:28px; flex-shrink:0;">🗺️</span>
+            <div>
+              <p style="font-weight:700; font-size:17px; margin-bottom:4px;">AI導入ロードマップ</p>
+              <p style="font-size:13px; color:var(--gray-light); line-height:1.6;">3ヶ月・6ヶ月・1年の段階的なAI導入計画を策定。優先順位と投資対効果を明確にしてお渡しします。</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTAボタン -->
+        <div style="text-align:center;">
+          <a href="https://line.me/ti/p/itU8jz37Ut" target="_blank" style="
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: #000;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 20px 56px;
+            border-radius: 60px;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            box-shadow: 0 8px 40px rgba(214,164,81,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse-btn 2s ease-in-out infinite;
+          " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 12px 60px rgba(214,164,81,0.6)'"
+             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 8px 40px rgba(214,164,81,0.4)'">
+            LINEで申し込む →
+          </a>
+          <p style="font-size:12px; color:var(--gray); margin-top:14px;">📅 まずは無料相談からでもOK！お気軽にどうぞ</p>
         </div>
       </div>
     </div>
