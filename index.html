@@ -64,13 +64,16 @@
       text-decoration: none;
       text-transform: uppercase;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     #nav-brand em { color: var(--gold); font-style: normal; }
     #nav-logo {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
       object-fit: contain;
       flex-shrink: 0;
+      /* 暗い背景でロゴが見えるようにグローを追加 */
+      filter: drop-shadow(0 0 6px rgba(214,164,81,0.6)) brightness(1.1);
     }
 
     /* ナビ右：全リンク右寄せ */
