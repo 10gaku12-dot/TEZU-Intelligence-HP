@@ -52,8 +52,11 @@
       border-bottom: 1px solid rgba(214,164,81,0.2) !important;
       box-sizing: border-box !important;
     }
-    /* ナビ左：会社名 */
+    /* ナビ左：ロゴ＋会社名 */
     #nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -63,6 +66,12 @@
       white-space: nowrap;
     }
     #nav-brand em { color: var(--gold); font-style: normal; }
+    #nav-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
 
     /* ナビ右：全リンク右寄せ */
     #nav-links {
@@ -140,19 +149,9 @@
       );
     }
 
-    /* ヒーローロゴ：右上配置（テキストと重ならないよう右側に移動） */
+    /* ヒーローロゴ：ナビに移動したため非表示 */
     .hero-logo-wrap {
-      position: absolute;
-      top: 72px;
-      right: 6%;
-      left: auto;
-      transform: none;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      pointer-events: none;
+      display: none;
     }
     .hero-logo-wrap .logo-text {
       font-size: 11px;
@@ -949,13 +948,12 @@
     /* ─── レスポンシブ ─── */
     @media (max-width: 900px) {
       #main-nav { padding: 0 20px !important; }
-      #nav-brand { display: none; }
+      #nav-brand span { display: none; } /* タブレットは文字を隠してロゴのみ表示 */
+      #nav-logo { width: 32px !important; height: 32px !important; }
       #nav-links { gap: 16px !important; }
       #nav-links a { font-size: 11px !important; }
       section { padding: 72px 5%; }
       #hero { padding: 110px 5% 60px; }
-      .hero-logo-wrap { top: 64px; right: 4%; left: auto; transform: none; } /* タブレットも右寄せ */
-      .hero-logo-wrap img { width: 140px; height: 140px; }
       .hero-chara { display: none; }
       .hero-stats { gap: 28px; }
       .process-steps { grid-template-columns: 1fr 1fr; }
@@ -968,7 +966,8 @@
     @media (max-width: 600px) {
       /* ナビ：CTA以外のリンクを非表示 */
       #nav-links a:not(.nav-cta) { display: none !important; }
-      #nav-brand { display: block !important; font-size: 11px; }
+      #nav-brand { display: flex !important; font-size: 11px; }
+      #nav-logo { width: 28px !important; height: 28px !important; }
       #nav-links { gap: 8px !important; }
 
       /* ヒーロー：ロゴを通常フローに戻し文字と重ならないようにする */
@@ -1232,7 +1231,10 @@
 
   <!-- ─── NAVIGATION ─── -->
   <nav id="main-nav">
-    <a href="#" id="nav-brand">TEZU<em>Intelligence</em></a>
+    <a href="#" id="nav-brand">
+      <img src="logo.png" alt="TEZU Intelligence ロゴ" id="nav-logo" />
+      <span>TEZU<em>Intelligence</em></span>
+    </a>
     <div id="nav-links">
       <a href="#problems">お悩み</a>
       <a href="#shindan">AI活用診断</a>
