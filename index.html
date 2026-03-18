@@ -140,12 +140,13 @@
       );
     }
 
-    /* ヒーローロゴ：中央上部（ナビ高さ56px + 余白で重ならないようにする） */
+    /* ヒーローロゴ：右上配置（テキストと重ならないよう右側に移動） */
     .hero-logo-wrap {
       position: absolute;
-      top: 72px; /* ナビ56px + 余白16px */
-      left: 50%;
-      transform: translateX(-50%);
+      top: 72px;
+      right: 6%;
+      left: auto;
+      transform: none;
       z-index: 3;
       display: flex;
       flex-direction: column;
@@ -163,7 +164,7 @@
     }
     .hero-logo-wrap .logo-text em { color: var(--gold); font-style: normal; }
     .hero-logo-wrap img {
-      width: 260px; height: 260px;
+      width: 200px; height: 200px;
       object-fit: contain;
       filter: drop-shadow(0 0 40px rgba(214,164,81,0.5)) drop-shadow(0 0 80px rgba(0,229,255,0.15));
       animation: floatLogo 5s ease-in-out infinite;
@@ -953,8 +954,8 @@
       #nav-links a { font-size: 11px !important; }
       section { padding: 72px 5%; }
       #hero { padding: 110px 5% 60px; }
-      .hero-logo-wrap { top: 64px; } /* タブレットでもナビの下に収まるよう調整 */
-      .hero-logo-wrap img { width: 160px; height: 160px; }
+      .hero-logo-wrap { top: 64px; right: 4%; left: auto; transform: none; } /* タブレットも右寄せ */
+      .hero-logo-wrap img { width: 140px; height: 140px; }
       .hero-chara { display: none; }
       .hero-stats { gap: 28px; }
       .process-steps { grid-template-columns: 1fr 1fr; }
