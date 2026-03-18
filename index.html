@@ -961,14 +961,48 @@
       footer { padding: 40px 5%; }
     }
     @media (max-width: 600px) {
+      /* ナビ：CTA以外のリンクを非表示 */
+      #nav-links a:not(.nav-cta) { display: none !important; }
+      #nav-brand { display: block !important; font-size: 11px; }
+      #nav-links { gap: 8px !important; }
+
+      /* ヒーロー：ロゴを通常フローに戻し文字と重ならないようにする */
+      #hero {
+        padding: 80px 5% 60px;
+        align-items: center;
+        text-align: center;
+      }
+      .hero-logo-wrap {
+        position: static !important;
+        transform: none !important;
+        margin: 0 auto 24px;
+      }
+      .hero-logo-wrap img { width: 120px !important; height: 120px !important; }
+      .hero-logo-wrap .logo-text { font-size: 9px; }
+
+      .hero-content { max-width: 100%; }
+      .hero-title { font-size: 32px; line-height: 1.2; }
+      .hero-title-sub { font-size: 20px; }
+      .hero-desc { font-size: 13px; line-height: 1.9; }
+      .hero-badge { font-size: 9px; letter-spacing: 0.15em; margin-bottom: 20px; }
+      .hero-buttons { justify-content: center; gap: 12px; }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-outline { font-size: 13px; padding: 12px 24px; }
+      .hero-typing-wrap { font-size: 13px; }
+
+      /* 統計数字 */
+      .hero-stats { flex-wrap: wrap; justify-content: center; gap: 20px; }
+      .hero-stat-num { font-size: 28px; }
+
+      /* セクション共通 */
+      .section-title { font-size: clamp(22px, 6vw, 32px); }
+      .section-desc { font-size: 13px; }
+
+      /* その他 */
       #first-step [style*="grid-template-columns: 1fr 1fr"] {
         grid-template-columns: 1fr !important;
       }
-      .hero-title { font-size: 44px; }
-      .hero-title-sub { font-size: 26px; }
       .process-steps { grid-template-columns: 1fr; }
-      .hero-stats { flex-wrap: wrap; }
-      #nav-links { gap: 12px !important; }
     }
 
     /* ─── AIチャットボット ─── */
