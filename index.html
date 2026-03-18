@@ -8,6 +8,9 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ヘッダー固定時にアンカーリンクがヘッダーの後ろに隠れないようにする */
+    html { scroll-padding-top: 56px; }
+
     :root {
       --black: #000000;
       --dark: #060608;
@@ -137,10 +140,10 @@
       );
     }
 
-    /* ヒーローロゴ：中央上部 */
+    /* ヒーローロゴ：中央上部（ナビ高さ56px + 余白で重ならないようにする） */
     .hero-logo-wrap {
       position: absolute;
-      top: 68px;
+      top: 72px; /* ナビ56px + 余白16px */
       left: 50%;
       transform: translateX(-50%);
       z-index: 3;
@@ -949,8 +952,9 @@
       #nav-links { gap: 16px !important; }
       #nav-links a { font-size: 11px !important; }
       section { padding: 72px 5%; }
-      #hero { padding: 100px 5% 60px; }
-      .hero-logo-wrap img { width: 180px; height: 180px; }
+      #hero { padding: 110px 5% 60px; }
+      .hero-logo-wrap { top: 64px; } /* タブレットでもナビの下に収まるよう調整 */
+      .hero-logo-wrap img { width: 160px; height: 160px; }
       .hero-chara { display: none; }
       .hero-stats { gap: 28px; }
       .process-steps { grid-template-columns: 1fr 1fr; }
