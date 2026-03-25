@@ -1360,10 +1360,20 @@
 
       <!-- 出力結果 -->
       <div id="demoResult" style="display:none;">
-        <div class="demo-result-header">
-          <p class="demo-result-badge">AI DIAGNOSIS RESULT</p>
-          <p class="demo-result-company" id="demoResultCompany"></p>
+
+        <!-- インパクト文 -->
+        <div class="demo-impact-banner" id="demoImpactBanner">
+          <p class="demo-impact-label">AI DIAGNOSIS RESULT</p>
+          <p class="demo-impact-company" id="demoResultCompany"></p>
+          <p class="demo-impact-msg" id="demoImpactMsg"></p>
           <p class="demo-result-meta" id="demoResultMeta"></p>
+        </div>
+
+        <!-- 最優先AI -->
+        <div class="demo-priority-card" id="demoPriorityCard">
+          <div class="demo-priority-label">🚀 最優先で導入すべきAI</div>
+          <p class="demo-priority-title" id="demoPriorityTitle"></p>
+          <p class="demo-priority-reason" id="demoPriorityReason"></p>
         </div>
 
         <!-- ①業務診断 -->
@@ -1380,14 +1390,14 @@
 
         <!-- ③営業メール -->
         <div class="demo-res-card">
-          <div class="demo-res-card-hd"><span>✉️</span><span>AIが書いた営業メール（コピーしてすぐ使えます）</span></div>
+          <div class="demo-res-card-hd"><span>✉️</span><span>営業メールサンプル（そのままコピーして使えます）</span></div>
           <div class="demo-mail-box" id="demoMailBox"></div>
-          <button class="demo-copy-btn" id="demoCopyBtn">コピーする</button>
+          <button class="demo-copy-btn" id="demoCopyBtn">📋 コピーする</button>
         </div>
 
         <!-- ④導入効果 -->
         <div class="demo-res-card">
-          <div class="demo-res-card-hd"><span>📈</span><span>AIを入れたら、これだけ変わる（概算）</span></div>
+          <div class="demo-res-card-hd"><span>📈</span><span>導入した場合の効果（概算）vs このままの損失</span></div>
           <div class="demo-effect-grid" id="demoEffectGrid"></div>
         </div>
 
@@ -1472,21 +1482,45 @@
 
     /* 結果エリア */
     #demoResult { margin-top: 40px; }
-    .demo-result-header {
-      text-align: center; padding: 28px 24px;
-      background: linear-gradient(135deg, rgba(214,164,81,0.08), rgba(214,164,81,0.02));
-      border: 1px solid rgba(214,164,81,0.22); border-radius: 16px;
+
+    /* インパクトバナー */
+    .demo-impact-banner {
+      text-align: center; padding: 32px 24px;
+      background: linear-gradient(135deg, rgba(214,164,81,0.13), rgba(214,164,81,0.03));
+      border: 1.5px solid rgba(214,164,81,0.4); border-radius: 18px;
       margin-bottom: 20px;
     }
-    .demo-result-badge {
+    .demo-impact-label {
       font-size: 10px; letter-spacing: 3px; color: var(--gold);
-      font-family: 'Inter', sans-serif; margin-bottom: 8px;
+      font-family: 'Inter', sans-serif; margin-bottom: 10px;
     }
-    .demo-result-company {
-      font-size: clamp(20px, 4vw, 26px); font-weight: 900;
-      color: var(--white); margin-bottom: 4px;
+    .demo-impact-company {
+      font-size: clamp(20px, 4vw, 28px); font-weight: 900;
+      color: var(--white); margin-bottom: 10px;
+    }
+    .demo-impact-msg {
+      font-size: clamp(13px, 2.5vw, 16px); font-weight: 700;
+      color: var(--gold-light); line-height: 1.7; margin-bottom: 8px;
     }
     .demo-result-meta { font-size: 12px; color: var(--gray); }
+
+    /* 最優先AIカード */
+    .demo-priority-card {
+      background: linear-gradient(135deg, rgba(0,229,255,0.07), rgba(214,164,81,0.06));
+      border: 1.5px solid var(--cyan); border-radius: 16px;
+      padding: 24px 28px; margin-bottom: 20px;
+    }
+    .demo-priority-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      color: var(--cyan); margin-bottom: 10px; font-family: 'Inter', sans-serif;
+    }
+    .demo-priority-title {
+      font-size: clamp(16px, 3vw, 20px); font-weight: 900;
+      color: var(--white); margin-bottom: 8px; line-height: 1.4;
+    }
+    .demo-priority-reason {
+      font-size: 13px; color: var(--gray-light); line-height: 1.8;
+    }
     .demo-res-card {
       background: var(--dark2);
       border: 1px solid rgba(214,164,81,0.18);
@@ -1540,10 +1574,18 @@
       gap: 16px; padding: 18px 24px;
     }
     .demo-effect-box {
-      background: rgba(214,164,81,0.06);
-      border: 1px solid rgba(214,164,81,0.16);
       border-radius: 12px; padding: 20px; text-align: center;
     }
+    .demo-effect-good {
+      background: rgba(214,164,81,0.06);
+      border: 1px solid rgba(214,164,81,0.25);
+    }
+    .demo-effect-loss {
+      background: rgba(224,85,85,0.06);
+      border: 1px solid rgba(224,85,85,0.25);
+    }
+    .demo-effect-loss .demo-effect-lbl { color: #e07070; }
+    .demo-effect-loss .demo-effect-val { color: #e07070; }
     .demo-effect-lbl {
       font-size: 10px; color: var(--gray); letter-spacing: 2px;
       text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 8px;
@@ -1589,6 +1631,11 @@
   (function(){
     var DATA = {
       '製造業': {
+        impact: '御社の「事務・日報・見積」業務は、今すぐAIで自動化できます。',
+        priority: {
+          title: '見積書・提案書の自動作成AI',
+          reason: '製造業で最も時間を奪っているのが見積作業です。製品仕様を入力するだけでドラフトを自動生成でき、1件あたり30〜60分の作業が5分以内に。御社の営業スピードが大幅に上がります。'
+        },
         scores: [
           { lbl:'営業',           n:4, note:'見積・提案書に効果大' },
           { lbl:'事務',           n:5, note:'最大の削減余地あり' },
@@ -1597,14 +1644,26 @@
           { lbl:'顧客対応',       n:4, note:'FAQ自動化が有効' }
         ],
         ideas: [
-          { title:'見積書・提案書の自動作成AI',   desc:'{c}のような製造業では見積書作成に多くの工数がかかります。製品仕様を入力するだけでドラフトを自動生成でき、作成時間を最大80%削減できます。' },
-          { title:'作業日報・報告書のAI整形',     desc:'{c}の現場担当者がキーワードを入れるだけで整った日報を自動生成。記録業務の負担を大幅に減らします。' },
-          { title:'製品マニュアル・手順書の作成', desc:'{c}のベテランが口頭で説明していた作業手順をAIが文書化。ノウハウを資産として残し、新人教育を効率化します。' }
+          { title:'見積書・提案書の自動作成AI',   desc:'製品仕様を入力するだけでドラフトを自動生成。{c}の営業担当者が1件あたり30〜60分かけていた見積作業を、5分以内に短縮できます。商談スピードが上がり、受注率の改善も期待できます。' },
+          { title:'作業日報・報告書のAI整形',     desc:'現場担当者がメモや音声で入力するだけで、整った日報を自動生成。{c}の記録業務を大幅に削減し、ベテランのノウハウをデータとして蓄積できます。' },
+          { title:'製品マニュアル・手順書の自動作成', desc:'{c}のベテランが口頭で伝えていた作業手順をAIが文書化。新人教育の時間を短縮し、技術継承の仕組みをつくることができます。' }
         ],
-        taskMsg: { '営業':'営業メールや提案書の作成', '事務':'日報・見積書などの事務作業', '採用':'求人票や採用文章の作成', '集客':'製品カタログやWeb文章の作成', '顧客対応':'よくある問い合わせへのFAQ整備' },
-        time: '月20〜40時間', cost: '年間60〜150万円'
+        taskMsg: {
+          '営業':'見積書・提案書の作成と営業メールの文章',
+          '事務':'日報・報告書・社内書類などの定型業務',
+          '採用':'求人票やスタッフ募集の文章作成',
+          '集客':'製品カタログやWebサイトのコンテンツ改善',
+          '顧客対応':'よくある問い合わせへのFAQ整備と自動返信'
+        },
+        time: '月20〜40時間', cost: '年間60〜150万円',
+        loss: { time: '月20〜40時間', cost: '年間60〜150万円' }
       },
       '飲食業': {
+        impact: '御社の「クチコミ・採用・SNS」は、今すぐAIで改善できます。',
+        priority: {
+          title: 'Googleクチコミ返信の自動化AI',
+          reason: '飲食業でGoogleマップの評価スコアを上げる最速の方法が、クチコミへの丁寧な返信です。毎日の返信作業をAIが代行し、御社の評価向上と集客力アップに直結します。返信率100%を無理なく実現できます。'
+        },
         scores: [
           { lbl:'営業',           n:3, note:'新規開拓に活用可' },
           { lbl:'事務',           n:4, note:'管理業務を効率化' },
@@ -1613,14 +1672,26 @@
           { lbl:'顧客対応',       n:5, note:'クチコミ返信を自動化' }
         ],
         ideas: [
-          { title:'Googleクチコミ返信の自動化',      desc:'{c}に寄せられるクチコミに合わせた返信文を即時生成。返信率100%でGoogleマップの評価スコア向上に貢献します。' },
-          { title:'求人票・採用文章の作成AI',        desc:'{c}のターゲット層に刺さる求人文をAIが生成。Indeed・バイトルへの掲載文を5分で作成できます。' },
-          { title:'SNS投稿文・メニュー説明文の生成', desc:'{c}の新メニュー写真に合わせたInstagram投稿文や季節メニューの説明文をAIが自動作成します。' }
+          { title:'Googleクチコミ返信の自動化AI', desc:'クチコミの内容を読み取り、自然で丁寧な返信文をAIが即時生成。{c}の返信率を100%に保ちながら、Googleマップの評価スコア向上につなげます。毎日の作業が5分以内に完結します。' },
+          { title:'求人票・採用文章の作成AI',     desc:'{c}のターゲット層に刺さる求人文をAIが生成。Indeed・バイトルへの掲載文を5分で作成でき、応募数の増加が見込めます。人手不足の解消に直接つながります。' },
+          { title:'SNS投稿文・メニュー説明文の生成AI', desc:'新メニューの写真と特徴を入力するだけで、Instagramや食べログ向けの投稿文をAIが自動作成。{c}のSNS運用を効率化し、集客力を高めます。' }
         ],
-        taskMsg: { '営業':'新規法人・団体向けの営業文章', '事務':'シフト管理や発注書などの事務作業', '採用':'求人票・スタッフ募集の文章作成', '集客':'SNS投稿文・メニュー説明文の作成', '顧客対応':'クチコミ返信・お問い合わせ対応' },
-        time: '月15〜35時間', cost: '年間40〜120万円'
+        taskMsg: {
+          '営業':'新規法人・団体向けの営業文章と提案書',
+          '事務':'シフト管理・発注書・日次報告などの事務作業',
+          '採用':'求人票・スタッフ募集の文章作成と応募管理',
+          '集客':'SNS投稿文・メニュー説明文・クチコミ返信',
+          '顧客対応':'クチコミ返信・予約対応・お問い合わせ自動化'
+        },
+        time: '月15〜35時間', cost: '年間40〜120万円',
+        loss: { time: '月15〜35時間', cost: '年間40〜120万円' }
       },
       'その他': {
+        impact: '御社の「メール・議事録・顧客対応」は、今すぐAIで効率化できます。',
+        priority: {
+          title: 'ビジネスメール・提案書の文章作成AI',
+          reason: '毎日発生するメール作成や提案書のドラフトはAIが最も得意な領域です。御社の担当者が1通あたり15〜30分かけていた文章作業を5分以内に短縮でき、本来の業務に集中できる時間が生まれます。'
+        },
         scores: [
           { lbl:'営業',           n:4, note:'提案書・メールに活用' },
           { lbl:'事務',           n:4, note:'反復作業を大幅削減' },
@@ -1629,12 +1700,19 @@
           { lbl:'顧客対応',       n:3, note:'FAQ・自動返信へ' }
         ],
         ideas: [
-          { title:'メール・提案書の文章作成AI',   desc:'{c}の日常業務で発生するビジネスメールや提案書のドラフトをAIが生成。1通あたりの作成時間を5分以内に短縮します。' },
-          { title:'会議・打ち合わせの議事録AI',   desc:'{c}の会議後の記録作業をゼロに。箇条書きメモを渡すだけで整った議事録を自動作成します。' },
-          { title:'FAQ・問い合わせ対応の自動化', desc:'{c}によく寄せられる問い合わせにAIが自動回答。対応時間の削減と24時間対応を同時に実現します。' }
+          { title:'ビジネスメール・提案書の文章作成AI', desc:'{c}の日常業務で発生するメールや提案書のドラフトをAIが即時生成。1通あたり15〜30分の作業が5分以内に完結し、担当者の負担を大幅に軽減します。' },
+          { title:'会議・打ち合わせの議事録AI',         desc:'箇条書きのメモを貼り付けるだけで、整った議事録をAIが自動作成。{c}の会議後の記録作業をゼロにし、決定事項の共有もスムーズになります。' },
+          { title:'FAQ・問い合わせ対応の自動化AI',      desc:'{c}によく寄せられる問い合わせにAIが自動で回答。対応時間の削減と24時間対応を同時に実現し、顧客満足度の向上にもつながります。' }
         ],
-        taskMsg: { '営業':'営業メールや提案書の文章作成', '事務':'メール・書類などの反復事務作業', '採用':'求人票や面接案内の文章作成', '集客':'ブログ・SNS投稿などのコンテンツ作成', '顧客対応':'FAQ整備やチャットボット構築' },
-        time: '月10〜30時間', cost: '年間30〜100万円'
+        taskMsg: {
+          '営業':'営業メールや提案書の文章作成と送付業務',
+          '事務':'メール・書類・定型作業などの反復事務',
+          '採用':'求人票・面接案内・採用関連の文章作成',
+          '集客':'ブログ・SNS・広告文などのコンテンツ作成',
+          '顧客対応':'FAQ整備・チャットボット・問い合わせ自動化'
+        },
+        time: '月10〜30時間', cost: '年間30〜100万円',
+        loss: { time: '月10〜30時間', cost: '年間30〜100万円' }
       }
     };
 
@@ -1659,8 +1737,15 @@
       if (!ok) return;
 
       var d = DATA[industry];
-      document.getElementById('demoResultCompany').textContent = company;
-      document.getElementById('demoResultMeta').textContent = industry + '　／　相談業務：' + task;
+
+      // インパクト文
+      document.getElementById('demoResultCompany').textContent = company + ' 様';
+      document.getElementById('demoImpactMsg').textContent = d.impact;
+      document.getElementById('demoResultMeta').textContent = '業種：' + industry + '　／　相談業務：' + task;
+
+      // 最優先AI
+      document.getElementById('demoPriorityTitle').textContent = d.priority.title;
+      document.getElementById('demoPriorityReason').textContent = d.priority.reason.replace(/\{c\}/g, company);
 
       // ①スコア
       document.getElementById('demoScoreTable').innerHTML = d.scores.map(function(s) {
@@ -1680,26 +1765,33 @@
           + '</li>';
       }).join('');
 
-      // ③メール
+      // ③メール（リアルな文章に強化）
       var taskMsg = d.taskMsg[task] || task;
       document.getElementById('demoMailBox').textContent =
-        '件名：' + company + '様向け　AI活用のご提案\n\n'
+        '件名：' + company + '様　AI活用のご提案（' + taskMsg.substring(0, 12) + '）\n\n'
         + company + '\nご担当者様\n\n'
         + 'はじめてご連絡差し上げます。\n'
-        + '株式会社TEZU Intelligence の手塚と申します。\n\n'
-        + company + '様のような' + industry + 'では、' + taskMsg + 'などでAI活用の効果が出やすいです。\n'
-        + 'まずは小さく始める形でご提案可能ですので、お気軽にご相談ください。\n\n'
-        + '30分の無料相談で、御社に合ったAI活用をご提案いたします。\n\n'
-        + '━━━━━━━━━━━━━━━\n'
+        + 'AI導入支援を専門とする、株式会社TEZU Intelligence の手塚と申します。\n\n'
+        + company + '様のような' + industry + 'では、\n'
+        + '「' + taskMsg + '」にAIを活用することで、\n'
+        + '月に20〜40時間の業務削減が見込めるケースが多くあります。\n\n'
+        + '難しいシステム開発は一切不要で、\n'
+        + 'ChatGPTなどの既存ツールを使いこなす形でご支援いたします。\n\n'
+        + 'まずは30分の無料相談で、御社の現状をお聞かせいただけますか？\n'
+        + '無理なご提案は一切いたしません。\n\n'
+        + '━━━━━━━━━━━━━━━━━━\n'
         + '株式会社TEZU Intelligence\n'
-        + '代表 手塚 岳人\n'
+        + '代表　手塚 岳人\n'
         + 'LINE：https://line.me/ti/p/itU8jz37Ut\n'
-        + '━━━━━━━━━━━━━━━';
+        + '（こちらから気軽にご連絡ください）\n'
+        + '━━━━━━━━━━━━━━━━━━';
 
-      // ④効果
+      // ④効果（損失も追加）
       document.getElementById('demoEffectGrid').innerHTML =
-        '<div class="demo-effect-box"><div class="demo-effect-lbl">削減できる業務時間</div><div class="demo-effect-val">' + d.time + '</div><div class="demo-effect-unit">推計ベース</div></div>'
-        + '<div class="demo-effect-box"><div class="demo-effect-lbl">年間コスト削減（推計）</div><div class="demo-effect-val">' + d.cost + '</div><div class="demo-effect-unit">人件費換算ベース</div></div>';
+        '<div class="demo-effect-box demo-effect-good"><div class="demo-effect-lbl">✅ AI導入後の削減時間</div><div class="demo-effect-val">' + d.time + '</div><div class="demo-effect-unit">推計ベース（業種平均）</div></div>'
+        + '<div class="demo-effect-box demo-effect-good"><div class="demo-effect-lbl">✅ 年間コスト削減（推計）</div><div class="demo-effect-val">' + d.cost + '</div><div class="demo-effect-unit">人件費換算ベース</div></div>'
+        + '<div class="demo-effect-box demo-effect-loss"><div class="demo-effect-lbl">⚠️ このままだと続く無駄時間</div><div class="demo-effect-val">' + d.loss.time + '</div><div class="demo-effect-unit">毎月・毎年積み上がる機会損失</div></div>'
+        + '<div class="demo-effect-box demo-effect-loss"><div class="demo-effect-lbl">⚠️ 年間の機会損失（概算）</div><div class="demo-effect-val">' + d.loss.cost + '</div><div class="demo-effect-unit">放置するほど差が開きます</div></div>';
 
       var result = document.getElementById('demoResult');
       result.style.display = 'block';
