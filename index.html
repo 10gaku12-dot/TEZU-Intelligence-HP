@@ -1403,10 +1403,12 @@
 
         <!-- CTA -->
         <div class="demo-cta">
-          <p class="demo-cta-ttl">この診断結果を、もっと深掘りしませんか？</p>
-          <p class="demo-cta-sub">30分の無料相談で「どの業務をどう変えるか」を具体的にお伝えします。押し売りは一切なし、お気軽にどうぞ。</p>
-          <a href="https://line.me/ti/p/itU8jz37Ut" class="demo-cta-btn" target="_blank">30分の無料相談を予約する</a>
-          <p class="demo-cta-note">※無理な営業は一切ありません</p>
+          <p class="demo-cta-urgency">⏱ AI導入は、早く始めた企業ほど効果が出やすいです。</p>
+          <p class="demo-cta-push">多くの経営者が「もっと早く始めればよかった」とおっしゃいます。<br>まず1つの業務からでも、十分な効果が出ます。</p>
+          <p class="demo-cta-ttl">御社はこの業務から始めるべきです。<br>一緒に、最初の一歩を踏み出しませんか？</p>
+          <p class="demo-cta-sub">30分の無料相談で「どの業務をどう変えるか」を具体的にお伝えします。<br>難しい話は一切なし。現場ですぐ使える形でご提案します。</p>
+          <a href="https://line.me/ti/p/itU8jz37Ut" class="demo-cta-btn" target="_blank">30分の無料相談を予約する（無料）</a>
+          <p class="demo-cta-note">※無理な営業・押し売りは一切ありません。まずはお話だけでも大歓迎です。</p>
         </div>
       </div>
 
@@ -1600,8 +1602,19 @@
       background: rgba(214,164,81,0.05);
       border: 1px solid rgba(214,164,81,0.18); border-radius: 16px;
     }
-    .demo-cta-ttl { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-    .demo-cta-sub { font-size: 13px; color: var(--gray); line-height: 1.8; margin-bottom: 24px; }
+    .demo-cta-urgency {
+      font-size: 12px; font-weight: 700; color: var(--cyan);
+      letter-spacing: 0.05em; margin-bottom: 12px;
+    }
+    .demo-cta-push {
+      font-size: 13px; color: var(--gray-light); line-height: 1.9;
+      margin-bottom: 20px; padding: 14px 16px;
+      background: rgba(255,255,255,0.03); border-radius: 8px;
+      border-left: 3px solid rgba(214,164,81,0.4);
+      text-align: left;
+    }
+    .demo-cta-ttl { font-size: 17px; font-weight: 700; color: var(--white); margin-bottom: 10px; line-height: 1.7; }
+    .demo-cta-sub { font-size: 13px; color: var(--gray); line-height: 1.9; margin-bottom: 24px; }
     .demo-cta-btn {
       display: inline-block; padding: 14px 40px;
       background: #06c755; color: #fff; border-radius: 50px;
