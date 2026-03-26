@@ -1017,9 +1017,28 @@
       .hero-title-sub { font-size: 20px; }
       .hero-desc { font-size: 13px; line-height: 1.9; }
       .hero-badge { font-size: 9px; letter-spacing: 0.15em; margin-bottom: 20px; }
-      .hero-buttons { justify-content: center; gap: 12px; }
+      /* ヒーロー全体をpointer-events:noneにしてボタンだけ有効化 */
+      #hero { pointer-events: none; }
+      #hero * { pointer-events: none; }
+      .hero-buttons {
+        justify-content: center;
+        gap: 12px;
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 9999;
+      }
       .hero-buttons .btn-primary,
-      .hero-buttons .btn-outline { font-size: 13px; padding: 12px 24px; }
+      .hero-buttons .btn-outline {
+        font-size: 14px;
+        padding: 14px 0;
+        width: 100%;
+        max-width: 320px;
+        display: block;
+        text-align: center;
+        pointer-events: auto !important;
+        -webkit-tap-highlight-color: rgba(214,164,81,0.3);
+        touch-action: manipulation;
+      }
 
       /* LINEボタンの改行を防ぐ */
       .cta-line-btn {
