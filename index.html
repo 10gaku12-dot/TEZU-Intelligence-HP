@@ -992,17 +992,15 @@
       #nav-logo { width: 28px !important; height: 28px !important; }
       #nav-links { gap: 8px !important; }
 
-      /* ヒーロー：flex-startでコンテンツを上から配置、ボタンが画面中央に来るようにする */
+      /* ヒーロー：スタッキングコンテキストを作らず自然なレイアウト */
       #hero {
-        padding: 86px 5% 60px;
+        padding: 80px 5% 60px;
         align-items: center;
         text-align: center;
         justify-content: flex-start;
         overflow: hidden;
-        min-height: 100vh;
-        min-height: 100svh;
+        min-height: auto;
         position: relative;
-        z-index: 1;
       }
       .hero-logo-wrap {
         position: static !important;
@@ -1017,28 +1015,20 @@
       .hero-title-sub { font-size: 20px; }
       .hero-desc { font-size: 13px; line-height: 1.9; }
       .hero-badge { font-size: 9px; letter-spacing: 0.15em; margin-bottom: 20px; }
-      /* ヒーロー全体をpointer-events:noneにしてボタンだけ有効化 */
-      #hero { pointer-events: none; }
-      #hero * { pointer-events: none; }
-      .hero-buttons {
-        justify-content: center;
-        gap: 12px;
-        pointer-events: auto !important;
-        position: relative;
-        z-index: 9999;
+      /* hero-contentをflex-columnにしてorderでボタンをタイトル直下に移動 */
+      .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
       }
-      .hero-buttons .btn-primary,
-      .hero-buttons .btn-outline {
-        font-size: 14px;
-        padding: 14px 0;
-        width: 100%;
-        max-width: 320px;
-        display: block;
-        text-align: center;
-        pointer-events: auto !important;
-        -webkit-tap-highlight-color: rgba(214,164,81,0.3);
-        touch-action: manipulation;
-      }
+      .hero-badge   { order: 1; }
+      .hero-title   { order: 2; }
+      .hero-buttons { order: 3; justify-content: center; align-items: center; flex-direction: column; gap: 12px; width: 100%; }
+      .hero-desc    { order: 4; }
+      .hero-title-sub { order: 5; }
+      .hero-subdesc { order: 6; }
+      .hero-typing-wrap { order: 7; }
 
       /* LINEボタンの改行を防ぐ */
       .cta-line-btn {
@@ -1069,16 +1059,18 @@
       .chat-widget { bottom: 12px !important; right: 12px !important; }
       .chat-btn { width: 50px !important; height: 50px !important; font-size: 22px !important; }
 
-      /* ヒーローボタンをフル幅にしてタップしやすく */
-      .hero-buttons { flex-direction: column; gap: 12px; }
+      /* ヒーローボタン共通 */
       .hero-buttons .btn-primary,
-      .hero-buttons .btn-line {
-        width: 100%;
+      .hero-buttons .btn-outline {
+        width: 80vw;
+        max-width: 300px;
         text-align: center;
         box-sizing: border-box;
         padding: 16px 20px !important;
         font-size: 15px !important;
         min-height: 52px;
+        display: block;
+        touch-action: manipulation;
       }
     }
 
