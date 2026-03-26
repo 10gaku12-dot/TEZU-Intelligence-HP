@@ -985,11 +985,14 @@
       #nav-logo { width: 28px !important; height: 28px !important; }
       #nav-links { gap: 8px !important; }
 
-      /* ヒーロー：ロゴを通常フローに戻し文字と重ならないようにする */
+      /* ヒーロー：モバイルはoverflow-hiddenを解除してボタンを確実に表示 */
       #hero {
-        padding: 80px 5% 60px;
+        padding: 90px 5% 80px;
         align-items: center;
         text-align: center;
+        overflow-x: hidden;
+        overflow-y: visible;
+        min-height: auto;
       }
       .hero-logo-wrap {
         position: static !important;
