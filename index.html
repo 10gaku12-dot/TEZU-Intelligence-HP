@@ -308,6 +308,13 @@
       border-radius: 2px;
     }
     .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,229,255,0.15); }
+    /* ヒーロー内の無料相談ボタンをLINE緑に */
+    .btn-line {
+      background: #06c755 !important;
+      color: #fff !important;
+      border-color: #06c755 !important;
+    }
+    .btn-line:hover { background: #05b34c !important; border-color: #05b34c !important; color: #fff !important; }
 
     /* 統計 */
     .hero-stats {
@@ -987,12 +994,15 @@
 
       /* ヒーロー：モバイルはoverflow-hiddenを解除してボタンを確実に表示 */
       #hero {
-        padding: 90px 5% 80px;
+        padding: 90px 5% 100px;
         align-items: center;
         text-align: center;
         overflow-x: hidden;
         overflow-y: visible;
-        min-height: auto;
+        min-height: 100vh;
+        min-height: 100svh;
+        position: relative;
+        z-index: 1;
       }
       .hero-logo-wrap {
         position: static !important;
@@ -1298,7 +1308,7 @@
       </div>
       <div class="hero-buttons">
         <a href="#demo" class="btn-primary">御社に使えるAIを無料で確認する</a>
-        <a href="#cta" class="btn-outline">30分の無料相談を予約する</a>
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="btn-outline btn-line" target="_blank" rel="noopener">30分の無料相談を予約する</a>
       </div>
     </div>
 
