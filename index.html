@@ -118,7 +118,7 @@
 
     /* 背景グラデーション */
     .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background:
         radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,229,255,0.04) 0%, transparent 60%),
         radial-gradient(ellipse 50% 60% at 80% 70%, rgba(214,164,81,0.06) 0%, transparent 60%),
@@ -128,7 +128,7 @@
 
     /* サイバーグリッド背景 */
     .hero-grid {
-      position: absolute; inset: 0; z-index: 0;
+      position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background-image:
         linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
@@ -268,7 +268,7 @@
     }
     @keyframes blink { 50% { opacity: 0; } }
 
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; position: relative; z-index: 5; }
     .btn-primary {
       background: var(--gold);
       color: var(--black);
@@ -357,7 +357,7 @@
     .hero-chara .chara-img { width: 210px; }
 
     /* ─── SECTION BASE ─── */
-    section { padding: 108px 7%; position: relative; }
+    section { padding: 108px 7%; position: relative; scroll-margin-top: 64px; }
     .section-inner { max-width: 1160px; margin: 0 auto; }
 
     .section-label {
@@ -1294,7 +1294,7 @@
         <span id="typing-text"></span><span class="cursor-blink"></span>
       </div>
       <div class="hero-buttons">
-        <a href="#cta" class="btn-primary">御社に使えるAIを無料で確認する</a>
+        <a href="#demo" class="btn-primary">御社に使えるAIを無料で確認する</a>
         <a href="#cta" class="btn-outline">30分の無料相談を予約する</a>
       </div>
     </div>
