@@ -1045,6 +1045,22 @@
         grid-template-columns: 1fr !important;
       }
       .process-steps { grid-template-columns: 1fr; }
+
+      /* チャットウィジェットをヒーローボタンと重ならない位置に */
+      .chat-widget { bottom: 12px !important; right: 12px !important; }
+      .chat-btn { width: 50px !important; height: 50px !important; font-size: 22px !important; }
+
+      /* ヒーローボタンをフル幅にしてタップしやすく */
+      .hero-buttons { flex-direction: column; gap: 12px; }
+      .hero-buttons .btn-primary,
+      .hero-buttons .btn-line {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 16px 20px !important;
+        font-size: 15px !important;
+        min-height: 52px;
+      }
     }
 
     /* ─── AIチャットボット ─── */
@@ -1308,7 +1324,7 @@
       </div>
       <div class="hero-buttons">
         <a href="#demo" class="btn-primary">御社に使えるAIを無料で確認する</a>
-        <a href="https://line.me/ti/p/itU8jz37Ut" class="btn-outline btn-line" target="_blank" rel="noopener">30分の無料相談を予約する</a>
+        <a href="#cta" class="btn-outline btn-line">30分の無料相談を予約する</a>
       </div>
     </div>
 
