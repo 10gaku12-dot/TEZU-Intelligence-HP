@@ -1068,7 +1068,7 @@
       }
       .hero-badge   { order: 1; }
       .hero-title   { order: 2; }
-      .hero-buttons { order: 3; justify-content: center; align-items: center; flex-direction: column; gap: 12px; width: 100%; }
+      .hero-buttons { order: 3; flex-direction: column; align-items: stretch; gap: 12px; width: 90%; max-width: 320px; margin-left: auto; margin-right: auto; }
       .hero-desc    { order: 4; }
       .hero-title-sub { order: 5; }
       .hero-subdesc { order: 6; }
@@ -1106,15 +1106,15 @@
       /* ヒーローボタン共通 */
       .hero-buttons .btn-primary,
       .hero-buttons .btn-outline {
-        width: 80vw;
-        max-width: 300px;
+        display: block !important;
+        width: 100% !important;
         text-align: center;
         box-sizing: border-box;
         padding: 16px 20px !important;
         font-size: 15px !important;
         min-height: 52px;
-        display: block;
         touch-action: manipulation;
+        pointer-events: auto !important;
       }
     }
 
