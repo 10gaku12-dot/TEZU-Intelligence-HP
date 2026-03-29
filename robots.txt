@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tezu-intelligence-hp.vercel.app/sitemap.xml
