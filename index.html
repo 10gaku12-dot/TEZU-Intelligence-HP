@@ -1668,6 +1668,46 @@
       margin-top: 12px;
       letter-spacing: 0.05em;
     }
+    .demo-cta-note-top {
+      font-size: 13px; color: var(--gray-light); line-height: 1.8;
+      margin-bottom: 20px; padding: 14px 16px;
+      background: rgba(214,164,81,0.06); border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+    /* ローディング */
+    .demo-loading-wrap {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 60px 24px; gap: 20px;
+    }
+    .demo-loading-spinner {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 4px solid rgba(214,164,81,0.2);
+      border-top-color: var(--gold);
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .demo-loading-txt { text-align: center; color: var(--gray-light); font-size: 14px; line-height: 1.8; }
+    /* エラー表示 */
+    .demo-error-box {
+      margin: 20px 0; padding: 20px 24px;
+      background: rgba(224,85,85,0.08); border: 1px solid rgba(224,85,85,0.3);
+      border-radius: 12px; color: #f08080; font-size: 14px; line-height: 1.8;
+    }
+    /* 最優先AI */
+    .demo-priority-box {
+      padding: 18px 24px;
+    }
+    .demo-priority-title {
+      font-size: 16px; font-weight: 800; color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .demo-priority-reason {
+      font-size: 13px; color: var(--gray-light); line-height: 1.8;
+    }
+    /* サマリー */
+    .demo-result-impact {
+      font-size: 14px; color: var(--cyan); margin-bottom: 4px; font-weight: 600;
+    }
     @media (max-width: 900px) {
       .demo-form-grid { grid-template-columns: 1fr; }
       .demo-form-card { padding: 28px 24px; }
@@ -1682,6 +1722,152 @@
 
   <script>
   (function(){
+
+    /* ── ローディング表示 ── */
+    function showLoading() {
+      document.getElementById('demoRunBtn').disabled = true;
+      document.getElementById('demoRunBtn').textContent = '⏳ AIが分析中です...';
+      var r = document.getElementById('demoResult');
+      r.style.display = 'block';
+      r.innerHTML = '<div class="demo-loading-wrap"><div class="demo-loading-spinner"></div><p class="demo-loading-txt">AIが御社向けの提案を作成しています...<br><small>通常10〜20秒かかります</small></p></div>';
+      setTimeout(function(){ r.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+    }
+
+    function hideLoading() {
+      document.getElementById('demoRunBtn').disabled = false;
+      document.getElementById('demoRunBtn').textContent = '🤖 御社のAI活用を確認する';
+    }
+
+    /* ── 星評価HTML生成 ── */
+    function stars(n) {
+      return '<span class="dson">★</span>'.repeat(n) + '<span class="dsoff">★</span>'.repeat(5 - n);
+    }
+
+    /* ── API結果を画面に描画 ── */
+    function renderResult(company, industry, task, d) {
+      var r = document.getElementById('demoResult');
+
+      var scoreKeys = ['営業','事務','採用','マーケティング','顧客対応'];
+      var scoresHtml = scoreKeys.map(function(key) {
+        var s = d.diagnosis[key] || { score: 3, note: '' };
+        return '<div class="demo-score-row">'
+          + '<div class="demo-score-lbl">' + key + '</div>'
+          + '<div class="demo-stars">' + stars(s.score) + '</div>'
+          + '<div class="demo-score-note">' + s.note + '</div>'
+          + '</div>';
+      }).join('');
+
+      var ideasHtml = (d.ideas || []).map(function(idea, i) {
+        return '<li class="demo-idea-item">'
+          + '<div class="demo-idea-num">' + (i+1) + '</div>'
+          + '<div><div class="demo-idea-ttl">' + idea.title + '</div>'
+          + '<div class="demo-idea-desc">' + idea.desc + '</div></div>'
+          + '</li>';
+      }).join('');
+
+      var mailText = '件名：' + (d.sales_email.subject || '') + '\n\n' + (d.sales_email.body || '')
+        + '\n\n━━━━━━━━━━━━━━━━━━\n株式会社TEZU Intelligence\n代表　手塚 岳人\nLINE：https://line.me/ti/p/itU8jz37Ut\n━━━━━━━━━━━━━━━━━━';
+
+      var eff = d.effect || {};
+      var effectHtml =
+        '<div class="demo-effect-box demo-effect-good"><div class="demo-effect-lbl">✅ AI導入後の削減時間</div><div class="demo-effect-val">' + (eff.time_saved||'') + '</div><div class="demo-effect-unit">推計ベース</div></div>'
+        + '<div class="demo-effect-box demo-effect-good"><div class="demo-effect-lbl">✅ 年間コスト削減（推計）</div><div class="demo-effect-val">' + (eff.cost_saved||'') + '</div><div class="demo-effect-unit">人件費換算ベース</div></div>'
+        + '<div class="demo-effect-box demo-effect-loss"><div class="demo-effect-lbl">⚠️ このままだと続く機会損失</div><div class="demo-effect-val">' + (eff.loss||'月5〜10万円相当') + '</div><div class="demo-effect-unit">放置するほど差が開きます</div></div>';
+
+      r.innerHTML =
+        '<div class="demo-result-header">'
+          + '<p class="demo-result-badge">AI DIAGNOSIS RESULT</p>'
+          + '<p class="demo-result-company">' + company + ' 様</p>'
+          + '<p class="demo-result-impact">' + (d.summary||'') + '</p>'
+          + '<p class="demo-result-meta">業種：' + industry + '　／　相談業務：' + task + '</p>'
+        + '</div>'
+        + '<div class="demo-res-card">'
+          + '<div class="demo-res-card-hd"><span>🎯</span><span>最優先で導入すべきAI</span></div>'
+          + '<div class="demo-priority-box">'
+            + '<div class="demo-priority-title">' + (d.priority_ai&&d.priority_ai.title||'') + '</div>'
+            + '<div class="demo-priority-reason">' + (d.priority_ai&&d.priority_ai.reason||'') + '</div>'
+          + '</div>'
+        + '</div>'
+        + '<div class="demo-res-card">'
+          + '<div class="demo-res-card-hd"><span>📊</span><span>御社向けAI業務診断</span></div>'
+          + '<div class="demo-score-table">' + scoresHtml + '</div>'
+        + '</div>'
+        + '<div class="demo-res-card">'
+          + '<div class="demo-res-card-hd"><span>💡</span><span>御社向けAI活用アイデア</span></div>'
+          + '<ul class="demo-idea-list">' + ideasHtml + '</ul>'
+        + '</div>'
+        + '<div class="demo-res-card">'
+          + '<div class="demo-res-card-hd"><span>✉️</span><span>営業メールサンプル</span></div>'
+          + '<div class="demo-mail-box" id="demoMailBox">' + mailText + '</div>'
+          + '<button class="demo-copy-btn" id="demoCopyBtn">コピーする</button>'
+        + '</div>'
+        + '<div class="demo-res-card">'
+          + '<div class="demo-res-card-hd"><span>📈</span><span>AI導入効果（予測）</span></div>'
+          + '<div class="demo-effect-grid">' + effectHtml + '</div>'
+        + '</div>'
+        + '<div class="demo-cta">'
+          + '<p class="demo-cta-note-top">多くの経営者が「もっと早く導入すればよかった」とおっしゃいます。<br>まず1つの業務からでも十分効果が出ます。</p>'
+          + '<p class="demo-cta-ttl">この診断結果を、もっと深掘りしませんか？</p>'
+          + '<p class="demo-cta-sub">30分の無料相談で「どの業務をどう変えるか」を具体的にお伝えします。</p>'
+          + '<a href="https://line.me/ti/p/itU8jz37Ut" class="demo-cta-btn" target="_blank">30分の無料相談を予約する</a>'
+          + '<p class="demo-cta-note">※無理な営業は一切ありません</p>'
+        + '</div>';
+
+      /* コピーボタン */
+      document.getElementById('demoCopyBtn').addEventListener('click', function() {
+        var btn = this;
+        navigator.clipboard.writeText(document.getElementById('demoMailBox').textContent).then(function() {
+          btn.textContent = '✅ コピーしました';
+          setTimeout(function(){ btn.textContent = 'コピーする'; }, 2000);
+        });
+      });
+
+      r.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ── 診断ボタン ── */
+    document.getElementById('demoRunBtn').addEventListener('click', function() {
+      var company  = document.getElementById('demoCompany').value.trim();
+      var industry = document.getElementById('demoIndustry').value;
+      var task     = document.getElementById('demoTask').value;
+      var ok = true;
+
+      [['demoCompany','errCompany'],['demoIndustry','errIndustry'],['demoTask','errTask']].forEach(function(pair) {
+        var el = document.getElementById(pair[0]);
+        var err = document.getElementById(pair[1]);
+        var empty = !el.value.trim();
+        el.classList.toggle('demo-input-err', empty);
+        err.classList.toggle('show', empty);
+        if (empty) ok = false;
+      });
+      if (!ok) return;
+
+      showLoading();
+
+      fetch('/api/demo', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ company: company, industry: industry, task: task })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        hideLoading();
+        if (data.error) {
+          document.getElementById('demoResult').innerHTML =
+            '<div class="demo-error-box">⚠️ ' + data.error + '</div>';
+          return;
+        }
+        renderResult(company, industry, task, data);
+      })
+      .catch(function(err) {
+        hideLoading();
+        document.getElementById('demoResult').innerHTML =
+          '<div class="demo-error-box">⚠️ 通信エラーが発生しました。しばらくしてから再度お試しください。</div>';
+        console.error(err);
+      });
+    });
+
+    /* ── 以下は旧ダミーデータ（削除済み・コードは不使用） ── */
     var DATA = {
       '製造業': {
         impact: '御社の「事務・日報・見積」業務は、今すぐAIで自動化できます。',
