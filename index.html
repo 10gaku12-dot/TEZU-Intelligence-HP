@@ -1036,13 +1036,13 @@
       #nav-logo { width: 28px !important; height: 28px !important; }
       #nav-links { gap: 8px !important; }
 
-      /* ヒーロー：スタッキングコンテキストを作らず自然なレイアウト */
+      /* ヒーロー：overflow:hiddenを除去してボタンのクリップを防ぐ */
       #hero {
         padding: 80px 5% 60px;
         align-items: center;
         text-align: center;
         justify-content: flex-start;
-        overflow: hidden;
+        overflow: visible;
         min-height: auto;
         position: relative;
       }
@@ -1127,6 +1127,9 @@
       /* チャットウィジェットをヒーローボタンと重ならない位置に */
       .chat-widget { bottom: 12px !important; right: 12px !important; }
       .chat-btn { width: 50px !important; height: 50px !important; font-size: 22px !important; }
+
+      /* 最下部CTAのLINEボタンがチャットウィジェット（固定50px+12px=62px）に隠れないよう余白確保 */
+      #cta, #cta-mid { padding-bottom: 100px !important; }
 
       /* ヒーローボタン共通: display:flexで確実にタップ領域全体を有効化 */
       .hero-buttons .btn-primary,
