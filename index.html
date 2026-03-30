@@ -1398,7 +1398,7 @@
 
     <!-- メインコンテンツ -->
     <div class="hero-content">
-      <div class="hero-badge">中小企業向け AI導入支援</div>
+      <div class="hero-badge">製造業・飲食業など 中小企業向けAI導入支援</div>
       <h1 class="hero-title">
         <em><span style="white-space:nowrap">その作業、本当に</span><span style="white-space:nowrap">人がやる必要ありますか？</span></em>
       </h1>
@@ -1418,7 +1418,7 @@
       </div>
       <div class="hero-buttons">
         <a href="#demo" class="btn-primary">3分でAI活用を無料診断する</a>
-        <a href="#cta" class="btn-outline btn-line">30分の無料相談を予約する</a>
+        <a href="#cta" class="btn-outline btn-line">まずは話だけ聞いてみる（30分無料）</a>
       </div>
     </div>
 
@@ -1490,6 +1490,7 @@
           <p class="demo-impact-company" id="demoResultCompany"></p>
           <p class="demo-impact-msg" id="demoImpactMsg"></p>
           <p class="demo-result-meta" id="demoResultMeta"></p>
+          <p class="demo-impact-savings" id="demoImpactSavings"></p>
         </div>
 
         <!-- 最優先AI -->
@@ -1628,6 +1629,17 @@
       color: var(--gold-light); line-height: 1.7; margin-bottom: 8px;
     }
     .demo-result-meta { font-size: 12px; color: var(--gray); }
+    .demo-impact-savings {
+      margin-top: 12px;
+      font-size: clamp(13px, 2vw, 15px);
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(214,164,81,0.08);
+      border: 1px solid rgba(214,164,81,0.3);
+      border-radius: 8px;
+      padding: 8px 16px;
+      display: inline-block;
+    }
 
     /* 最優先AIカード */
     .demo-priority-card {
@@ -1863,6 +1875,7 @@
           + '<p class="demo-result-company">' + company + ' 様</p>'
           + '<p class="demo-result-impact">' + (d.summary||'') + '</p>'
           + '<p class="demo-result-meta">業種：' + industry + '　／　相談業務：' + task + '</p>'
+          + '<p class="demo-impact-savings">' + (eff.time_saved ? 'この業務は' + eff.time_saved + '削減可能 ／ ' + (eff.cost_saved||'') + 'のコスト削減が見込めます' : '') + '</p>'
         + '</div>'
         + '<div class="demo-res-card">'
           + '<div class="demo-res-card-hd"><span>🎯</span><span>最優先で導入すべきAI</span></div>'
@@ -2064,6 +2077,7 @@
       document.getElementById('demoResultCompany').textContent = company + ' 様';
       document.getElementById('demoImpactMsg').textContent = d.impact;
       document.getElementById('demoResultMeta').textContent = '業種：' + industry + '　／　相談業務：' + task;
+      document.getElementById('demoImpactSavings').textContent = 'この業務は' + d.time + '削減可能 ／ 年間' + d.cost.replace('年間','') + 'のコスト削減が見込めます';
 
       // 最優先AI
       document.getElementById('demoPriorityTitle').textContent = d.priority.title;
