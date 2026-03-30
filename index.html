@@ -1498,6 +1498,7 @@
           <div class="demo-priority-label">🚀 最優先で導入すべきAI</div>
           <p class="demo-priority-title" id="demoPriorityTitle"></p>
           <p class="demo-priority-reason" id="demoPriorityReason"></p>
+          <p class="demo-priority-judgment">👉 御社はこの業務から導入すべきです</p>
         </div>
 
         <!-- ①業務診断 -->
@@ -1531,6 +1532,7 @@
           <p class="demo-cta-push">多くの経営者が「もっと早く始めればよかった」とおっしゃいます。<br>まず1つの業務からでも、十分な効果が出ます。</p>
           <p class="demo-cta-ttl">御社はこの業務から始めるべきです。<br>一緒に、最初の一歩を踏み出しませんか？</p>
           <p class="demo-cta-sub">30分の無料相談で「どの業務をどう変えるか」を具体的にお伝えします。<br>難しい話は一切なし。現場ですぐ使える形でご提案します。</p>
+          <p class="demo-cta-closing">まずはこの業務から、小さく始めるのが最も効果的です。</p>
           <a href="https://line.me/ti/p/itU8jz37Ut" class="demo-cta-btn" target="_blank">30分の無料相談を予約する（無料）</a>
           <p class="demo-cta-note">※無理な営業・押し売りは一切ありません。まずはお話だけでも大歓迎です。</p>
         </div>
@@ -1629,6 +1631,20 @@
       color: var(--gold-light); line-height: 1.7; margin-bottom: 8px;
     }
     .demo-result-meta { font-size: 12px; color: var(--gray); }
+    .demo-priority-judgment {
+      margin-top: 14px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+    .demo-cta-closing {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
     .demo-impact-savings {
       margin-top: 12px;
       font-size: clamp(13px, 2vw, 15px);
@@ -1991,6 +2007,7 @@
           '顧客対応':'よくある問い合わせへのFAQ整備と自動返信'
         },
         time: '月20〜40時間', cost: '年間60〜150万円',
+        timeSpecific: '月25時間', costSpecific: '約75万円',
         loss: { time: '月20〜40時間', cost: '年間60〜150万円' }
       },
       '飲食業': {
@@ -2019,6 +2036,7 @@
           '顧客対応':'クチコミ返信・予約対応・お問い合わせ自動化'
         },
         time: '月15〜35時間', cost: '年間40〜120万円',
+        timeSpecific: '月20時間', costSpecific: '約50万円',
         loss: { time: '月15〜35時間', cost: '年間40〜120万円' }
       },
       'その他': {
@@ -2047,6 +2065,7 @@
           '顧客対応':'FAQ整備・チャットボット・問い合わせ自動化'
         },
         time: '月10〜30時間', cost: '年間30〜100万円',
+        timeSpecific: '月15時間', costSpecific: '約40万円',
         loss: { time: '月10〜30時間', cost: '年間30〜100万円' }
       }
     };
@@ -2077,7 +2096,7 @@
       document.getElementById('demoResultCompany').textContent = company + ' 様';
       document.getElementById('demoImpactMsg').textContent = d.impact;
       document.getElementById('demoResultMeta').textContent = '業種：' + industry + '　／　相談業務：' + task;
-      document.getElementById('demoImpactSavings').textContent = 'この業務は' + d.time + '削減可能 ／ 年間' + d.cost.replace('年間','') + 'のコスト削減が見込めます';
+      document.getElementById('demoImpactSavings').textContent = 'この業務は' + d.timeSpecific + '削減可能です（想定） ／ 年間' + d.costSpecific + 'のコスト削減';
 
       // 最優先AI
       document.getElementById('demoPriorityTitle').textContent = d.priority.title;
@@ -2110,7 +2129,7 @@
         + 'AI導入支援を専門とする、株式会社TEZU Intelligence の手塚と申します。\n\n'
         + company + '様のような' + industry + 'では、\n'
         + '「' + taskMsg + '」にAIを活用することで、\n'
-        + '月に20〜40時間の業務削減が見込めるケースが多くあります。\n\n'
+        + d.timeSpecific + 'の業務削減が可能です（業種平均・想定）。\n\n'
         + '難しいシステム開発は一切不要で、\n'
         + 'ChatGPTなどの既存ツールを使いこなす形でご支援いたします。\n\n'
         + 'まずは30分の無料相談で、御社の現状をお聞かせいただけますか？\n'
