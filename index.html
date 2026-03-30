@@ -1160,6 +1160,13 @@
       flex-direction: column;
       align-items: flex-end;
       gap: 14px;
+      /* コンテナ自体はポインターイベントを無効化し、子要素のみ有効にする */
+      pointer-events: none;
+    }
+    /* チャットウィンドウ（開いた時）・ボタンは操作可能にする */
+    .chat-btn-wrap,
+    .chat-window.open {
+      pointer-events: auto;
     }
     .chat-btn {
       width: 62px;
