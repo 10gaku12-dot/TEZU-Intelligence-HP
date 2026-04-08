@@ -1395,9 +1395,12 @@
       flex: 1;
       overflow: hidden;
       height: 46px;
+      display: block;
     }
-    .fin-tv-container .tradingview-widget-container__widget {
-      height: 46px;
+    .fin-tv-container iframe {
+      height: 46px !important;
+      width: 100% !important;
+      border: none !important;
     }
   </style>
 </head>
@@ -1423,7 +1426,7 @@
   <!-- ─── 金融マーケットティッカー（TradingViewウィジェット） ─── -->
   <div class="fin-ticker-wrap">
     <div class="fin-ticker-badge">MARKET</div>
-    <div class="fin-tv-container">
+    <div class="tradingview-widget-container fin-tv-container">
       <div class="tradingview-widget-container__widget"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
       {
