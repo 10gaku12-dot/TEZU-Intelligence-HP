@@ -1450,6 +1450,7 @@
   </div>
   <script>
   (function() {
+    /* Yahoo Finance v8 を使用（v7は認証必須のため） */
     var SYMBOLS = ['^N225', '^DJI', 'USDJPY=X', 'GC=F'];
     var LABELS  = { '^N225':'日経225', '^DJI':'NYダウ', 'USDJPY=X':'ドル円', 'GC=F':'金($/oz)' };
     var DECS    = { '^N225':0, '^DJI':0, 'USDJPY=X':2, 'GC=F':1 };
@@ -1458,36 +1459,46 @@
       return v.toLocaleString('ja-JP', { minimumFractionDigits: d, maximumFractionDigits: d });
     }
 
+    /* 1シンボルをv8で取得 */
+    function fetchOne(sym) {
+      var url = 'https://query1.finance.yahoo.com/v8/finance/chart/'
+                + encodeURIComponent(sym) + '?interval=1d&range=1d';
+      var proxy = 'https://corsproxy.io/?' + encodeURIComponent(url);
+      return fetch(proxy)
+        .then(function(r) { return r.json(); })
+        .then(function(j) {
+          var meta = j.chart && j.chart.result && j.chart.result[0] && j.chart.result[0].meta;
+          if (!meta) return null;
+          var price = meta.regularMarketPrice;
+          var prev  = meta.chartPreviousClose || meta.previousClose;
+          var chg   = prev ? (price - prev) / prev * 100 : 0;
+          return { symbol: sym, price: price, chg: chg };
+        })
+        .catch(function() { return null; });
+    }
+
     function buildHtml(quotes) {
-      return quotes.map(function(q) {
+      return quotes.filter(Boolean).map(function(q) {
         var lbl   = LABELS[q.symbol] || q.symbol;
         var dec   = DECS[q.symbol]   !== undefined ? DECS[q.symbol] : 2;
-        var price = q.regularMarketPrice;
-        var chg   = q.regularMarketChangePercent;
-        var cls   = chg > 0 ? 'up' : chg < 0 ? 'dn' : 'flat';
-        var arrow = chg > 0 ? '▲' : chg < 0 ? '▼' : '－';
+        var cls   = q.chg > 0 ? 'up' : q.chg < 0 ? 'dn' : 'flat';
+        var arrow = q.chg > 0 ? '▲' : q.chg < 0 ? '▼' : '－';
         return '<span class="fin-item">'
           + '<span class="fin-name">' + lbl + '</span>'
-          + '<span class="fin-val">'  + fmt(price, dec) + '</span>'
-          + '<span class="fin-chg ' + cls + '">' + arrow + ' ' + Math.abs(chg).toFixed(2) + '%</span>'
+          + '<span class="fin-val">'  + fmt(q.price, dec) + '</span>'
+          + '<span class="fin-chg ' + cls + '">' + arrow + ' ' + Math.abs(q.chg).toFixed(2) + '%</span>'
           + '</span>';
       }).join('');
     }
 
     function update() {
-      var yUrl = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols='
-                 + encodeURIComponent(SYMBOLS.join(','));
-      var proxy = 'https://corsproxy.io/?' + encodeURIComponent(yUrl);
-      fetch(proxy)
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          var quotes = data.quoteResponse && data.quoteResponse.result;
-          if (!quotes || !quotes.length) return;
+      Promise.all(SYMBOLS.map(fetchOne))
+        .then(function(quotes) {
           var html = buildHtml(quotes);
+          if (!html) return;
           var el = document.getElementById('finTickerTrack');
           if (el) el.innerHTML = html + html; /* 2周分でループ */
-        })
-        .catch(function(e) { console.warn('マーケットデータ取得失敗:', e); });
+        });
     }
 
     update();
