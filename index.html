@@ -1657,6 +1657,42 @@
           <div class="demo-effect-grid" id="demoEffectGrid"></div>
         </div>
 
+        <!-- ⑤ 経営者向け刺さるメッセージ -->
+        <div class="demo-insight-wrap">
+          <div class="demo-insight-title">✦ 経営者に知ってほしい、AIの本当の価値 ✦</div>
+
+          <div class="demo-insight-item">
+            <div class="demo-insight-tag">🔍 気づき</div>
+            <div class="demo-insight-text">
+              「AI導入の価値は<em>"人件費削減"</em>ではありません。<br>
+              削減された時間で<em>"売上を生む行動に集中できること"</em>です。」
+            </div>
+          </div>
+
+          <div class="demo-insight-item demo-insight-question">
+            <div class="demo-insight-tag">💭 自問してみてください</div>
+            <div class="demo-insight-text">
+              「今やっているその作業、<br>
+              本来<em>"あなたがやるべき仕事"</em>ですか？」
+            </div>
+          </div>
+
+          <div class="demo-insight-item">
+            <div class="demo-insight-tag">💡 本質</div>
+            <div class="demo-insight-text">
+              「AIはコスト削減ツールではなく、<br>
+              <em>"利益を生む時間を作るツール"</em>です。」
+            </div>
+          </div>
+
+          <div class="demo-insight-item">
+            <div class="demo-insight-tag">📊 数字で考えてみてください</div>
+            <div class="demo-insight-text">1日1時間の削減でも、年間で</div>
+            <div class="demo-insight-big-num">約300時間</div>
+            <div class="demo-insight-text">その時間を営業・改善・戦略に使えたら、<br><em>売上はどう変わりますか？</em></div>
+          </div>
+        </div>
+
         <!-- CTA -->
         <div class="demo-cta">
           <p class="demo-cta-urgency">⏱ AI導入は、早く始めた企業ほど効果が出やすいです。</p>
@@ -1915,6 +1951,83 @@
       color: var(--gold-light); line-height: 1.1; margin-bottom: 4px;
     }
     .demo-effect-unit { font-size: 11px; color: var(--gray); }
+    /* ── 経営者向けインサイトセクション ── */
+    .demo-insight-wrap {
+      background: #030305;
+      border: 1px solid rgba(214,164,81,0.22);
+      border-radius: 16px;
+      padding: 28px 24px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-insight-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(214,164,81,0.8), transparent);
+    }
+    .demo-insight-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(214,164,81,0.65);
+      letter-spacing: 3px;
+      text-align: center;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+    .demo-insight-item {
+      border-left: 3px solid rgba(214,164,81,0.45);
+      padding: 15px 18px;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,0.025);
+      border-radius: 0 10px 10px 0;
+      transition: border-color 0.2s;
+    }
+    .demo-insight-item:last-child { margin-bottom: 0; }
+    .demo-insight-item:hover { border-color: var(--gold); }
+    .demo-insight-question {
+      border-left-color: rgba(0,229,255,0.5);
+      background: rgba(0,229,255,0.03);
+    }
+    .demo-insight-question:hover { border-color: var(--cyan); }
+    .demo-insight-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    .demo-insight-question .demo-insight-tag { color: var(--cyan); }
+    .demo-insight-text {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--white);
+      line-height: 1.9;
+      font-weight: 500;
+    }
+    .demo-insight-text em {
+      color: var(--gold);
+      font-style: normal;
+      font-weight: 800;
+    }
+    .demo-insight-question .demo-insight-text em { color: var(--cyan); }
+    .demo-insight-big-num {
+      font-size: clamp(36px, 7vw, 52px);
+      font-weight: 900;
+      color: var(--gold);
+      display: block;
+      text-align: center;
+      line-height: 1;
+      text-shadow: 0 0 28px rgba(214,164,81,0.55);
+      margin: 12px 0 10px;
+      letter-spacing: -1px;
+    }
+    @media (max-width: 600px) {
+      .demo-insight-wrap { padding: 22px 16px; }
+      .demo-insight-item { padding: 13px 14px; }
+    }
+
     .demo-cta {
       text-align: center; padding: 36px 32px;
       background: rgba(214,164,81,0.05);
@@ -2092,6 +2205,13 @@
         + '<div class="demo-res-card">'
           + '<div class="demo-res-card-hd"><span>📈</span><span>AI導入効果（予測）</span></div>'
           + '<div class="demo-effect-grid">' + effectHtml + '</div>'
+        + '</div>'
+        + '<div class="demo-insight-wrap">'
+          + '<div class="demo-insight-title">✦ 経営者に知ってほしい、AIの本当の価値 ✦</div>'
+          + '<div class="demo-insight-item"><div class="demo-insight-tag">🔍 気づき</div><div class="demo-insight-text">「AI導入の価値は<em>"人件費削減"</em>ではありません。<br>削減された時間で<em>"売上を生む行動に集中できること"</em>です。」</div></div>'
+          + '<div class="demo-insight-item demo-insight-question"><div class="demo-insight-tag">💭 自問してみてください</div><div class="demo-insight-text">「今やっているその作業、<br>本来<em>"あなたがやるべき仕事"</em>ですか？」</div></div>'
+          + '<div class="demo-insight-item"><div class="demo-insight-tag">💡 本質</div><div class="demo-insight-text">「AIはコスト削減ツールではなく、<br><em>"利益を生む時間を作るツール"</em>です。」</div></div>'
+          + '<div class="demo-insight-item"><div class="demo-insight-tag">📊 数字で考えてみてください</div><div class="demo-insight-text">1日1時間の削減でも、年間で</div><div class="demo-insight-big-num">約300時間</div><div class="demo-insight-text">その時間を営業・改善・戦略に使えたら、<br><em>売上はどう変わりますか？</em></div></div>'
         + '</div>'
         + '<div class="demo-cta">'
           + '<p class="demo-cta-note-top">多くの経営者が「もっと早く導入すればよかった」とおっしゃいます。<br>まず1つの業務からでも十分効果が出ます。</p>'
