@@ -57,7 +57,7 @@ export default async function handler(req, res) {
   },
   "effect": {
     "time_saved": "月XX〜XX時間",
-    "cost_saved": "年間XX〜XX万円",
+    "cost_saved": "XX〜XX万円",
     "loss": "現状維持の場合の月間機会損失（例：月5〜10万円相当）"
   }
 }
@@ -70,6 +70,9 @@ export default async function handler(req, res) {
 - 経営者が読んでわかりやすい言葉で書く（専門用語不使用）
 - scoreは業種と相談業務に応じてリアルな数値にする（全部5にしない）
 - 大げさすぎず信頼感のある表現にする
+- cost_savedの計算は「削減時間×3,000円/時（日本企業の標準的な人件費時間コスト）×12ヶ月」で算出すること
+  例：月20時間削減なら 20×3,000×12＝72万円 → "60〜80万円" のように範囲で表記
+- cost_savedには「年間」という文字を含めないこと（数値と万円のみ）
 - JSONのみ返す（前後に余分なテキスト不要）`;
 
   try {
