@@ -1103,7 +1103,7 @@
 
       /* ヒーロー：overflow:hiddenを除去してボタンのクリップを防ぐ */
       #hero {
-        padding: 160px 5% 60px; /* nav56px+ticker90px+余白14px */
+        padding: 120px 5% 60px; /* nav+ticker分 */
         align-items: center;
         text-align: center;
         justify-content: flex-start;
@@ -1426,16 +1426,16 @@
       .chat-widget { bottom: 16px; right: 16px; }
     }
 
-    /* ─── 金融マーケットティッカー（デスクトップ） ─── */
+    /* ─── 金融マーケットティッカー ─── */
     .fin-ticker-wrap {
       background: #050507;
       border-bottom: 1px solid rgba(214,164,81,0.3);
       display: flex;
-      align-items: stretch;   /* stretchのまま：全子要素を同じ高さに揃える */
+      align-items: stretch;
       height: 46px;
       overflow: hidden;
       position: fixed;
-      top: 64px;
+      top: 64px; /* ナビの高さ分下にずらす */
       left: 0;
       right: 0;
       z-index: 999;
@@ -1463,25 +1463,6 @@
       height: 46px !important;
       width: 100% !important;
       border: none !important;
-    }
-    /* ── スマホ：2行adaptiveレイアウトを90pxで全表示 ── */
-    @media (max-width: 600px) {
-      .fin-ticker-wrap {
-        height: 90px !important;   /* 2行分（約80px）＋余白 */
-        overflow: hidden !important;
-        top: 56px !important;      /* モバイルnav=56pxに合わせる */
-        align-items: stretch !important;
-      }
-      .fin-tv-container {
-        height: 90px !important;
-        overflow: visible !important;  /* コンテナは見切れOK */
-      }
-      .fin-tv-container iframe,
-      .tradingview-widget-container iframe {
-        height: 90px !important;
-        min-height: 90px !important;
-        max-height: none !important;
-      }
     }
   </style>
 </head>
@@ -1657,7 +1638,26 @@
           <div class="demo-score-table" id="demoScoreTable"></div>
         </div>
 
-        <!-- ⑤ 経営者向け刺さるメッセージ（スコアテーブル直後） -->
+        <!-- ②活用アイデア -->
+        <div class="demo-res-card">
+          <div class="demo-res-card-hd"><span>💡</span><span>御社で今すぐ使えるAI活用3選</span></div>
+          <ul class="demo-idea-list" id="demoIdeaList"></ul>
+        </div>
+
+        <!-- ③営業メール -->
+        <div class="demo-res-card">
+          <div class="demo-res-card-hd"><span>✉️</span><span>営業メールサンプル（そのままコピーして使えます）</span></div>
+          <div class="demo-mail-box" id="demoMailBox"></div>
+          <button class="demo-copy-btn" id="demoCopyBtn">📋 コピーする</button>
+        </div>
+
+        <!-- ④導入効果 -->
+        <div class="demo-res-card">
+          <div class="demo-res-card-hd"><span>📈</span><span>導入した場合の効果（概算）vs このままの損失</span></div>
+          <div class="demo-effect-grid" id="demoEffectGrid"></div>
+        </div>
+
+        <!-- ⑤ 経営者向け刺さるメッセージ -->
         <div class="demo-insight-wrap">
           <div class="demo-insight-title">✦ 経営者に知ってほしい、AIの本当の価値 ✦</div>
 
@@ -1691,25 +1691,6 @@
             <div class="demo-insight-big-num">約300時間</div>
             <div class="demo-insight-text">その時間を営業・改善・戦略に使えたら、<br><em>売上はどう変わりますか？</em></div>
           </div>
-        </div>
-
-        <!-- ②活用アイデア -->
-        <div class="demo-res-card">
-          <div class="demo-res-card-hd"><span>💡</span><span>御社で今すぐ使えるAI活用3選</span></div>
-          <ul class="demo-idea-list" id="demoIdeaList"></ul>
-        </div>
-
-        <!-- ③営業メール -->
-        <div class="demo-res-card">
-          <div class="demo-res-card-hd"><span>✉️</span><span>営業メールサンプル（そのままコピーして使えます）</span></div>
-          <div class="demo-mail-box" id="demoMailBox"></div>
-          <button class="demo-copy-btn" id="demoCopyBtn">📋 コピーする</button>
-        </div>
-
-        <!-- ④導入効果 -->
-        <div class="demo-res-card">
-          <div class="demo-res-card-hd"><span>📈</span><span>導入した場合の効果（概算）vs このままの損失</span></div>
-          <div class="demo-effect-grid" id="demoEffectGrid"></div>
         </div>
 
         <!-- CTA -->
@@ -2091,17 +2072,15 @@
       pointer-events: none;
     }
     .demo-insight-title {
-      font-size: clamp(22px, 4.5vw, 36px);
-      font-weight: 900;
+      font-size: 13px;
+      font-weight: 800;
       color: var(--gold);
-      letter-spacing: 1px;
+      letter-spacing: 3px;
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
       position: relative; z-index: 1;
-      opacity: 1;
-      line-height: 1.4;
-      text-shadow: 0 0 30px rgba(214,164,81,0.7), 0 0 70px rgba(214,164,81,0.35);
-      animation: goldPulse 3s ease-in-out infinite;
+      opacity: 0.85;
     }
     .demo-insight-item {
       border-left: 5px solid rgba(214,164,81,0.7);
@@ -2334,13 +2313,6 @@
           + '<div class="demo-res-card-hd"><span>📊</span><span>御社向けAI業務診断</span></div>'
           + '<div class="demo-score-table">' + scoresHtml + '</div>'
         + '</div>'
-        + '<div class="demo-insight-wrap">'
-          + '<div class="demo-insight-title">✦ 経営者に知ってほしい、AIの本当の価値 ✦</div>'
-          + '<div class="demo-insight-item"><div class="demo-insight-tag">🔍 気づき</div><div class="demo-insight-text">「AI導入の価値は<em>"人件費削減"</em>ではありません。<br>削減された時間で<em>"売上を生む行動に集中できること"</em>です。」</div></div>'
-          + '<div class="demo-insight-item demo-insight-question"><div class="demo-insight-tag">💭 自問してみてください</div><div class="demo-insight-text">「今やっているその作業、<br>本来<em>"あなたがやるべき仕事"</em>ですか？」</div></div>'
-          + '<div class="demo-insight-item"><div class="demo-insight-tag">💡 本質</div><div class="demo-insight-text">「AIはコスト削減ツールではなく、<br><em>"利益を生む時間を作るツール"</em>です。」</div></div>'
-          + '<div class="demo-insight-item"><div class="demo-insight-tag">📊 数字で考えてみてください</div><div class="demo-insight-text">1日1時間の削減でも、年間で</div><div class="demo-insight-big-num">約300時間</div><div class="demo-insight-text">その時間を営業・改善・戦略に使えたら、<br><em>売上はどう変わりますか？</em></div></div>'
-        + '</div>'
         + '<div class="demo-res-card">'
           + '<div class="demo-res-card-hd"><span>💡</span><span>御社向けAI活用アイデア</span></div>'
           + '<ul class="demo-idea-list">' + ideasHtml + '</ul>'
@@ -2353,6 +2325,13 @@
         + '<div class="demo-res-card">'
           + '<div class="demo-res-card-hd"><span>📈</span><span>AI導入効果（予測）</span></div>'
           + '<div class="demo-effect-grid">' + effectHtml + '</div>'
+        + '</div>'
+        + '<div class="demo-insight-wrap">'
+          + '<div class="demo-insight-title">✦ 経営者に知ってほしい、AIの本当の価値 ✦</div>'
+          + '<div class="demo-insight-item"><div class="demo-insight-tag">🔍 気づき</div><div class="demo-insight-text">「AI導入の価値は<em>"人件費削減"</em>ではありません。<br>削減された時間で<em>"売上を生む行動に集中できること"</em>です。」</div></div>'
+          + '<div class="demo-insight-item demo-insight-question"><div class="demo-insight-tag">💭 自問してみてください</div><div class="demo-insight-text">「今やっているその作業、<br>本来<em>"あなたがやるべき仕事"</em>ですか？」</div></div>'
+          + '<div class="demo-insight-item"><div class="demo-insight-tag">💡 本質</div><div class="demo-insight-text">「AIはコスト削減ツールではなく、<br><em>"利益を生む時間を作るツール"</em>です。」</div></div>'
+          + '<div class="demo-insight-item"><div class="demo-insight-tag">📊 数字で考えてみてください</div><div class="demo-insight-text">1日1時間の削減でも、年間で</div><div class="demo-insight-big-num">約300時間</div><div class="demo-insight-text">その時間を営業・改善・戦略に使えたら、<br><em>売上はどう変わりますか？</em></div></div>'
         + '</div>'
         + '<div class="demo-cta">'
           + '<p class="demo-cta-note-top">多くの経営者が「もっと早く導入すればよかった」とおっしゃいます。<br>まず1つの業務からでも十分効果が出ます。</p>'
@@ -3511,40 +3490,6 @@
       if (!nav) return;
       nav.style.height = window.scrollY > 60 ? '46px' : '56px';
     });
-
-    // ── スマホ：TradingViewティッカー高さ強制（JS版） ──
-    (function() {
-      if (window.innerWidth > 600) return;
-      var wrap = document.querySelector('.fin-ticker-wrap');
-      var container = document.querySelector('.fin-tv-container');
-
-      function fixTickerHeight() {
-        if (wrap) {
-          wrap.style.setProperty('height', '90px', 'important');
-          wrap.style.setProperty('overflow', 'hidden', 'important');
-          wrap.style.setProperty('top', '56px', 'important');
-        }
-        if (container) {
-          container.style.setProperty('height', '90px', 'important');
-          container.style.setProperty('overflow', 'visible', 'important');
-          var iframe = container.querySelector('iframe');
-          if (iframe) {
-            iframe.style.setProperty('height', '90px', 'important');
-            iframe.style.setProperty('min-height', '90px', 'important');
-            iframe.setAttribute('height', '90');
-          }
-        }
-      }
-
-      if (container) {
-        new MutationObserver(fixTickerHeight).observe(container, {
-          childList: true, subtree: true,
-          attributes: true, attributeFilter: ['style', 'height']
-        });
-      }
-      fixTickerHeight();
-      [50, 150, 400, 800, 1500, 3000].forEach(t => setTimeout(fixTickerHeight, t));
-    })();
 
     // ── タイピングエフェクト ──
     const words = [
