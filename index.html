@@ -1103,7 +1103,7 @@
 
       /* ヒーロー：overflow:hiddenを除去してボタンのクリップを防ぐ */
       #hero {
-        padding: 120px 5% 60px; /* nav+ticker分 */
+        padding: 160px 5% 60px; /* nav56px + ticker90px + 余白 */
         align-items: center;
         text-align: center;
         justify-content: flex-start;
@@ -1463,6 +1463,20 @@
       height: 46px !important;
       width: 100% !important;
       border: none !important;
+    }
+    /* スマホ：2行表示に合わせて高さを拡張 */
+    @media (max-width: 600px) {
+      .fin-ticker-wrap {
+        height: 90px !important;
+        top: 56px !important;
+      }
+      .fin-tv-container {
+        height: 90px !important;
+        overflow: visible !important;
+      }
+      .fin-tv-container iframe {
+        height: 90px !important;
+      }
     }
   </style>
 </head>
