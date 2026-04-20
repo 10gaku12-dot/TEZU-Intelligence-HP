@@ -2036,81 +2036,112 @@
       color: var(--gold-light); line-height: 1.1; margin-bottom: 4px;
     }
     .demo-effect-unit { font-size: 11px; color: var(--gray); }
-    /* ── 経営者向けインサイトセクション ── */
+    /* ── 経営者向けインサイトセクション（強化版） ── */
+    @keyframes goldPulse {
+      0%,100% { text-shadow: 0 0 40px rgba(214,164,81,0.8), 0 0 80px rgba(214,164,81,0.35); }
+      50%      { text-shadow: 0 0 70px rgba(214,164,81,1),   0 0 130px rgba(214,164,81,0.6), 0 0 20px rgba(255,230,140,0.9); }
+    }
+    @keyframes insightFadeIn {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
     .demo-insight-wrap {
-      background: #030305;
-      border: 1px solid rgba(214,164,81,0.22);
-      border-radius: 16px;
-      padding: 28px 24px;
-      margin: 20px 0;
+      background: #010103;
+      border: 1.5px solid rgba(214,164,81,0.35);
+      border-radius: 20px;
+      padding: 36px 28px;
+      margin: 24px 0;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 0 60px rgba(214,164,81,0.1), inset 0 0 100px rgba(0,0,0,0.6);
     }
     .demo-insight-wrap::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(214,164,81,0.8), transparent);
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .demo-insight-wrap::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%; height: 60%;
+      background: radial-gradient(ellipse, rgba(214,164,81,0.07) 0%, transparent 70%);
+      pointer-events: none;
     }
     .demo-insight-title {
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(214,164,81,0.65);
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--gold);
       letter-spacing: 3px;
       text-align: center;
-      margin-bottom: 22px;
+      margin-bottom: 28px;
       text-transform: uppercase;
+      position: relative; z-index: 1;
+      opacity: 0.85;
     }
     .demo-insight-item {
-      border-left: 3px solid rgba(214,164,81,0.45);
-      padding: 15px 18px;
-      margin-bottom: 14px;
-      background: rgba(255,255,255,0.025);
-      border-radius: 0 10px 10px 0;
-      transition: border-color 0.2s;
+      border-left: 5px solid rgba(214,164,81,0.7);
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 0 14px 14px 0;
+      position: relative; z-index: 1;
+      animation: insightFadeIn 0.5s ease both;
     }
+    .demo-insight-item:nth-child(2) { animation-delay: 0.1s; }
+    .demo-insight-item:nth-child(3) { animation-delay: 0.2s; }
+    .demo-insight-item:nth-child(4) { animation-delay: 0.3s; }
+    .demo-insight-item:nth-child(5) { animation-delay: 0.4s; }
     .demo-insight-item:last-child { margin-bottom: 0; }
-    .demo-insight-item:hover { border-color: var(--gold); }
     .demo-insight-question {
-      border-left-color: rgba(0,229,255,0.5);
-      background: rgba(0,229,255,0.03);
+      border-left-color: rgba(0,229,255,0.75);
+      background: rgba(0,229,255,0.04);
     }
-    .demo-insight-question:hover { border-color: var(--cyan); }
     .demo-insight-tag {
-      font-size: 10px;
-      font-weight: 700;
+      font-size: 11px;
+      font-weight: 800;
       color: var(--gold);
-      letter-spacing: 1.5px;
-      margin-bottom: 8px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
     }
     .demo-insight-question .demo-insight-tag { color: var(--cyan); }
     .demo-insight-text {
-      font-size: clamp(14px, 2vw, 16px);
+      font-size: clamp(15px, 2.2vw, 18px);
       color: var(--white);
-      line-height: 1.9;
-      font-weight: 500;
+      line-height: 2;
+      font-weight: 600;
     }
     .demo-insight-text em {
       color: var(--gold);
       font-style: normal;
-      font-weight: 800;
+      font-weight: 900;
+      font-size: 1.1em;
+      text-shadow: 0 0 14px rgba(214,164,81,0.5);
+      display: inline-block;
     }
-    .demo-insight-question .demo-insight-text em { color: var(--cyan); }
+    .demo-insight-question .demo-insight-text em {
+      color: var(--cyan);
+      text-shadow: 0 0 14px rgba(0,229,255,0.5);
+    }
     .demo-insight-big-num {
-      font-size: clamp(36px, 7vw, 52px);
+      font-size: clamp(72px, 14vw, 108px);
       font-weight: 900;
       color: var(--gold);
       display: block;
       text-align: center;
       line-height: 1;
-      text-shadow: 0 0 28px rgba(214,164,81,0.55);
-      margin: 12px 0 10px;
-      letter-spacing: -1px;
+      animation: goldPulse 2.5s ease-in-out infinite;
+      margin: 18px 0 16px;
+      letter-spacing: -3px;
     }
     @media (max-width: 600px) {
-      .demo-insight-wrap { padding: 22px 16px; }
-      .demo-insight-item { padding: 13px 14px; }
+      .demo-insight-wrap  { padding: 24px 16px; }
+      .demo-insight-item  { padding: 16px 14px; }
+      .demo-insight-big-num { font-size: 72px; letter-spacing: -2px; }
     }
 
     .demo-cta {
