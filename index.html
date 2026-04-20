@@ -2033,7 +2033,7 @@
           + '<p class="demo-result-company">' + company + ' 様</p>'
           + '<p class="demo-result-impact">' + (d.summary||'') + '</p>'
           + '<p class="demo-result-meta">業種：' + industry + '　／　相談業務：' + task + '</p>'
-          + '<p class="demo-impact-savings" style="white-space:pre-line;">' + (eff.time_saved ? 'この業務は【一人当たり】' + eff.time_saved + '削減可能（想定）\n年間' + (eff.cost_saved||'') + 'のコスト削減が見込めます' : '') + '</p>'
+          + '<p class="demo-impact-savings" style="white-space:pre-line;">' + (eff.time_saved ? 'この業務は【一人当たり】' + eff.time_saved + '削減可能（想定）\n' + (eff.cost_saved||'').replace(/^年間/, '') + 'のコスト削減が見込めます\n<span style="font-size:0.65em;opacity:0.7;font-weight:600;">※人件費1万円/時・機会損失含む業種平均換算</span>' : '') + '</p>'
         + '</div>'
         + '<div class="demo-res-card">'
           + '<div class="demo-res-card-hd"><span>🎯</span><span>最優先で導入すべきAI</span></div>'
@@ -2340,7 +2340,7 @@
       document.getElementById('demoResultCompany').textContent = company + ' 様';
       document.getElementById('demoImpactMsg').textContent = d.impact;
       document.getElementById('demoResultMeta').textContent = '業種：' + industry + '　／　相談業務：' + task;
-      document.getElementById('demoImpactSavings').innerHTML = 'この業務は【一人当たり】' + d.timeSpecific + '削減可能（想定）<br>年間' + d.costSpecific + 'のコスト削減が見込めます';
+      document.getElementById('demoImpactSavings').innerHTML = 'この業務は【一人当たり】' + d.timeSpecific + '削減可能（想定）<br>年間' + d.costSpecific + 'のコスト削減が見込めます<br><span style="font-size:0.65em;opacity:0.7;font-weight:600;">※人件費1万円/時・機会損失含む業種平均換算</span>';
 
       // 最優先AI
       document.getElementById('demoPriorityTitle').textContent = d.priority.title;
