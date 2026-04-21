@@ -1992,8 +1992,11 @@
       font-size: 14px; font-weight: 700; color: var(--white);
     }
     .demo-score-table { padding: 18px 24px; }
-    .demo-score-row { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .demo-score-row { padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05); border-left: 3px solid transparent; padding-left: 10px; transition: background 0.3s, border-color 0.3s; }
     .demo-score-row:last-child { border-bottom: none; }
+    .demo-score-row--active { border-left-color: var(--gold); background: rgba(214,164,81,0.08); border-radius: 0 6px 6px 0; }
+    .demo-score-row--active .demo-score-lbl { color: var(--gold); }
+    .demo-score-row--active .demo-reduction { background: rgba(214,164,81,0.2); color: var(--gold-light); }
     .demo-score-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
     .demo-score-lbl { font-size: 14px; font-weight: 700; color: var(--white); }
     .demo-reduction { font-size: 40px; font-weight: 900; color: var(--gold); letter-spacing: -1px; line-height: 1; text-shadow: 0 0 20px rgba(214,164,81,0.4); }
@@ -2645,6 +2648,53 @@
       }
     };
 
+    // ── タスク別オーバーライド（業種横断） ──
+    var TASK_OVERRIDE = {
+      '経営者': {
+        getImpact: function(co, ind) {
+          return co + '様の' + ind + '経営に、AIを戦略的に活用できます。';
+        },
+        priorityTitle: '経営判断を加速するAI活用戦略',
+        getPriorityReason: function(co, ind, d) {
+          return '経営者がAIを使うべき場面は「情報収集・意思決定・資料作成」です。' + co + '様のような' + ind + 'では、経営レポートの自動生成・競合分析・戦略文書の作成にAIを活用することで、' + d.timeSpecific + 'の業務削減と経営スピードの大幅向上が見込まれます。まず「資料作成の自動化」から始めるのが最速です。';
+        }
+      },
+      '生産性向上': {
+        getImpact: function(co, ind, d) {
+          return co + '様の' + ind + 'では、AI導入で社員1人あたり' + d.timeSpecific + 'の生産性向上が見込めます。';
+        },
+        priorityTitle: '業務自動化による全社生産性向上AI',
+        getPriorityReason: function(co, ind, d) {
+          return '生産性向上のカギは「繰り返し作業のAI化」です。' + co + '様のような' + ind + 'では、書類作成・データ入力・報告業務などをAIで自動化することで、' + d.timeSpecific + 'の工数削減が見込まれます。削減した時間を売上を生む本業に集中させることで、業績向上に直結します。';
+        }
+      },
+      '残業時間削減': {
+        getImpact: function(co, ind) {
+          return co + '様の残業時間は、今すぐAIで大幅に削減できます。';
+        },
+        priorityTitle: '残業の根本原因をなくすAI自動化',
+        getPriorityReason: function(co, ind, d) {
+          return '残業の主因は「書類作成・メール対応・報告業務」の繰り返し作業です。' + co + '様のような' + ind + 'ではこれらをAIで自動化することで、' + d.timeSpecific + 'の削減が可能です。残業代の削減だけでなく、社員の満足度・定着率の向上にも直結します。';
+        }
+      }
+    };
+
+    // ── タスク → 強調スコア行のマッピング ──
+    var TASK_SCORE_MAP = {
+      '営業': '営業', '事務': '事務', '採用': '採用',
+      '集客': 'マーケティング', '顧客対応': '顧客対応',
+      '経営者': '', '生産性向上': '事務', '残業時間削減': '事務'
+    };
+
+    // ── 元の5業務の impact 補足文 ──
+    var TASK_APPEND = {
+      '営業':     '特に「営業業務」のAI化が、御社の受注率・商談数アップに直結します。',
+      '事務':     '特に「事務・書類作成」のAI化が、最も早く・大きな効果を生みます。',
+      '採用':     '特に「採用・求人」のAI化が、応募数の増加と採用コスト削減に直結します。',
+      '集客':     '特に「集客・マーケティング」のAI化が、問い合わせ数と売上アップに直結します。',
+      '顧客対応': '特に「顧客対応」のAI化が、顧客満足度向上とリピーター増加に直結します。'
+    };
+
     function stars(n) {
       return '<span class="dson">★</span>'.repeat(n) + '<span class="dsoff">★</span>'.repeat(5 - n);
     }
@@ -2667,9 +2717,18 @@
 
       var d = DATA[industry];
 
+      // タスク別コンテンツ決定
+      var ov = TASK_OVERRIDE[task];
+      var impactText  = ov
+        ? ov.getImpact(company, industry, d)
+        : d.impact + (TASK_APPEND[task] ? ' ' + TASK_APPEND[task] : '');
+      var priorTitle  = ov ? ov.priorityTitle  : d.priority.title;
+      var priorReason = ov ? ov.getPriorityReason(company, industry, d) : d.priority.reason.replace(/\{c\}/g, company);
+      var highlightLbl = TASK_SCORE_MAP[task] || '';
+
       // インパクト文
       document.getElementById('demoResultCompany').textContent = company + ' 様';
-      document.getElementById('demoImpactMsg').textContent = d.impact;
+      document.getElementById('demoImpactMsg').textContent = impactText;
       document.getElementById('demoResultMeta').textContent = '業種：' + industry + '　／　相談業務：' + task;
       var tNum = parseInt(d.timeSpecific.replace(/[^0-9]/g,'')) || 20;
       var dailyH = (Math.round(tNum / 22 * 10) / 10);
@@ -2702,13 +2761,14 @@
         + '</div>'
         + '<div class="demo-savings-bottom-bar">🚀 時間もコストも削減して、<em>利益を生み出す経営</em>へ！ »</div>';
 
-      // 最優先AI
-      document.getElementById('demoPriorityTitle').textContent = d.priority.title;
-      document.getElementById('demoPriorityReason').textContent = d.priority.reason.replace(/\{c\}/g, company);
+      // 最優先AI（タスク別に切り替え）
+      document.getElementById('demoPriorityTitle').textContent = priorTitle;
+      document.getElementById('demoPriorityReason').textContent = priorReason;
 
-      // ①スコア
+      // ①スコア（選択タスクに一致する行をハイライト）
       document.getElementById('demoScoreTable').innerHTML = d.scores.map(function(s) {
-        return '<div class="demo-score-row">'
+        var active = (highlightLbl && s.lbl === highlightLbl) ? ' demo-score-row--active' : '';
+        return '<div class="demo-score-row' + active + '">'
           + '<div class="demo-score-top"><span class="demo-score-lbl">' + s.lbl + '</span><span class="demo-reduction">' + s.reduction + '</span></div>'
           + '<div class="demo-score-note">' + s.note + '</div>'
           + '<div class="demo-score-stars-row"><span class="demo-recommend-lbl">導入おすすめ度：</span><span class="demo-stars">' + stars(s.n) + '</span></div>'
