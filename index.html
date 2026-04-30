@@ -1107,6 +1107,26 @@
       letter-spacing: 0.08em;
       position: relative; z-index: 1;
     }
+    .cta-hearing-hint {
+      font-size: 12px;
+      color: var(--gray);
+      margin-top: 14px;
+      line-height: 1.9;
+      letter-spacing: 0.03em;
+      position: relative; z-index: 1;
+    }
+    .cta-hearing-hint a {
+      color: rgba(214,164,81,0.75);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .cta-hearing-hint a:hover { color: var(--gold-light); }
+    .sp-only { display: none; }
+    @media (max-width: 600px) {
+      .sp-only { display: inline; }
+      .cta-hearing-hint { font-size: 12px; }
+    }
     .cta-chara-wrap {
       display: flex;
       align-items: flex-end;
@@ -3847,6 +3867,10 @@
             LINEで無料相談する
           </a>
           <p class="cta-note">※ 返信は通常24時間以内 ／ 完全無料・しつこい営業一切なし</p>
+          <p class="cta-hearing-hint">
+            より具体的なご提案をご希望の方は、事前に<br class="sp-only">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7j4I7XjLcaxfyoAm3gUjzYBnU0EAtPEvHh8ICcNa9JdXfOg/viewform?usp=publish-editor" target="_blank" rel="noopener">ヒアリングシートへの回答</a>をおすすめしています。
+          </p>
         </div>
       </div>
     </div>
