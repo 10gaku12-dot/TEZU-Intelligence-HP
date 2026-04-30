@@ -2422,21 +2422,47 @@
     }
     .hearing-cta-btn {
       display: inline-block;
-      padding: 16px 44px;
+      position: relative;
+      overflow: hidden;
+      padding: 17px 52px;
       background: var(--gold);
       color: #000;
       border-radius: 50px;
       font-size: 15px;
       font-weight: 700;
       text-decoration: none;
-      letter-spacing: 0.03em;
-      box-shadow: 0 4px 20px rgba(214,164,81,0.3);
-      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 20px rgba(214,164,81,0.35);
+      /* ① パルスグロー：呼吸するような光の膨らみ */
+      animation: pulse-btn 2.4s ease-in-out infinite;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
     }
+    /* ② シマー：光が左から右へ流れる */
+    .hearing-cta-btn::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 55%; height: 100%;
+      background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.38) 50%, transparent 80%);
+      animation: hearing-shimmer 2.8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes hearing-shimmer {
+      0%      { left: -80%; opacity: 1; }
+      55%, 100% { left: 130%; opacity: 0.6; }
+    }
+    /* ③ ホバー：浮き上がり＋パルス停止でクリック感を強調 */
     .hearing-cta-btn:hover {
       background: var(--gold-light);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(214,164,81,0.45);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 36px rgba(214,164,81,0.55);
+      animation: none;
+    }
+    .hearing-cta-btn:hover::after { animation: none; }
+    /* 常時表示セクション用：ボタンを少し大きく */
+    .hearing-cta--standalone .hearing-cta-btn {
+      font-size: 16px;
+      padding: 19px 56px;
     }
     .hearing-cta-note {
       font-size: 11px;
@@ -2447,6 +2473,7 @@
     @media (max-width: 600px) {
       .hearing-cta { padding: 28px 20px; }
       .hearing-cta-btn { padding: 14px 28px; font-size: 14px; width: 100%; box-sizing: border-box; }
+      .hearing-cta--standalone .hearing-cta-btn { font-size: 14px; padding: 15px 28px; }
       .hearing-cta-body { font-size: 13px; }
       .hearing-cta-body--accent { text-align: center; }
     }
