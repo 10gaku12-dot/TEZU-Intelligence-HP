@@ -1874,6 +1874,33 @@
           <a href="https://line.me/ti/p/itU8jz37Ut" class="demo-cta-btn" target="_blank">30分の無料相談を予約する（無料）</a>
           <p class="demo-cta-note">※無理な営業・押し売りは一切ありません。まずはお話だけでも大歓迎です。</p>
         </div>
+
+        <!-- ── ヒアリングシートCTA ──
+             ↓ href を GoogleフォームURL または LINE URLに差し替えてください
+             現在は仮リンク（LINE相談URL）を設定しています
+        -->
+        <div class="hearing-cta">
+          <div class="hearing-cta-badge">もっと具体的に知りたい方へ</div>
+          <p class="hearing-cta-body">
+            この診断結果は、あくまで簡易的な目安です。<br>
+            実際にAIで効率化できる業務や導入の優先順位は、<br>
+            業種・業務内容・使用ツールによって変わります。
+          </p>
+          <p class="hearing-cta-body">
+            ヒアリングシートにご回答いただくことで、<br>
+            あなたの業務に合ったAI活用方法を整理できます。
+          </p>
+          <p class="hearing-cta-body hearing-cta-body--accent">
+            回答後、LINEよりご相談ください。<br>
+            内容をもとに、無料で具体的な方向性をご提案します。
+          </p>
+          <!-- TODO: href を Googleフォームの公開URLに差し替える -->
+          <a href="https://line.me/ti/p/itU8jz37Ut" class="hearing-cta-btn" target="_blank">
+            ヒアリングシートに回答して相談する
+          </a>
+          <p class="hearing-cta-note">※回答後、LINEよりご連絡いただくと内容を確認の上ご提案いたします</p>
+        </div>
+
       </div>
 
     </div>
@@ -2349,6 +2376,81 @@
       margin-top: 12px;
       letter-spacing: 0.05em;
     }
+
+    /* ── ヒアリングシートCTA ── */
+    .hearing-cta {
+      margin-top: 28px;
+      padding: 40px 36px;
+      background: linear-gradient(135deg, rgba(214,164,81,0.08) 0%, rgba(6,6,8,0) 100%);
+      border: 1px solid rgba(214,164,81,0.35);
+      border-radius: 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hearing-cta::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .hearing-cta-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 5px 20px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .hearing-cta-body {
+      font-size: 14px;
+      color: var(--gray-light);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+    .hearing-cta-body--accent {
+      color: var(--white);
+      font-weight: 600;
+      padding: 14px 16px;
+      background: rgba(214,164,81,0.07);
+      border-radius: 8px;
+      border-left: 3px solid rgba(214,164,81,0.5);
+      text-align: left;
+      margin-bottom: 28px;
+    }
+    .hearing-cta-btn {
+      display: inline-block;
+      padding: 16px 44px;
+      background: var(--gold);
+      color: #000;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(214,164,81,0.3);
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+    }
+    .hearing-cta-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(214,164,81,0.45);
+    }
+    .hearing-cta-note {
+      font-size: 11px;
+      color: var(--gray);
+      margin-top: 14px;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 600px) {
+      .hearing-cta { padding: 28px 20px; }
+      .hearing-cta-btn { padding: 14px 28px; font-size: 14px; width: 100%; box-sizing: border-box; }
+      .hearing-cta-body { font-size: 13px; }
+      .hearing-cta-body--accent { text-align: center; }
+    }
+
     .demo-cta-note-top {
       font-size: 13px; color: var(--gray-light); line-height: 1.8;
       margin-bottom: 20px; padding: 14px 16px;
@@ -2403,6 +2505,13 @@
 
   <script>
   (function(){
+
+    /* ──────────────────────────────────────────
+       ヒアリングシートCTA のURL設定
+       ※ Googleフォームが完成したら HEARING_URL を差し替えてください。
+          LINE URLだけでも機能します。
+    ────────────────────────────────────────── */
+    var HEARING_URL = 'https://line.me/ti/p/itU8jz37Ut'; /* TODO: GoogleフォームURLに差し替える */
 
     /* ── ローディング表示 ── */
     function showLoading() {
@@ -2513,6 +2622,15 @@
           + '<p class="demo-cta-sub">30分の無料相談で「どの業務をどう変えるか」を具体的にお伝えします。</p>'
           + '<a href="https://line.me/ti/p/itU8jz37Ut" class="demo-cta-btn" target="_blank">30分の無料相談を予約する</a>'
           + '<p class="demo-cta-note">※無理な営業は一切ありません</p>'
+        + '</div>'
+        /* ── ヒアリングシートCTA ── */
+        + '<div class="hearing-cta">'
+          + '<div class="hearing-cta-badge">もっと具体的に知りたい方へ</div>'
+          + '<p class="hearing-cta-body">この診断結果は、あくまで簡易的な目安です。<br>実際にAIで効率化できる業務や導入の優先順位は、<br>業種・業務内容・使用ツールによって変わります。</p>'
+          + '<p class="hearing-cta-body">ヒアリングシートにご回答いただくことで、<br>あなたの業務に合ったAI活用方法を整理できます。</p>'
+          + '<p class="hearing-cta-body hearing-cta-body--accent">回答後、LINEよりご相談ください。<br>内容をもとに、無料で具体的な方向性をご提案します。</p>'
+          + '<a href="' + HEARING_URL + '" class="hearing-cta-btn" target="_blank">ヒアリングシートに回答して相談する</a>'
+          + '<p class="hearing-cta-note">※回答後、LINEよりご連絡いただくと内容を確認の上ご提案いたします</p>'
         + '</div>';
 
       /* コピーボタン */
