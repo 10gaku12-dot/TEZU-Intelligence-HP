@@ -820,151 +820,112 @@
     #nav-links a.nav-course { color: rgba(214,164,81,0.85) !important; }
     #nav-links a.nav-course:hover { color: var(--gold) !important; }
 
-    /* ─── 新サービス：AIビジネス導線構築講座（強化版カード） ─── */
-    #course-promo { background: var(--black); }
-    .course-promo-card {
-      position: relative;
-      overflow: hidden;
-      margin-top: 8px;
-      border: 1px solid rgba(214,164,81,0.75);
-      background:
-        radial-gradient(circle at top right, rgba(214,164,81,0.18), transparent 45%),
-        linear-gradient(160deg, rgba(214,164,81,0.12), rgba(13,13,16,0.98));
-      box-shadow: 0 0 48px rgba(214,164,81,0.18);
-      padding: 48px;
-      border-radius: 18px;
-    }
-    .course-promo-card::after {
+    /* ─── 3つの商品（PRODUCTS：ヒーロー直下） ─── */
+    #products { background: var(--dark); position: relative; }
+    #products::before {
       content: '';
       position: absolute;
-      right: -60px; bottom: -60px;
-      width: 260px; height: 260px;
-      background: url('logo.png') no-repeat center / contain;
-      opacity: 0.04;
-      pointer-events: none;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
-    .course-promo-label {
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 56px;
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(160deg, rgba(214,164,81,0.06), var(--dark2) 55%);
+      border: 1px solid rgba(214,164,81,0.3);
+      border-radius: 16px;
+      padding: 40px 32px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--cyan));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(214,164,81,0.18);
+    }
+    .product-card:hover::before { transform: scaleX(1); }
+    .product-num {
+      position: absolute; top: 30px; right: 32px;
+      font-size: 12px;
+      font-family: 'Inter',sans-serif;
+      color: rgba(214,164,81,0.4);
+      letter-spacing: 0.15em;
+      font-weight: 700;
+    }
+    .product-icon {
+      width: 62px; height: 62px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 27px;
+      border: 1px solid rgba(214,164,81,0.4);
+      border-radius: 50%;
+      margin-bottom: 24px;
+      background: rgba(214,164,81,0.06);
+      flex-shrink: 0;
+    }
+    .product-card h3 { font-size: 19px; font-weight: 900; margin-bottom: 8px; color: var(--white); line-height: 1.4; }
+    .product-subtitle { font-size: 13px; color: var(--gold-light); font-weight: 600; margin-bottom: 16px; line-height: 1.6; }
+    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.85; font-weight: 300; margin-bottom: 20px; }
+    .product-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; }
+    .product-list li { font-size: 12px; color: var(--gray); padding-left: 16px; position: relative; line-height: 1.6; }
+    .product-list li::before { content: '・'; position: absolute; left: 0; color: var(--gold); }
+    .product-cta {
+      margin-top: auto;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       border: 1px solid var(--gold);
       color: var(--gold);
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      padding: 5px 14px;
-      margin-bottom: 24px;
-      text-transform: uppercase;
       font-weight: 700;
-      font-family: 'Inter',sans-serif;
-      position: relative; z-index: 1;
+      font-size: 13px;
+      padding: 13px 22px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+      transition: all 0.25s;
     }
-    .course-promo-body {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      position: relative; z-index: 1;
-    }
-    .course-promo-text { flex: 1.4; min-width: 0; }
-    .course-promo-title {
-      font-size: clamp(24px, 3vw, 34px);
-      font-weight: 900;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-      margin-bottom: 16px;
-    }
-    .course-promo-title span { color: var(--gold); }
-    .course-promo-desc {
-      font-size: 14px;
+    .product-cta .arrow { transition: transform 0.25s; }
+    .product-card:hover .product-cta { background: var(--gold); color: #000; }
+    .product-card:hover .product-cta .arrow { transform: translateX(4px); }
+    .products-footnote {
+      text-align: center;
+      font-size: 13px;
       color: var(--gray-light);
+      margin-top: 44px;
       line-height: 1.9;
-      font-weight: 300;
-      max-width: 540px;
-      margin-bottom: 26px;
     }
-    .course-promo-features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 10px;
-      margin-bottom: 32px;
-      max-width: 520px;
-    }
-    .course-promo-feature {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--gray-light);
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(214,164,81,0.18);
-      padding: 10px 14px;
-      border-radius: 8px;
-    }
-    .course-promo-feature-icon { font-size: 15px; flex-shrink: 0; }
-    .course-promo-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-    .course-promo-main-cta {
+    .products-footnote-link {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      background: linear-gradient(135deg, #d6a451, #f0c46a);
-      color: #000;
-      font-weight: 900;
-      font-size: 15px;
-      letter-spacing: 0.02em;
-      padding: 17px 36px;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 12px 32px rgba(214,164,81,0.28);
-      transition: all 0.25s;
-    }
-    .course-promo-main-cta .arrow { transition: transform 0.25s; }
-    .course-promo-main-cta:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(214,164,81,0.38); background: linear-gradient(135deg, #e0af5c, #f5cd7c); }
-    .course-promo-main-cta:hover .arrow { transform: translateX(4px); }
-    .course-promo-sub-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      border: 1px solid #06c755;
-      color: #06c755;
+      gap: 6px;
+      color: var(--gold);
       font-weight: 700;
-      font-size: 13px;
-      padding: 14px 28px;
-      border-radius: 999px;
       text-decoration: none;
-      transition: all 0.25s;
+      margin-top: 8px;
     }
-    .course-promo-sub-cta:hover { background: #06c755; color: #fff; }
-    .course-promo-visual {
-      flex-shrink: 0;
-      background: rgba(0,0,0,0.3);
-      border: 1px solid rgba(214,164,81,0.25);
-      border-radius: 14px;
-      padding: 26px 30px;
-    }
-    .course-promo-flow { display: flex; flex-direction: column; align-items: center; gap: 8px; }
-    .flow-chip {
-      background: var(--dark2);
-      border: 1px solid rgba(214,164,81,0.3);
-      color: var(--gray-light);
-      font-size: 12px;
-      font-weight: 700;
-      padding: 10px 22px;
-      border-radius: 8px;
-      white-space: nowrap;
-    }
-    .flow-chip-gold { background: rgba(214,164,81,0.15); border-color: var(--gold); color: var(--gold-light); }
-    .flow-arrow { color: var(--gold); font-size: 13px; line-height: 1; }
+    .products-footnote-link:hover { color: var(--gold-light); }
     @media (max-width: 900px) {
-      .course-promo-card { padding: 36px 30px; }
-      .course-promo-body { flex-direction: column; align-items: stretch; }
-      .course-promo-visual { align-self: center; }
+      .products-grid { grid-template-columns: 1fr; gap: 22px; }
     }
     @media (max-width: 600px) {
-      .course-promo-card { padding: 32px 22px; border-radius: 14px; }
-      .course-promo-features { grid-template-columns: repeat(2, 1fr); }
-      .course-promo-actions { flex-direction: column; align-items: stretch; width: 100%; }
-      .course-promo-main-cta, .course-promo-sub-cta { width: 100%; justify-content: center; }
+      .product-card { padding: 32px 24px; }
     }
 
     /* ─── PROCESS ─── */
@@ -1835,6 +1796,7 @@
       <span>TEZU<em>Intelligence</em></span>
     </a>
     <div id="nav-links">
+      <a href="#products" class="nav-course">3つの商品</a>
       <a href="#problems">お悩み</a>
       <a href="#shindan">AI活用診断</a>
       <a href="#demo">デモ</a>
@@ -1842,7 +1804,7 @@
       <a href="#why">選ばれる理由</a>
       <a href="#profile">代表者紹介</a>
       <a href="ai-course.html" class="nav-course">AI講座</a>
-      <a href="#cta" class="nav-cta">無料相談</a>
+      <a href="https://line.me/ti/p/itU8jz37Ut" class="nav-cta" target="_blank" rel="noopener">無料相談</a>
     </div>
   </nav>
 
@@ -1915,6 +1877,82 @@
       <img src="chara_point.png" class="chara-img" alt="TEZUIntelligence AIコンサルタント" />
     </div>
 
+  </section>
+
+  <!-- ─── 3つの商品（ヒーロー直下） ─── -->
+  <section id="products">
+    <div class="section-inner">
+      <p class="section-label fade-up" style="justify-content:center;display:flex;">Our Products</p>
+      <h2 class="section-title fade-up" style="text-align:center;">TEZU Intelligenceの<span>3つの商品</span></h2>
+      <div class="gold-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
+      <p class="section-desc fade-up" style="max-width:640px;margin:0 auto;text-align:center;">
+        AIを学ぶ、AIを業務に入れる、AIで営業導線を作る。<br>
+        TEZU Intelligenceは、事業者がAIを現場で使える形まで落とし込みます。
+      </p>
+
+      <div class="products-grid">
+        <a href="ai-course.html" class="product-card fade-up">
+          <p class="product-num">01</p>
+          <div class="product-icon">🎓</div>
+          <h3>AI教育事業</h3>
+          <p class="product-subtitle">AIを学ぶだけで終わらせない実践型AI教育</p>
+          <p class="product-desc">
+            ChatGPT・Claude Code・Canvaなどを活用し、AI初心者でも仕事や事業に使える形まで一緒に学ぶ教育事業です。個人事業主、店舗オーナー、営業職、副業初心者に対応します。
+          </p>
+          <ul class="product-list">
+            <li>ChatGPT活用</li>
+            <li>Claude Code活用</li>
+            <li>Canva活用</li>
+            <li>AIで文章、資料、HPを作る</li>
+            <li>自分で軽微修正できる状態へ</li>
+          </ul>
+          <span class="product-cta">AI教育を見る <span class="arrow">→</span></span>
+        </a>
+
+        <a href="#services" class="product-card fade-up">
+          <p class="product-num">02</p>
+          <div class="product-icon">🧩</div>
+          <h3>AI導入による業務改善</h3>
+          <p class="product-subtitle">人がやるべき仕事に集中するためのAI導入支援</p>
+          <p class="product-desc">
+            中小企業・店舗・地域事業者向けに、見積書作成、日報、口コミ返信、SNS投稿、問い合わせ対応などをAIで効率化します。現場の作業時間を減らし、売上や顧客対応に集中できる状態を作ります。
+          </p>
+          <ul class="product-list">
+            <li>見積書作成の効率化</li>
+            <li>日報、報告書の作成支援</li>
+            <li>口コミ返信</li>
+            <li>SNS投稿文作成</li>
+            <li>問い合わせ対応</li>
+            <li>業務フロー改善</li>
+          </ul>
+          <span class="product-cta">業務改善を相談する <span class="arrow">→</span></span>
+        </a>
+
+        <a href="ai-course.html#plans" class="product-card fade-up">
+          <p class="product-num">03</p>
+          <div class="product-icon">🪪</div>
+          <h3>AI名刺＋HP作成</h3>
+          <p class="product-subtitle">名刺からホームページにつながる営業導線を作る</p>
+          <p class="product-desc">
+            AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。「名刺を渡して終わり」ではなく、名刺からHP、LINE、問い合わせにつながる導線を整えます。
+          </p>
+          <ul class="product-list">
+            <li>AIで事業コンセプト整理</li>
+            <li>HP構成作成</li>
+            <li>Canva名刺作成</li>
+            <li>QRコード設計</li>
+            <li>GitHub / Vercel公開</li>
+            <li>LINE、Instagram、フォーム導線</li>
+          </ul>
+          <span class="product-cta">名刺＋HP作成を見る <span class="arrow">→</span></span>
+        </a>
+      </div>
+
+      <p class="products-footnote fade-up">
+        どの商品が合うか分からない場合は、LINEで現在の状況をお聞きした上でご提案します。<br>
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="products-footnote-link" target="_blank" rel="noopener">LINEで無料相談する →</a>
+      </p>
+    </div>
   </section>
 
   <!-- ─── AIデモ ─── -->
@@ -3657,45 +3695,6 @@
     </div>
   </section>
 
-  <!-- ─── 新サービス：AIビジネス導線構築講座（教育事業） ─── -->
-  <section id="course-promo">
-    <div class="section-inner">
-      <div class="course-promo-card fade-up">
-        <p class="course-promo-label">New Service</p>
-        <div class="course-promo-body">
-          <div class="course-promo-text">
-            <h2 class="course-promo-title">新サービス：<span>AIビジネス導線構築講座</span></h2>
-            <p class="course-promo-desc">
-              AI初心者でも、ChatGPT・Claude Code・Canva・GitHub・Vercelを活用し、営業に使える名刺とホームページを作れる実践講座です。<br>
-              単なるAI教室ではなく、名刺・HP・QR導線まで一緒に作り、完成後も自分で軽微修正できる状態を目指します。
-            </p>
-            <div class="course-promo-features">
-              <div class="course-promo-feature"><span class="course-promo-feature-icon">🤖</span>AI初心者向け</div>
-              <div class="course-promo-feature"><span class="course-promo-feature-icon">🌐</span>名刺・HP・QR導線を作成</div>
-              <div class="course-promo-feature"><span class="course-promo-feature-icon">💴</span>1DAY講座 88,000円</div>
-              <div class="course-promo-feature"><span class="course-promo-feature-icon">💬</span>LINE無料相談対応</div>
-            </div>
-            <div class="course-promo-actions">
-              <a href="ai-course.html" class="course-promo-main-cta">講座ページを見る <span class="arrow">→</span></a>
-              <a href="https://line.me/ti/p/itU8jz37Ut" class="course-promo-sub-cta" target="_blank" rel="noopener">LINEで相談する</a>
-            </div>
-          </div>
-          <div class="course-promo-visual">
-            <div class="course-promo-flow">
-              <div class="flow-chip">名刺</div>
-              <div class="flow-arrow">↓</div>
-              <div class="flow-chip">ホームページ</div>
-              <div class="flow-arrow">↓</div>
-              <div class="flow-chip">QR導線</div>
-              <div class="flow-arrow">↓</div>
-              <div class="flow-chip flow-chip-gold">LINE相談</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── SERVICES ─── -->
   <section id="services">
     <div class="section-inner">
@@ -4100,6 +4099,7 @@
         <p class="footer-tagline">AI導入コンサルティング</p>
       </div>
       <nav class="footer-nav">
+        <a href="#products">3つの商品</a>
         <a href="#problems">お悩み</a>
         <a href="#services">サービス</a>
         <a href="#process">導入の流れ</a>
