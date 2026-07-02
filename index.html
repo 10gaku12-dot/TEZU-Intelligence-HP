@@ -9,8 +9,8 @@
   <meta name="google-site-verification" content="8lxj2FoYxgI4l7mOCRfL9_h8drkSqltGW9Zs6VG40s4" />
 
   <!-- SEO基本設定 -->
-  <meta name="description" content="【30分無料相談受付中】中小企業のAI導入を支援する専門コンサル。製造業の見積書・日報、飲食業のクチコミ返信をAIで自動化し月20時間以上を削減。ChatGPT活用支援・DX推進・業務効率化なら手塚岳人（TEZUIntelligence）へ。" />
-  <meta name="keywords" content="AI導入コンサル,中小企業AI導入,AI業務効率化,製造業AI活用,飲食業AI活用,ChatGPT中小企業,AI導入支援,業務自動化,DX推進中小企業,AI相談無料,手塚岳人,TEZUIntelligence,見積書AI自動化,クチコミ返信AI,日報自動化,ChatGPT導入,AI人材育成,中小企業DX,AI導入費用,ChatGPT活用方法" />
+  <meta name="description" content="【30分無料相談受付中】中小企業のAI導入を支援する専門コンサル。製造業の見積書・日報、飲食業のクチコミ返信をAIで自動化し月20時間以上を削減。AI名刺・AIホームページ作成でQR導線から営業導線まで構築。ChatGPT活用支援・DX推進・業務効率化なら手塚岳人（TEZUIntelligence）へ。" />
+  <meta name="keywords" content="AI導入コンサル,中小企業AI導入,AI業務効率化,製造業AI活用,飲食業AI活用,ChatGPT中小企業,AI導入支援,業務自動化,DX推進中小企業,AI相談無料,手塚岳人,TEZUIntelligence,見積書AI自動化,クチコミ返信AI,日報自動化,ChatGPT導入,AI人材育成,中小企業DX,AI導入費用,ChatGPT活用方法,AI名刺作成,AIホームページ作成,QR導線,名刺HP制作,営業導線" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="手塚 岳人 / TEZUIntelligence" />
   <link rel="canonical" href="https://tezu-intelligence-hp.vercel.app/" />
@@ -1136,6 +1136,222 @@
       .product-card h3 { font-size: 30px; }
     }
 
+    /* ─── AI名刺＋HP作成（BUSINESS CARD & HP） ─── */
+    #business-card-hp { background: var(--black); position: relative; overflow: hidden; }
+    #business-card-hp::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    #business-card-hp .section-desc + .section-desc { margin-top: 16px; }
+
+    /* 導線図（名刺→QR→HP→LINE） */
+    .bch-flow {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 48px;
+      padding: 28px;
+      background: var(--dark2);
+      border: 1px solid rgba(214,164,81,0.18);
+      border-radius: 16px;
+    }
+    .bch-flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      min-width: 110px;
+      padding: 16px 10px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gray-light);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+    }
+    .bch-flow-step-gold { color: var(--gold-light); border-color: rgba(214,164,81,0.4); background: rgba(214,164,81,0.08); }
+    .bch-flow-icon { font-size: 22px; }
+    .bch-flow-arrow { color: var(--cyan); font-size: 18px; flex-shrink: 0; }
+
+    .bch-subheading {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--white);
+      margin: 56px 0 24px;
+      padding-left: 14px;
+      border-left: 3px solid var(--gold);
+    }
+
+    /* 作るもの：カードグリッド */
+    .bch-make-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .bch-make-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 20px;
+      background: var(--dark2);
+      border-left: 2px solid var(--gold);
+      font-size: 13px;
+      color: var(--gray-light);
+      font-weight: 500;
+    }
+    .bch-make-num {
+      font-family: 'Inter',sans-serif;
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* こんな方におすすめ：チェックリスト */
+    .bch-check-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }
+    .bch-check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--gray-light);
+      line-height: 1.6;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+    }
+    .bch-check-list li::before {
+      content: '✓';
+      color: var(--cyan);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* 提供の流れ：3ステップ */
+    .bch-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .bch-step {
+      background: var(--dark2);
+      border: 1px solid rgba(214,164,81,0.15);
+      border-radius: 14px;
+      padding: 32px 26px;
+    }
+    .bch-step-num {
+      display: inline-block;
+      font-family: 'Inter',sans-serif;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      background: var(--gold);
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+    .bch-step h4 { font-size: 16px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .bch-step p { font-size: 13px; color: var(--gray); line-height: 1.75; }
+
+    /* 料金 */
+    .bch-price-box {
+      margin-top: 56px;
+      padding: 44px 40px;
+      background: linear-gradient(160deg, rgba(214,164,81,0.1), var(--dark2) 60%);
+      border: 1px solid rgba(214,164,81,0.4);
+      border-radius: 18px;
+      text-align: center;
+    }
+    .bch-price-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .bch-price-name { font-size: 16px; color: var(--gray-light); margin-bottom: 10px; }
+    .bch-price-value { font-size: clamp(28px, 3.5vw, 40px); font-weight: 900; color: var(--gold); font-family: 'Inter',sans-serif; }
+    .bch-price-value span { font-size: 14px; color: var(--gray-light); font-weight: 400; font-family: 'Noto Sans JP',sans-serif; margin-left: 6px; }
+    .bch-price-note { font-size: 12px; color: var(--gray); margin-top: 10px; }
+    .bch-price-alt {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+      color: var(--gray-light);
+      line-height: 1.8;
+    }
+    .bch-price-alt strong { color: var(--gold-light); }
+    .bch-price-alt-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .bch-price-alt-link:hover { color: var(--gold-light); }
+
+    /* CTA */
+    .bch-cta-wrap {
+      margin-top: 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .bch-cta-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #06c755;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 18px 42px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 0 30px rgba(6,199,85,0.2);
+    }
+    .bch-cta-main:hover { background: #05b34c; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(6,199,85,0.3); }
+    .bch-cta-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-light);
+      font-size: 13px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+    .bch-cta-sub:hover { color: var(--gold-light); }
+
+    @media (max-width: 900px) {
+      .bch-flow { flex-direction: column; }
+      .bch-flow-arrow { transform: rotate(90deg); }
+      .bch-steps { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .bch-price-box { padding: 32px 24px; }
+      .bch-subheading { font-size: 16px; margin: 44px 0 20px; }
+    }
+
     /* ─── PROCESS ─── */
     #process { background: var(--dark); }
     #process::before {
@@ -2100,13 +2316,13 @@
           <span class="product-cta">業務改善を相談する <span class="arrow">→</span></span>
         </a>
 
-        <a href="ai-course.html#plans" class="product-card fade-up">
+        <a href="#business-card-hp" class="product-card fade-up">
           <div class="product-band"><span class="product-band-num">PRODUCT 03</span><span class="product-band-en">BUSINESS FUNNEL</span></div>
           <div class="product-icon">🪪</div>
           <h3>AI名刺＋HP<br>作成</h3>
           <p class="product-subtitle">名刺からHPにつながる営業導線を作る。</p>
           <p class="product-desc">
-            AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。
+            AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。名刺を渡して終わりではなく、HP・LINE・問い合わせにつながる導線を整えます。
           </p>
           <p class="product-tags">名刺 / HP / QR導線</p>
           <p class="product-audience">営業導線を整えたい方へ</p>
@@ -3407,6 +3623,100 @@
     </div>
   </section>
 
+  <!-- ─── AI名刺＋HP作成 ─── -->
+  <section id="business-card-hp">
+    <div class="section-inner">
+      <p class="section-label fade-up">Business Funnel</p>
+      <h2 class="section-title fade-up">AI名刺<span>＋HP作成</span></h2>
+      <div class="gold-line fade-up"></div>
+      <p class="section-desc fade-up">
+        名刺を渡して終わりにしない。<br>
+        HP・LINE・問い合わせにつながる営業導線を作る。
+      </p>
+      <p class="section-desc fade-up">
+        AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。<br>
+        「名刺を渡して終わり」ではなく、QRコードからホームページ、LINE、問い合わせにつながる導線まで整えます。<br>
+        個人事業主、店舗オーナー、営業職、副業を始めたい方に向いている商品です。
+      </p>
+
+      <!-- 導線図 -->
+      <div class="bch-flow fade-up">
+        <div class="bch-flow-step"><span class="bch-flow-icon">🪪</span><span>名刺</span></div>
+        <div class="bch-flow-arrow">→</div>
+        <div class="bch-flow-step"><span class="bch-flow-icon">📱</span><span>QRコード</span></div>
+        <div class="bch-flow-arrow">→</div>
+        <div class="bch-flow-step"><span class="bch-flow-icon">🌐</span><span>ホームページ</span></div>
+        <div class="bch-flow-arrow">→</div>
+        <div class="bch-flow-step bch-flow-step-gold"><span class="bch-flow-icon">💬</span><span>LINE / Instagram / 問い合わせ</span></div>
+      </div>
+
+      <!-- この商品で作るもの -->
+      <h3 class="bch-subheading fade-up">この商品で作るもの</h3>
+      <div class="bch-make-grid">
+        <div class="bch-make-card fade-up"><span class="bch-make-num">01</span>事業コンセプト整理</div>
+        <div class="bch-make-card fade-up"><span class="bch-make-num">02</span>名刺デザイン</div>
+        <div class="bch-make-card fade-up"><span class="bch-make-num">03</span>QRコード設計</div>
+        <div class="bch-make-card fade-up"><span class="bch-make-num">04</span>ホームページ構成</div>
+        <div class="bch-make-card fade-up"><span class="bch-make-num">05</span>GitHub / Vercel公開</div>
+        <div class="bch-make-card fade-up"><span class="bch-make-num">06</span>LINE / Instagram / フォーム導線</div>
+      </div>
+
+      <!-- こんな方におすすめ -->
+      <h3 class="bch-subheading fade-up">こんな方におすすめ</h3>
+      <ul class="bch-check-list">
+        <li class="fade-up">名刺を作ったけど、渡した後の導線がない</li>
+        <li class="fade-up">ホームページがない、または古い</li>
+        <li class="fade-up">営業時に自分の事業を分かりやすく見せたい</li>
+        <li class="fade-up">LINEやInstagramにつながるQRを名刺に入れたい</li>
+        <li class="fade-up">AIを使って名刺やHPを作ってみたい</li>
+        <li class="fade-up">外注までは重いが、自分一人では作れない</li>
+        <li class="fade-up">個人事業、副業、店舗の見せ方を整えたい</li>
+      </ul>
+
+      <!-- 提供の流れ -->
+      <h3 class="bch-subheading fade-up">提供の流れ</h3>
+      <div class="bch-steps">
+        <div class="bch-step fade-up">
+          <span class="bch-step-num">STEP 01</span>
+          <h4>事業コンセプト整理</h4>
+          <p>あなたの事業内容、強み、ターゲット、伝えたい印象を整理します。</p>
+        </div>
+        <div class="bch-step fade-up">
+          <span class="bch-step-num">STEP 02</span>
+          <h4>名刺＋HP制作</h4>
+          <p>Canvaで名刺を作成し、AIを使ってホームページの土台を作ります。</p>
+        </div>
+        <div class="bch-step fade-up">
+          <span class="bch-step-num">STEP 03</span>
+          <h4>QR導線・公開設定</h4>
+          <p>名刺のQRからHP、LINE、Instagram、問い合わせにつながる流れを整えます。</p>
+        </div>
+      </div>
+
+      <!-- 料金目安 -->
+      <div class="bch-price-box fade-up">
+        <p class="bch-price-label">料金目安</p>
+        <p class="bch-price-name">AI名刺＋HP作成パッケージ</p>
+        <p class="bch-price-value">198,000円〜298,000円<span>（税込）</span></p>
+        <p class="bch-price-note">内容・ページ数・導線設計の範囲により変動します。</p>
+        <div class="bch-price-alt">
+          講座型で学びながら作りたい方は、<br>
+          <strong>AIビジネス導線構築講座</strong>もご案内できます。<br>
+          <a href="ai-course.html" class="bch-price-alt-link">AI講座を見る <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="bch-cta-wrap fade-up">
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="bch-cta-main" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="white" fill-opacity="0.15"/><path d="M11 5C7.686 5 5 7.358 5 10.264c0 2.604 2.308 4.788 5.43 5.197.211.046.5.14.572.322.066.165.043.424.021.59l-.093.554c-.028.165-.132.647.567.352.7-.294 3.775-2.222 5.15-3.804C17.58 12.23 18 11.278 18 10.264 18 7.358 15.314 5 11 5z" fill="white"/></svg>
+          名刺＋HP作成をLINEで相談する
+        </a>
+        <a href="ai-course.html" class="bch-cta-sub">AI講座として学びながら作る →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── PROCESS ─── -->
   <section id="process">
     <div class="section-inner">
@@ -3744,6 +4054,7 @@
         <a href="#shindan">AI活用診断</a>
         <a href="#demo">デモ</a>
         <a href="#services">サービス</a>
+        <a href="#business-card-hp">名刺＋HP</a>
         <a href="#process">導入の流れ</a>
         <a href="#why">選ばれる理由</a>
         <a href="#profile">代表者紹介</a>
