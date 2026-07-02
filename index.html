@@ -828,19 +828,32 @@
       top: 0; left: 0; right: 0; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
+    .products-summary {
+      text-align: center;
+      margin-top: 26px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+    .products-summary span { color: rgba(255,255,255,0.22); margin: 0 12px; font-weight: 400; }
     .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
-      margin-top: 56px;
+      margin-top: 44px;
+      align-items: stretch;
     }
     .product-card {
       display: flex;
       flex-direction: column;
-      background: linear-gradient(160deg, rgba(214,164,81,0.06), var(--dark2) 55%);
-      border: 1px solid rgba(214,164,81,0.3);
-      border-radius: 16px;
-      padding: 40px 32px;
+      min-height: 520px;
+      background:
+        radial-gradient(circle at top right, rgba(214,164,81,0.12), transparent 34%),
+        linear-gradient(160deg, rgba(214,164,81,0.07), var(--dark2) 55%);
+      border: 1px solid rgba(214,164,81,0.45);
+      border-radius: 18px;
+      padding: 54px 38px 42px;
       text-decoration: none;
       color: inherit;
       position: relative;
@@ -859,7 +872,7 @@
     .product-card:hover {
       border-color: var(--gold);
       transform: translateY(-6px);
-      box-shadow: 0 20px 48px rgba(214,164,81,0.18);
+      box-shadow: 0 24px 56px rgba(214,164,81,0.22);
     }
     .product-card:hover::before { transform: scaleX(1); }
     .product-label {
@@ -869,74 +882,93 @@
       letter-spacing: 0.25em;
       font-weight: 700;
       text-transform: uppercase;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       opacity: 0.9;
     }
     .product-icon {
-      width: 62px; height: 62px;
+      width: 46px; height: 46px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 27px;
-      border: 1px solid rgba(214,164,81,0.4);
+      font-size: 20px;
+      border: 1px solid rgba(214,164,81,0.3);
       border-radius: 50%;
-      margin-bottom: 22px;
-      background: rgba(214,164,81,0.06);
+      margin-bottom: 18px;
+      background: rgba(214,164,81,0.05);
+      opacity: 0.85;
       flex-shrink: 0;
     }
     .product-card h3 {
-      font-size: clamp(24px, 2.2vw, 32px);
-      line-height: 1.25;
+      font-size: clamp(30px, 3.2vw, 44px);
+      line-height: 1.12;
       font-weight: 900;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.04em;
       color: #ffffff;
-      margin-bottom: 14px;
+      margin-bottom: 18px;
+      text-shadow: 0 0 34px rgba(214,164,81,0.18);
     }
-    .product-subtitle { font-size: 14px; color: var(--gold-light); font-weight: 800; line-height: 1.5; margin-bottom: 18px; }
-    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.8; font-weight: 300; margin-bottom: 22px; }
-    .product-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
-    .product-list li { font-size: 12px; color: var(--gray); padding-left: 16px; position: relative; line-height: 1.6; }
-    .product-list li::before { content: '・'; position: absolute; left: 0; color: var(--gold); }
+    .product-subtitle { font-size: 15px; color: var(--gold-light); font-weight: 800; line-height: 1.5; margin-bottom: 16px; }
+    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.75; font-weight: 300; margin-bottom: 18px; }
+    .product-tags { font-size: 11px; color: var(--gray); letter-spacing: 0.02em; margin-bottom: 22px; }
+    .product-audience {
+      display: inline-block;
+      font-size: 11px;
+      color: var(--gold-light);
+      border: 1px solid rgba(214,164,81,0.3);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+      font-weight: 700;
+    }
     .product-cta {
       margin-top: auto;
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
+      width: 100%;
       border: 1px solid var(--gold);
-      color: var(--gold);
-      font-weight: 800;
-      font-size: 14px;
-      padding: 14px 22px;
-      border-radius: 4px;
-      letter-spacing: 0.03em;
+      color: var(--gold-light);
+      background: rgba(214,164,81,0.06);
+      font-weight: 900;
+      font-size: 15px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
       transition: all 0.25s;
     }
     .product-cta .arrow { transition: transform 0.25s; }
-    .product-card:hover .product-cta { background: var(--gold); color: #000; }
+    .product-card:hover .product-cta { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: #000; }
     .product-card:hover .product-cta .arrow { transform: translateX(4px); }
     .products-footnote {
       text-align: center;
+      margin-top: 48px;
+    }
+    .products-footnote p {
       font-size: 13px;
       color: var(--gray-light);
-      margin-top: 44px;
-      line-height: 1.9;
+      margin-bottom: 18px;
+      line-height: 1.8;
     }
     .products-footnote-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: var(--gold);
-      font-weight: 700;
+      gap: 8px;
+      border: 1px solid #06c755;
+      color: #06c755;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 14px 30px;
+      border-radius: 999px;
       text-decoration: none;
-      margin-top: 8px;
+      transition: all 0.25s;
     }
-    .products-footnote-link:hover { color: var(--gold-light); }
+    .products-footnote-link:hover { background: #06c755; color: #fff; }
     @media (max-width: 900px) {
       .products-grid { grid-template-columns: 1fr; gap: 26px; }
+      .product-card { min-height: 0; }
     }
     @media (max-width: 600px) {
-      .product-card { padding: 32px 24px; }
-      .product-card h3 { font-size: 26px; }
-      .product-cta { width: 100%; }
+      .product-card { padding: 40px 26px 32px; }
+      .product-card h3 { font-size: 30px; }
     }
 
     /* ─── PROCESS ─── */
@@ -1900,12 +1932,13 @@
   <section id="products">
     <div class="section-inner">
       <p class="section-label fade-up" style="justify-content:center;display:flex;">Our Products</p>
-      <h2 class="section-title fade-up" style="text-align:center;">TEZU Intelligenceの<span>3つの商品</span></h2>
+      <h2 class="section-title fade-up" style="text-align:center;">TEZU Intelligenceの<span>3大商品</span></h2>
       <div class="gold-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
       <p class="section-desc fade-up" style="max-width:640px;margin:0 auto;text-align:center;">
         AIを学ぶ。AIを業務に入れる。AIで営業導線を作る。<br>
-        3つの入口から、事業に使えるAI活用を支援します。
+        この3つの入口から、事業に使えるAI活用を支援します。
       </p>
+      <p class="products-summary fade-up">AI教育<span>｜</span>業務改善<span>｜</span>名刺＋HP作成</p>
 
       <div class="products-grid">
         <a href="ai-course.html" class="product-card fade-up">
@@ -1914,13 +1947,10 @@
           <h3>AI教育事業</h3>
           <p class="product-subtitle">AIを学び、仕事で使える形へ。</p>
           <p class="product-desc">
-            ChatGPT・Claude Code・Canvaを活用し、AI初心者でも仕事や事業に使える形まで一緒に学ぶ実践型AI教育です。
+            ChatGPT・Claude Code・Canvaを活用し、AI初心者でも実務に使える力を育てます。
           </p>
-          <ul class="product-list">
-            <li>ChatGPT活用</li>
-            <li>Claude Code / Canva活用</li>
-            <li>資料・HP作成の実践</li>
-          </ul>
+          <p class="product-tags">ChatGPT / Claude Code / Canva</p>
+          <p class="product-audience">AIを自分で使えるようになりたい方へ</p>
           <span class="product-cta">AI教育を見る <span class="arrow">→</span></span>
         </a>
 
@@ -1932,35 +1962,29 @@
           <p class="product-desc">
             見積書、日報、口コミ返信、SNS投稿などをAIで効率化し、人がやるべき仕事に集中できる状態を作ります。
           </p>
-          <ul class="product-list">
-            <li>見積書、日報の効率化</li>
-            <li>口コミ返信、SNS投稿</li>
-            <li>問い合わせ対応、業務フロー改善</li>
-          </ul>
+          <p class="product-tags">見積書 / 日報 / 口コミ返信</p>
+          <p class="product-audience">社内業務を効率化したい方へ</p>
           <span class="product-cta">業務改善を相談する <span class="arrow">→</span></span>
         </a>
 
         <a href="ai-course.html#plans" class="product-card fade-up">
           <p class="product-label">Product 03</p>
           <div class="product-icon">🪪</div>
-          <h3>AI名刺＋HP作成</h3>
+          <h3>AI名刺＋HP<br>作成</h3>
           <p class="product-subtitle">名刺からHPにつながる営業導線を作る。</p>
           <p class="product-desc">
             AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。
           </p>
-          <ul class="product-list">
-            <li>事業コンセプト整理</li>
-            <li>名刺、HP、QR導線作成</li>
-            <li>GitHub / Vercel公開</li>
-          </ul>
+          <p class="product-tags">名刺 / HP / QR導線</p>
+          <p class="product-audience">営業導線を整えたい方へ</p>
           <span class="product-cta">名刺＋HP作成を見る <span class="arrow">→</span></span>
         </a>
       </div>
 
-      <p class="products-footnote fade-up">
-        どの商品が合うか分からない場合は、LINEで現在の状況をお聞きした上でご提案します。<br>
-        <a href="https://line.me/ti/p/itU8jz37Ut" class="products-footnote-link" target="_blank" rel="noopener">LINEで無料相談する →</a>
-      </p>
+      <div class="products-footnote fade-up">
+        <p>どの商品が合うか分からない場合は、LINEで現在の状況をお聞きしてご提案します。</p>
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="products-footnote-link" target="_blank" rel="noopener">LINEで無料相談する <span class="arrow">→</span></a>
+      </div>
     </div>
   </section>
 
