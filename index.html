@@ -1394,6 +1394,12 @@
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── レスポンシブ ─── */
+    /* ナビ項目増加(3つの商品/AI講座)により900px以前から窮屈になるため、1100pxから先行してコンパクト化 */
+    @media (max-width: 1100px) {
+      #nav-brand span { display: none; }
+      #nav-links { gap: 16px !important; }
+      #nav-links a { font-size: 11px !important; }
+    }
     @media (max-width: 900px) {
       #main-nav { padding: 0 20px !important; }
       #nav-brand span { display: none; } /* タブレットは文字を隠してロゴのみ表示 */
