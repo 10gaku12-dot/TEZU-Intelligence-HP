@@ -862,13 +862,15 @@
       box-shadow: 0 20px 48px rgba(214,164,81,0.18);
     }
     .product-card:hover::before { transform: scaleX(1); }
-    .product-num {
-      position: absolute; top: 30px; right: 32px;
-      font-size: 12px;
+    .product-label {
+      font-size: 11px;
       font-family: 'Inter',sans-serif;
-      color: rgba(214,164,81,0.4);
-      letter-spacing: 0.15em;
+      color: rgba(214,164,81,0.55);
+      letter-spacing: 0.25em;
       font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: 0.9;
     }
     .product-icon {
       width: 62px; height: 62px;
@@ -876,14 +878,21 @@
       font-size: 27px;
       border: 1px solid rgba(214,164,81,0.4);
       border-radius: 50%;
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       background: rgba(214,164,81,0.06);
       flex-shrink: 0;
     }
-    .product-card h3 { font-size: 19px; font-weight: 900; margin-bottom: 8px; color: var(--white); line-height: 1.4; }
-    .product-subtitle { font-size: 13px; color: var(--gold-light); font-weight: 600; margin-bottom: 16px; line-height: 1.6; }
-    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.85; font-weight: 300; margin-bottom: 20px; }
-    .product-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 30px; }
+    .product-card h3 {
+      font-size: clamp(24px, 2.2vw, 32px);
+      line-height: 1.25;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 14px;
+    }
+    .product-subtitle { font-size: 14px; color: var(--gold-light); font-weight: 800; line-height: 1.5; margin-bottom: 18px; }
+    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.8; font-weight: 300; margin-bottom: 22px; }
+    .product-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
     .product-list li { font-size: 12px; color: var(--gray); padding-left: 16px; position: relative; line-height: 1.6; }
     .product-list li::before { content: '・'; position: absolute; left: 0; color: var(--gold); }
     .product-cta {
@@ -894,9 +903,9 @@
       gap: 8px;
       border: 1px solid var(--gold);
       color: var(--gold);
-      font-weight: 700;
-      font-size: 13px;
-      padding: 13px 22px;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 14px 22px;
       border-radius: 4px;
       letter-spacing: 0.03em;
       transition: all 0.25s;
@@ -922,10 +931,12 @@
     }
     .products-footnote-link:hover { color: var(--gold-light); }
     @media (max-width: 900px) {
-      .products-grid { grid-template-columns: 1fr; gap: 22px; }
+      .products-grid { grid-template-columns: 1fr; gap: 26px; }
     }
     @media (max-width: 600px) {
       .product-card { padding: 32px 24px; }
+      .product-card h3 { font-size: 26px; }
+      .product-cta { width: 100%; }
     }
 
     /* ─── PROCESS ─── */
@@ -1886,63 +1897,55 @@
       <h2 class="section-title fade-up" style="text-align:center;">TEZU Intelligenceの<span>3つの商品</span></h2>
       <div class="gold-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
       <p class="section-desc fade-up" style="max-width:640px;margin:0 auto;text-align:center;">
-        AIを学ぶ、AIを業務に入れる、AIで営業導線を作る。<br>
-        TEZU Intelligenceは、事業者がAIを現場で使える形まで落とし込みます。
+        AIを学ぶ。AIを業務に入れる。AIで営業導線を作る。<br>
+        3つの入口から、事業に使えるAI活用を支援します。
       </p>
 
       <div class="products-grid">
         <a href="ai-course.html" class="product-card fade-up">
-          <p class="product-num">01</p>
+          <p class="product-label">Product 01</p>
           <div class="product-icon">🎓</div>
           <h3>AI教育事業</h3>
-          <p class="product-subtitle">AIを学ぶだけで終わらせない実践型AI教育</p>
+          <p class="product-subtitle">AIを学び、仕事で使える形へ。</p>
           <p class="product-desc">
-            ChatGPT・Claude Code・Canvaなどを活用し、AI初心者でも仕事や事業に使える形まで一緒に学ぶ教育事業です。個人事業主、店舗オーナー、営業職、副業初心者に対応します。
+            ChatGPT・Claude Code・Canvaを活用し、AI初心者でも仕事や事業に使える形まで一緒に学ぶ実践型AI教育です。
           </p>
           <ul class="product-list">
             <li>ChatGPT活用</li>
-            <li>Claude Code活用</li>
-            <li>Canva活用</li>
-            <li>AIで文章、資料、HPを作る</li>
-            <li>自分で軽微修正できる状態へ</li>
+            <li>Claude Code / Canva活用</li>
+            <li>資料・HP作成の実践</li>
           </ul>
           <span class="product-cta">AI教育を見る <span class="arrow">→</span></span>
         </a>
 
         <a href="#services" class="product-card fade-up">
-          <p class="product-num">02</p>
+          <p class="product-label">Product 02</p>
           <div class="product-icon">🧩</div>
-          <h3>AI導入による業務改善</h3>
-          <p class="product-subtitle">人がやるべき仕事に集中するためのAI導入支援</p>
+          <h3>AI導入による<br>業務改善</h3>
+          <p class="product-subtitle">現場の作業時間をAIで減らす。</p>
           <p class="product-desc">
-            中小企業・店舗・地域事業者向けに、見積書作成、日報、口コミ返信、SNS投稿、問い合わせ対応などをAIで効率化します。現場の作業時間を減らし、売上や顧客対応に集中できる状態を作ります。
+            見積書、日報、口コミ返信、SNS投稿などをAIで効率化し、人がやるべき仕事に集中できる状態を作ります。
           </p>
           <ul class="product-list">
-            <li>見積書作成の効率化</li>
-            <li>日報、報告書の作成支援</li>
-            <li>口コミ返信</li>
-            <li>SNS投稿文作成</li>
-            <li>問い合わせ対応</li>
-            <li>業務フロー改善</li>
+            <li>見積書、日報の効率化</li>
+            <li>口コミ返信、SNS投稿</li>
+            <li>問い合わせ対応、業務フロー改善</li>
           </ul>
           <span class="product-cta">業務改善を相談する <span class="arrow">→</span></span>
         </a>
 
         <a href="ai-course.html#plans" class="product-card fade-up">
-          <p class="product-num">03</p>
+          <p class="product-label">Product 03</p>
           <div class="product-icon">🪪</div>
           <h3>AI名刺＋HP作成</h3>
-          <p class="product-subtitle">名刺からホームページにつながる営業導線を作る</p>
+          <p class="product-subtitle">名刺からHPにつながる営業導線を作る。</p>
           <p class="product-desc">
-            AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。「名刺を渡して終わり」ではなく、名刺からHP、LINE、問い合わせにつながる導線を整えます。
+            AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。
           </p>
           <ul class="product-list">
-            <li>AIで事業コンセプト整理</li>
-            <li>HP構成作成</li>
-            <li>Canva名刺作成</li>
-            <li>QRコード設計</li>
+            <li>事業コンセプト整理</li>
+            <li>名刺、HP、QR導線作成</li>
             <li>GitHub / Vercel公開</li>
-            <li>LINE、Instagram、フォーム導線</li>
           </ul>
           <span class="product-cta">名刺＋HP作成を見る <span class="arrow">→</span></span>
         </a>
