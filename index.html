@@ -793,6 +793,33 @@
       font-family: 'Inter',sans-serif;
     }
 
+    /* ─── 新サービス：AIビジネス導線構築講座 ─── */
+    #course-promo { background: var(--black); }
+    .course-promo-card {
+      margin-top: 48px;
+      background: linear-gradient(160deg, rgba(214,164,81,0.1), var(--dark2) 60%);
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 40px rgba(214,164,81,0.15);
+      padding: 40px 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .course-promo-badges { display: flex; flex-wrap: wrap; gap: 10px; max-width: 460px; }
+    .course-promo-badges .tag { border-color: rgba(214,164,81,0.4); color: var(--gold-light); padding: 6px 14px; font-size: 11px; }
+    .course-promo-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; flex-shrink: 0; }
+    @media (max-width: 900px) {
+      .course-promo-card { padding: 32px 28px; }
+    }
+    @media (max-width: 600px) {
+      .course-promo-card { flex-direction: column; align-items: stretch; text-align: center; }
+      .course-promo-badges { justify-content: center; max-width: none; }
+      .course-promo-actions { align-items: center; width: 100%; }
+      .course-promo-actions a { width: 100%; text-align: center; }
+    }
+
     /* ─── PROCESS ─── */
     #process { background: var(--dark); }
     #process::before {
@@ -1666,6 +1693,7 @@
       <a href="#services">サービス</a>
       <a href="#why">選ばれる理由</a>
       <a href="#profile">代表者紹介</a>
+      <a href="ai-course.html">AI講座</a>
       <a href="#cta" class="nav-cta">無料相談</a>
     </div>
   </nav>
@@ -3552,6 +3580,31 @@
     </div>
   </section>
 
+  <!-- ─── 新サービス：AIビジネス導線構築講座（教育事業） ─── -->
+  <section id="course-promo">
+    <div class="section-inner">
+      <p class="section-label fade-up">New Service</p>
+      <h2 class="section-title fade-up">新サービス：<span>AIビジネス導線構築講座</span></h2>
+      <div class="gold-line fade-up"></div>
+      <p class="section-desc fade-up">
+        AI初心者でも、名刺・ホームページ・QR導線を営業に使える形まで一緒に作る実践講座です。<br>
+        ChatGPT・Claude Code・Canva・GitHub・Vercelを活用し、個人事業主・店舗オーナー・営業職のビジネス導線づくりをサポートします。
+      </p>
+      <div class="course-promo-card fade-up">
+        <div class="course-promo-badges">
+          <span class="tag">AI初心者向け</span>
+          <span class="tag">名刺、HP、QR導線を作成</span>
+          <span class="tag">1DAY講座 88,000円</span>
+          <span class="tag">LINE無料相談対応</span>
+        </div>
+        <div class="course-promo-actions">
+          <a href="ai-course.html" class="btn-primary">講座ページを見る</a>
+          <a href="https://line.me/ti/p/itU8jz37Ut" class="btn-outline" target="_blank" rel="noopener">LINEで相談する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ─── PROCESS ─── -->
   <section id="process">
     <div class="section-inner">
@@ -3889,6 +3942,7 @@
         <a href="#process">導入の流れ</a>
         <a href="#why">選ばれる理由</a>
         <a href="#profile">代表者紹介</a>
+        <a href="ai-course.html">AI講座</a>
         <a href="#cta">お問い合わせ</a>
       </nav>
     </div>

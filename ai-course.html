@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIビジネス導線構築講座｜名刺・HP・QR導線をAIで作る｜TEZU Intelligence</title>
+
+  <!-- SEO基本設定 -->
+  <meta name="description" content="AI初心者向けに、ChatGPT・Claude Code・Canva・GitHub・Vercelを活用し、名刺・ホームページ・QR導線を作る実践講座。個人事業主・店舗オーナー・営業職向けに、営業に使える導線づくりをTEZU Intelligenceがサポートします。" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="author" content="手塚 岳人 / TEZUIntelligence" />
+  <link rel="canonical" href="https://tezu-intelligence-hp.vercel.app/ai-course.html" />
+
+  <!-- OGP（SNSシェア・Googleプレビュー） -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tezu-intelligence-hp.vercel.app/ai-course.html" />
+  <meta property="og:title" content="AIビジネス導線構築講座｜TEZU Intelligence" />
+  <meta property="og:description" content="AI初心者でも、名刺・ホームページ・QR導線を営業に使える形まで一緒に作る実践講座。" />
+  <meta property="og:image" content="https://tezu-intelligence-hp.vercel.app/logo.png" />
+  <meta property="og:site_name" content="TEZUIntelligence" />
+  <meta property="og:locale" content="ja_JP" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="AIビジネス導線構築講座｜TEZU Intelligence" />
+  <meta name="twitter:description" content="AI初心者でも、名刺・ホームページ・QR導線を営業に使える形まで一緒に作る実践講座。" />
+  <meta name="twitter:image" content="https://tezu-intelligence-hp.vercel.app/logo.png" />
+
+  <!-- 構造化データ①：Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AIビジネス導線構築講座",
+    "provider": {
+      "@type": "Organization",
+      "name": "TEZUIntelligence",
+      "url": "https://tezu-intelligence-hp.vercel.app/"
+    },
+    "serviceType": "AI活用教育・名刺HP制作講座",
+    "areaServed": { "@type": "Country", "name": "JP" },
+    "description": "AI初心者向けに、ChatGPT・Claude Code・Canva・GitHub・Vercelを活用し、名刺・ホームページ・QR導線を営業に使える形まで作る実践講座。",
+    "offers": [
+      { "@type": "Offer", "name": "AI名刺・HP作成体験セミナー", "priceCurrency": "JPY", "price": "9800", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "AIビジネス導線構築 1DAY講座", "priceCurrency": "JPY", "price": "88000", "availability": "https://schema.org/InStock" },
+      { "@type": "Offer", "name": "個別伴走プラン", "priceCurrency": "JPY", "price": "198000", "availability": "https://schema.org/InStock" }
+    ]
+  }
+  </script>
+
+  <!-- 構造化データ②：FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "AI初心者でも大丈夫ですか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。PC操作やAIツールの使い方から分かりやすくサポートします。" } },
+      { "@type": "Question", "name": "パソコンを持っていなくても受講できますか？", "acceptedAnswer": { "@type": "Answer", "text": "受講前に、目的に合ったPC購入アドバイスも可能です。" } },
+      { "@type": "Question", "name": "ホームページを自分で修正できるようになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "プログラミング習得ではなく、文章や画像の軽微な修正ができる状態を目指します。" } },
+      { "@type": "Question", "name": "Claude CodeやGitHubが難しそうです。", "acceptedAnswer": { "@type": "Answer", "text": "難しい部分は講師がサポートします。目的はエンジニアになることではなく、営業に使える導線を作ることです。" } },
+      { "@type": "Question", "name": "相談したら必ず申し込まないといけませんか？", "acceptedAnswer": { "@type": "Answer", "text": "いいえ。無料相談では、現在の状況を聞いた上で、講座が必要かどうかも含めて一緒に確認します。無理な営業はしません。" } },
+      { "@type": "Question", "name": "88,000円の1DAY講座だけで本当に形になりますか？", "acceptedAnswer": { "@type": "Answer", "text": "事前ヒアリングを行い、当日は名刺・ホームページ・QR導線の土台を作ることを目指します。内容によっては、個別伴走プランをご提案する場合もあります。" } }
+    ]
+  }
+  </script>
+
+  <!-- 構造化データ③：BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム｜TEZUIntelligence", "item": "https://tezu-intelligence-hp.vercel.app/" },
+      { "@type": "ListItem", "position": 2, "name": "AIビジネス導線構築講座", "item": "https://tezu-intelligence-hp.vercel.app/ai-course.html" }
+    ]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-padding-top: 56px; scroll-behavior: smooth; }
+
+    :root {
+      --black: #000000;
+      --dark: #060608;
+      --dark2: #0d0d10;
+      --gold: #d6a451;
+      --gold-light: #f0c46a;
+      --cyan: #00e5ff;
+      --white: #ffffff;
+      --gray: #777777;
+      --gray-light: #bbbbbb;
+    }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Noto Sans JP','Inter',sans-serif;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(var(--gold),var(--cyan)); border-radius: 2px; }
+
+    /* ─── NAVIGATION ─── */
+    #main-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+      display: flex; align-items: center; height: 56px; padding: 0 40px;
+      background: rgba(0,0,0,0.88); backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(214,164,81,0.2);
+    }
+    #nav-brand { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; color: var(--white); text-decoration: none; text-transform: uppercase; white-space: nowrap; flex-shrink: 0; }
+    #nav-brand em { color: var(--gold); font-style: normal; }
+    #nav-logo { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 0 6px rgba(214,164,81,0.6)) brightness(1.1); }
+    #nav-links { margin-left: auto; display: flex; align-items: center; gap: 24px; }
+    #nav-links a { color: #aaaaaa; text-decoration: none; font-size: 12px; letter-spacing: 0.06em; font-weight: 400; white-space: nowrap; transition: color 0.2s; }
+    #nav-links a:hover { color: var(--gold); }
+    #nav-links a.nav-cta { background: var(--gold); color: #000000; padding: 7px 18px; border-radius: 2px; font-weight: 700; font-size: 11px; letter-spacing: 0.1em; }
+    #nav-links a.nav-cta:hover { background: var(--gold-light); color: #000000; }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 108px 7%; position: relative; scroll-margin-top: 64px; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-label { font-size: 10px; letter-spacing: 0.35em; color: var(--cyan); text-transform: uppercase; font-weight: 600; font-family: 'Inter',sans-serif; margin-bottom: 14px; }
+    .section-title { font-size: clamp(26px, 3.2vw, 42px); font-weight: 900; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .section-title span { color: var(--gold); }
+    .section-desc { font-size: 14px; color: var(--gray-light); max-width: 580px; line-height: 1.85; font-weight: 300; }
+    .gold-line { width: 48px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--cyan)); margin: 20px 0; }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid rgba(0,229,255,0.25); color: var(--cyan); letter-spacing: 0.1em; border-radius: 1px; font-family: 'Inter',sans-serif; display: inline-block; }
+    .tag-gold { border-color: rgba(214,164,81,0.4); color: var(--gold-light); }
+
+    .btn-primary { background: var(--gold); color: var(--black); padding: 15px 36px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; border: none; text-decoration: none; display: inline-block; transition: all 0.25s; border-radius: 2px; }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(214,164,81,0.35); }
+    .btn-outline { background: transparent; color: var(--white); padding: 15px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; display: inline-block; transition: all 0.25s; border-radius: 2px; }
+    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,229,255,0.15); }
+    .cta-line-btn { display: inline-flex; align-items: center; gap: 12px; background: #06c755; color: var(--white); padding: 16px 38px; font-size: 14px; font-weight: 700; border-radius: 3px; text-decoration: none; transition: all 0.25s; letter-spacing: 0.05em; box-shadow: 0 0 30px rgba(6,199,85,0.2); }
+    .cta-line-btn:hover { background: #05b34c; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(6,199,85,0.3); }
+    .cta-note { font-size: 11px; color: var(--gray); letter-spacing: 0.05em; }
+
+    .speech-bubble { position: relative; background: #fff; color: #111; border-radius: 16px; padding: 12px 18px; font-size: 13px; font-weight: 700; line-height: 1.6; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.3); margin-bottom: 14px; white-space: nowrap; }
+    .speech-bubble::after { content: ''; position: absolute; bottom: -11px; left: 50%; transform: translateX(-50%); border-width: 11px 8px 0; border-style: solid; border-color: #fff transparent transparent; }
+    .speech-bubble.bubble-gold { background: var(--gold); color: #000; }
+    .speech-bubble.bubble-gold::after { border-color: var(--gold) transparent transparent; }
+
+    /* ─── HERO ─── */
+    #course-hero { min-height: auto; padding: 148px 7% 90px; background: linear-gradient(160deg, #000 0%, #04040a 100%); overflow: hidden; }
+    .course-hero-inner { max-width: 720px; position: relative; z-index: 1; }
+    .course-hero-logo { width: 240px; height: auto; object-fit: contain; margin-bottom: 26px; opacity: 0.95; filter: drop-shadow(0 0 26px rgba(214,164,81,0.3)); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--cyan); color: var(--cyan); font-size: 10px; letter-spacing: 0.25em; padding: 5px 14px; margin-bottom: 24px; text-transform: uppercase; font-weight: 600; font-family: 'Inter',sans-serif; }
+    .hero-badge::before { content: '▶'; font-size: 8px; }
+    .course-hero-title { font-size: clamp(30px, 4.6vw, 52px); font-weight: 900; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 22px; }
+    .course-hero-title .gold-text { color: var(--gold); }
+    .course-hero-sub { font-size: 15px; color: var(--gray-light); line-height: 1.9; max-width: 520px; margin-bottom: 30px; font-weight: 300; }
+    .hero-outcome-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .hero-outcome-badges .tag { border-color: rgba(214,164,81,0.35); color: var(--gold-light); padding: 6px 14px; font-size: 11px; }
+    .hero-safety-note { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 11px; color: var(--gray); letter-spacing: 0.03em; margin-bottom: 36px; }
+    .hero-safety-note span::before { content: '✓ '; color: var(--gold); }
+    .course-hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ─── PROBLEMS ─── */
+    #course-problems { background: var(--dark); }
+    #course-problems::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .section-chara { display: flex; flex-direction: column; align-items: center; margin: 28px 0 4px; gap: 0; }
+    .chara-nayami-wrap { flex-shrink: 0; display: flex; justify-content: center; }
+    .chara-nayami { width: 200px; height: auto; display: block; object-fit: contain; object-position: center top; filter: drop-shadow(0 8px 28px rgba(0,0,0,0.4)); }
+    .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; margin-top: 44px; background: rgba(255,255,255,0.04); }
+    .problem-card { background: var(--dark2); padding: 32px 28px; border-left: 3px solid transparent; transition: all 0.3s; position: relative; overflow: hidden; }
+    .problem-card:hover { background: #121218; border-left-color: var(--gold); }
+    .problem-icon { font-size: 24px; margin-bottom: 14px; }
+    .problem-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--white); line-height: 1.5; }
+    .problem-card p { font-size: 12px; color: var(--gray); line-height: 1.7; }
+
+    /* ─── COMPARE ─── */
+    #compare { background: var(--black); }
+    .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .compare-col { background: var(--dark2); border: 1px solid rgba(255,255,255,0.06); padding: 32px 28px; }
+    .compare-col h3 { font-size: 14px; letter-spacing: 0.04em; margin-bottom: 20px; color: var(--gray-light); font-weight: 700; }
+    .compare-col.compare-highlight { background: linear-gradient(160deg, rgba(214,164,81,0.12), rgba(214,164,81,0.02)); border: 1px solid var(--gold); box-shadow: 0 0 30px rgba(214,164,81,0.15); }
+    .compare-col.compare-highlight h3 { color: var(--gold); }
+    .compare-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .compare-list li { font-size: 13px; color: var(--gray); line-height: 1.7; padding-left: 22px; position: relative; }
+    .compare-list li::before { content: '✕'; position: absolute; left: 0; color: #555; }
+    .compare-highlight .compare-list li { color: var(--gray-light); }
+    .compare-highlight .compare-list li::before { content: '◎'; color: var(--gold); }
+
+    /* ─── FEATURES ─── */
+    #features { background: var(--dark); }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; margin-top: 44px; background: rgba(214,164,81,0.08); }
+    .feature-card { background: var(--dark2); padding: 30px 26px; }
+    .feature-card .problem-icon { font-size: 22px; margin-bottom: 12px; }
+    .feature-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+    .features-note { font-size: 13px; color: var(--gray-light); margin-top: 32px; line-height: 1.85; }
+    .features-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .features-sub-note { font-size: 12px; color: var(--gray); margin-top: 18px; }
+
+    /* ─── PLANS ─── */
+    #plans { background: var(--black); }
+    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 56px; align-items: stretch; }
+    .plan-card { background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); padding: 38px 28px; display: flex; flex-direction: column; position: relative; }
+    .plan-card.plan-main { border: 1px solid var(--gold); background: linear-gradient(160deg, rgba(214,164,81,0.1), var(--dark2) 65%); box-shadow: 0 0 40px rgba(214,164,81,0.18); }
+    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 11px; font-weight: 700; padding: 6px 18px; border-radius: 20px; letter-spacing: 0.05em; white-space: nowrap; }
+    .plan-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+    .plan-tagline { font-size: 12px; color: var(--gray); margin-bottom: 18px; line-height: 1.6; }
+    .plan-price { font-size: 26px; font-weight: 900; color: var(--gold); font-family: 'Inter',sans-serif; margin-bottom: 20px; }
+    .plan-price small { font-size: 12px; color: var(--gray-light); font-weight: 400; }
+    .plan-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; flex: 1; }
+    .plan-list li { font-size: 12px; color: var(--gray-light); padding-left: 16px; position: relative; line-height: 1.6; }
+    .plan-list li::before { content: '・'; position: absolute; left: 0; color: var(--gold); }
+    .plan-cta { margin-top: auto; text-align: center; }
+    .plan-cta .btn-primary, .plan-cta .cta-line-btn { width: 100%; text-align: center; justify-content: center; }
+    .plans-footnote { text-align: center; font-size: 13px; color: var(--gray-light); line-height: 1.9; margin-top: 44px; }
+
+    /* ─── FLOW ─── */
+    #flow { background: var(--dark); }
+    .course-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; margin-top: 52px; }
+    .step-card { text-align: center; }
+    .step-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--black); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 17px; font-weight: 900; color: var(--gold); font-family: 'Inter',sans-serif; box-shadow: 0 0 20px rgba(214,164,81,0.2); }
+    .step-card h3 { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
+    .step-card p { font-size: 11px; color: var(--gray); line-height: 1.6; }
+
+    /* ─── FAQ ─── */
+    #faq { background: var(--black); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 48px; }
+    .faq-item { background: var(--dark2); border-left: 2px solid var(--gold); }
+    .faq-item summary { cursor: pointer; list-style: none; padding: 20px 22px; font-size: 13px; font-weight: 700; color: var(--white); display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; color: var(--gold); font-size: 20px; font-weight: 400; transition: transform 0.25s; flex-shrink: 0; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p { padding: 0 22px 20px; font-size: 12px; color: var(--gray); line-height: 1.8; }
+    .faq-cta { text-align: center; margin-top: 40px; }
+
+    /* ─── BRAND BLOCK + FINAL CTA ─── */
+    #final-cta { background: linear-gradient(135deg, #050508 0%, #0a0810 50%, #050508 100%); text-align: center; border-top: 1px solid rgba(0,229,255,0.1); }
+    .brand-block { max-width: 640px; margin: 0 auto 64px; }
+    .brand-block h3 { font-size: 20px; font-weight: 900; margin-bottom: 16px; }
+    .brand-block p { font-size: 13px; color: var(--gray-light); line-height: 1.9; margin-bottom: 20px; }
+    .brand-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 20px; }
+    .brand-link { font-size: 12px; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+    .brand-link:hover { color: var(--gold-light); }
+    .final-cta-title { font-size: clamp(26px, 3.4vw, 40px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 18px; }
+    .final-cta-desc { font-size: 14px; color: var(--gray-light); max-width: 480px; margin: 0 auto 36px; line-height: 1.85; font-weight: 300; }
+    .final-cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .final-cta-note { font-size: 11px; color: var(--gray); margin-top: 6px; letter-spacing: 0.05em; }
+
+    /* ─── FOOTER ─── */
+    footer { background: #030305; padding: 60px 7%; border-top: 1px solid rgba(255,255,255,0.05); position: relative; }
+    footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), var(--cyan), var(--gold), transparent); }
+    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
+    .footer-logo { font-size: 15px; font-weight: 900; letter-spacing: 0.06em; margin-bottom: 10px; }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline { font-size: 11px; color: var(--gray); letter-spacing: 0.1em; }
+    .footer-nav { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nav a { font-size: 12px; color: var(--gray); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--gold); }
+    .footer-bottom { max-width: 1160px; margin: 36px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 11px; color: #444; letter-spacing: 0.08em; font-family: 'Inter',sans-serif; }
+    .footer-gold-bar { width: 32px; height: 1px; background: linear-gradient(90deg,var(--gold),var(--cyan)); }
+
+    /* ─── レスポンシブ ─── */
+    @media (max-width: 900px) {
+      #main-nav { padding: 0 20px; }
+      #nav-brand span { display: none; }
+      #nav-logo { width: 32px; height: 32px; }
+      #nav-links { gap: 14px; }
+      #nav-links a:not(.nav-cta) { display: none; }
+      section { padding: 72px 5%; }
+      #course-hero { padding: 140px 5% 60px; }
+      .course-hero-logo { width: 190px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .plans-grid { grid-template-columns: 1fr; }
+      .plan-card.plan-main { order: -1; }
+      .course-steps { grid-template-columns: repeat(2, 1fr); }
+      footer { padding: 40px 5%; }
+    }
+    @media (max-width: 600px) {
+      #nav-brand { font-size: 11px; }
+      #nav-logo { width: 28px; height: 28px; }
+      .course-hero-logo { width: 150px; }
+      .course-hero-title { font-size: clamp(26px, 7vw, 34px); }
+      .course-hero-buttons, .final-cta-buttons { flex-direction: column; align-items: stretch; }
+      .course-hero-buttons a, .final-cta-buttons a { text-align: center; }
+      .course-steps { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─── -->
+  <nav id="main-nav">
+    <a href="index.html" id="nav-brand">
+      <img src="logo.png" alt="TEZU Intelligence ロゴ" id="nav-logo" />
+      <span>TEZU<em>Intelligence</em></span>
+    </a>
+    <div id="nav-links">
+      <a href="index.html">ホーム</a>
+      <a href="#course-problems">お悩み</a>
+      <a href="#compare">選ばれる理由</a>
+      <a href="#features">できること</a>
+      <a href="#plans">プラン</a>
+      <a href="#flow">流れ</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://line.me/ti/p/itU8jz37Ut" class="nav-cta" target="_blank" rel="noopener">無料相談</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="course-hero">
+    <div class="course-hero-inner">
+      <img src="logo.png" alt="TEZU Intelligence ロゴ" class="course-hero-logo fade-up" />
+      <p class="hero-badge fade-up">TEZU Intelligence 教育事業</p>
+      <h1 class="course-hero-title fade-up">AI初心者でも、<br><span class="gold-text">営業に使える名刺とホームページ</span>を作れる。</h1>
+      <p class="course-hero-sub fade-up">名刺・ホームページ・QR導線を、営業に使える形へ。<br>完成後も、自分で軽微修正できる状態まで整えます。</p>
+      <div class="hero-outcome-badges fade-up">
+        <span class="tag">HP URL完成</span>
+        <span class="tag">QR付き名刺</span>
+        <span class="tag">軽微修正レクチャー</span>
+      </div>
+      <p class="hero-safety-note fade-up">
+        <span>受講前提でなくてもOK</span>
+        <span>無理な営業なし</span>
+        <span>PC購入前でもOK</span>
+        <span>30分程度</span>
+      </p>
+      <div class="course-hero-buttons fade-up">
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="cta-line-btn" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="white" fill-opacity="0.15"/><path d="M11 5C7.686 5 5 7.358 5 10.264c0 2.604 2.308 4.788 5.43 5.197.211.046.5.14.572.322.066.165.043.424.021.59l-.093.554c-.028.165-.132.647.567.352.7-.294 3.775-2.222 5.15-3.804C17.58 12.23 18 11.278 18 10.264 18 7.358 15.314 5 11 5z" fill="white"/></svg>
+          LINEで無料相談する
+        </a>
+        <a href="#plans" class="btn-outline">自分に合うプランを見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROBLEMS ─── -->
+  <section id="course-problems">
+    <div class="section-inner">
+      <p class="section-label fade-up">Problems</p>
+      <h2 class="section-title fade-up">このような<span>お悩み</span>はありませんか？</h2>
+      <div class="gold-line fade-up"></div>
+      <div class="section-chara fade-up">
+        <div class="speech-bubble">この中に1つでもあれば、<br>相談対象です。</div>
+        <div class="chara-nayami-wrap">
+          <img src="chara_nayami.png" alt="悩んでいるキャラクター" class="chara-nayami">
+        </div>
+      </div>
+      <div class="problems-grid">
+        <div class="problem-card fade-up">
+          <div class="problem-icon">💻</div>
+          <h3>ホームページを作りたいけど外注費が高い</h3>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🤖</div>
+          <h3>AIを何から始めればいいか分からない</h3>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">📇</div>
+          <h3>名刺にQRを入れて集客につなげたい</h3>
+        </div>
+        <div class="problem-card fade-up">
+          <div class="problem-icon">🔧</div>
+          <h3>GitHubやVercelが難しそう</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMPARE ─── -->
+  <section id="compare">
+    <div class="section-inner">
+      <p class="section-label fade-up">Compare</p>
+      <h2 class="section-title fade-up">AI教室でも、<span>ただの外注制作</span>でもありません。</h2>
+      <div class="gold-line fade-up"></div>
+      <div class="compare-grid">
+        <div class="compare-col fade-up">
+          <h3>一般的なAI講座・外注制作</h3>
+          <ul class="compare-list">
+            <li>使い方だけ学んで終わる</li>
+            <li>完成物はもらえるが自分で直せない</li>
+            <li>名刺やQR導線まで一体化しない</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-highlight fade-up">
+          <h3>TEZU Intelligenceの講座</h3>
+          <ul class="compare-list">
+            <li>名刺とHPを一緒に作る</li>
+            <li>QR導線まで営業に使える形にする</li>
+            <li>軽微な修正ができる状態を目指す</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES ─── -->
+  <section id="features">
+    <div class="section-inner">
+      <p class="section-label fade-up">What You Get</p>
+      <h2 class="section-title fade-up">この講座で<span>できること</span></h2>
+      <div class="gold-line fade-up"></div>
+      <div class="features-grid">
+        <div class="feature-card fade-up">
+          <div class="problem-icon">🖥️</div>
+          <h3>PC・AI環境を整える</h3>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="problem-icon">🧭</div>
+          <h3>使うAIツールを選ぶ</h3>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="problem-icon">📝</div>
+          <h3>事業コンセプトを整理する</h3>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="problem-icon">🌐</div>
+          <h3>AIでHPの土台を作る</h3>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="problem-icon">🎨</div>
+          <h3>CanvaでQR付き名刺を作る</h3>
+        </div>
+        <div class="feature-card fade-up">
+          <div class="problem-icon">🚀</div>
+          <h3>GitHub / Vercelで公開する</h3>
+        </div>
+      </div>
+      <p class="features-note fade-up">完成後は、QR導線の確認と、文章・画像の軽微修正方法までお伝えします。</p>
+      <div class="features-tools fade-up">
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude Code</span>
+        <span class="tag">Canva</span>
+        <span class="tag">GitHub / Vercel</span>
+      </div>
+      <p class="features-sub-note fade-up">必要に応じて、LINE・Instagram・Googleフォームへの導線も整えます。</p>
+    </div>
+  </section>
+
+  <!-- ─── PLANS ─── -->
+  <section id="plans">
+    <div class="section-inner">
+      <p class="section-label fade-up">Plans</p>
+      <h2 class="section-title fade-up">3つの<span>プラン</span></h2>
+      <div class="gold-line fade-up"></div>
+      <div class="plans-grid">
+        <div class="plan-card fade-up">
+          <p class="plan-name">AI名刺・HP作成体験セミナー</p>
+          <p class="plan-tagline">まずは体験から始めたい方へ</p>
+          <p class="plan-price">9,800円〜29,800円<br><small>（税込）</small></p>
+          <ul class="plan-list">
+            <li>AI活用の基本</li>
+            <li>名刺、HP導線の考え方</li>
+            <li>事業コンセプト整理</li>
+          </ul>
+          <div class="plan-cta">
+            <a href="https://line.me/ti/p/itU8jz37Ut" class="btn-outline" target="_blank" rel="noopener">体験セミナーを相談する</a>
+          </div>
+        </div>
+
+        <div class="plan-card plan-main fade-up">
+          <div class="plan-badge">まずおすすめ</div>
+          <p class="plan-name">AIビジネス導線構築 1DAY講座</p>
+          <p class="plan-tagline">1日で営業導線の土台を作りたい方へ</p>
+          <p class="plan-price">88,000円<br><small>（税込）</small></p>
+          <p style="font-size:13px; color:var(--gold-light); font-weight:700; margin-bottom:14px;">88,000円で、ここまで整えます</p>
+          <ul class="plan-list">
+            <li>事業コンセプト整理</li>
+            <li>HP構成</li>
+            <li>公開URL</li>
+            <li>QR付き名刺デザイン</li>
+            <li>GitHub / Vercel公開</li>
+            <li>軽微修正レクチャー</li>
+          </ul>
+          <div class="plan-cta">
+            <a href="https://line.me/ti/p/itU8jz37Ut" class="cta-line-btn" target="_blank" rel="noopener">1DAY講座をLINEで相談する</a>
+          </div>
+        </div>
+
+        <div class="plan-card fade-up">
+          <p class="plan-name">個別伴走プラン</p>
+          <p class="plan-tagline">じっくり伴走してほしい方へ</p>
+          <p class="plan-price">198,000円〜298,000円<br><small>（税込）</small></p>
+          <ul class="plan-list">
+            <li>個別ヒアリング</li>
+            <li>HP・名刺制作</li>
+            <li>自分で修正できる状態まで伴走</li>
+          </ul>
+          <div class="plan-cta">
+            <a href="https://line.me/ti/p/itU8jz37Ut" class="btn-outline" target="_blank" rel="noopener">個別伴走を相談する</a>
+          </div>
+        </div>
+      </div>
+      <p class="plans-footnote fade-up">
+        どのプランが合うか分からない場合は、LINEで状況を聞いた上でご提案します。<br>
+        まだ受講を決めていなくても大丈夫です。
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FLOW ─── -->
+  <section id="flow">
+    <div class="section-inner">
+      <p class="section-label fade-up">Flow</p>
+      <h2 class="section-title fade-up">受講の<span>流れ</span></h2>
+      <div class="gold-line fade-up"></div>
+      <div class="course-steps">
+        <div class="step-card fade-up">
+          <div class="step-circle">01</div>
+          <h3>無料相談</h3>
+          <p>LINEで現状をお聞きします。</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-circle">02</div>
+          <h3>ヒアリング・コンセプト整理</h3>
+          <p>事業の方向性を整理します。</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-circle">03</div>
+          <h3>HP・名刺作成</h3>
+          <p>AIとCanvaで一緒に作ります。</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-circle">04</div>
+          <h3>QR導線確認</h3>
+          <p>営業で使える形かを確認します。</p>
+        </div>
+        <div class="step-card fade-up">
+          <div class="step-circle">05</div>
+          <h3>公開・修正方法レクチャー</h3>
+          <p>公開後の直し方までお伝えします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section id="faq">
+    <div class="section-inner">
+      <p class="section-label fade-up">FAQ</p>
+      <h2 class="section-title fade-up">よくある<span>ご質問</span></h2>
+      <div class="gold-line fade-up"></div>
+      <div class="faq-list">
+        <details class="faq-item fade-up">
+          <summary>AI初心者でも大丈夫ですか？</summary>
+          <p>はい。PC操作やAIツールの使い方から分かりやすくサポートします。</p>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>パソコンを持っていなくても受講できますか？</summary>
+          <p>受講前に、目的に合ったPC購入アドバイスも可能です。</p>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>ホームページを自分で修正できるようになりますか？</summary>
+          <p>プログラミング習得ではなく、文章や画像の軽微な修正ができる状態を目指します。</p>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>Claude CodeやGitHubが難しそうです。</summary>
+          <p>難しい部分は講師がサポートします。目的はエンジニアになることではなく、営業に使える導線を作ることです。</p>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>相談したら必ず申し込まないといけませんか？</summary>
+          <p>いいえ。無料相談では、現在の状況を聞いた上で、講座が必要かどうかも含めて一緒に確認します。無理な営業はしません。</p>
+        </details>
+        <details class="faq-item fade-up">
+          <summary>88,000円の1DAY講座だけで本当に形になりますか？</summary>
+          <p>事前ヒアリングを行い、当日は名刺・ホームページ・QR導線の土台を作ることを目指します。内容によっては、個別伴走プランをご提案する場合もあります。</p>
+        </details>
+      </div>
+      <div class="faq-cta fade-up">
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="cta-line-btn" target="_blank" rel="noopener">講座内容をLINEで聞く</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 最終CTA ─── -->
+  <section id="final-cta">
+    <div class="section-inner" style="position:relative; z-index:1;">
+      <div class="brand-block fade-up">
+        <h3>TEZU Intelligence<span style="color:var(--gold);">が伴走します。</span></h3>
+        <p>
+          TEZU Intelligenceは、個人事業主・店舗オーナー向けに、AIを活用したHP制作・名刺QR導線・問い合わせ導線づくりを支援しています。<br>
+          単なるツール説明ではなく、営業現場で使える形まで整えます。
+        </p>
+        <div class="brand-tags">
+          <span class="tag">店舗LP</span>
+          <span class="tag">名刺QR導線</span>
+          <span class="tag">LINE相談導線</span>
+          <span class="tag">Canva制作</span>
+          <span class="tag">GitHub / Vercel公開</span>
+        </div>
+        <a href="https://tezu-intelligence-hp.vercel.app/" class="brand-link">TEZU Intelligence公式HPを見る</a>
+      </div>
+
+      <p class="section-label fade-up" style="justify-content:center; display:flex;">Contact</p>
+      <h2 class="final-cta-title fade-up">まずは、あなたの事業で<br>何が作れるか確認しましょう。</h2>
+      <p class="final-cta-desc fade-up">
+        受講するかどうかは、相談後に決めれば大丈夫です。<br>
+        名刺・ホームページ・AI活用の方向性を一緒に整理します。
+      </p>
+      <div class="final-cta-buttons fade-up">
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="cta-line-btn" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="11" fill="white" fill-opacity="0.15"/><path d="M11 5C7.686 5 5 7.358 5 10.264c0 2.604 2.308 4.788 5.43 5.197.211.046.5.14.572.322.066.165.043.424.021.59l-.093.554c-.028.165-.132.647.567.352.7-.294 3.775-2.222 5.15-3.804C17.58 12.23 18 11.278 18 10.264 18 7.358 15.314 5 11 5z" fill="white"/></svg>
+          LINEで無料相談する
+        </a>
+        <a href="https://line.me/ti/p/itU8jz37Ut" class="btn-outline" target="_blank" rel="noopener">自分に合うプランを相談する</a>
+        <p class="final-cta-note">30分程度／無理な営業なし／PC購入前でもOK</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">TEZU<span>Intelligence</span></div>
+        <p class="footer-tagline">AIビジネス導線構築講座</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">公式HPトップへ戻る</a>
+        <a href="#course-problems">お悩み</a>
+        <a href="#plans">プラン</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://line.me/ti/p/itU8jz37Ut" target="_blank" rel="noopener">無料相談</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 TEZUIntelligence. All rights reserved.</p>
+      <div class="footer-gold-bar"></div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
