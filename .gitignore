@@ -1,0 +1,41 @@
+# ─── TEZU Intelligence HP：誤コミット防止用 .gitignore ───
+# ※ 既にGit管理されているファイルには影響しません(新規ファイルの誤追加を防ぐ設定です)
+
+# ローカル設定(Claude Code の個人用権限設定など)
+.claude/settings.local.json
+
+# 秘密情報・環境変数(APIキーはNetlifyの環境変数で管理。コードやファイルに置かない)
+.env
+.env.*
+*.pem
+*.key
+
+# ホスティングのローカル連携情報(netlify link / vercel link で自動生成される)
+.netlify/
+.vercel/
+
+# Netlifyの公開用フォルダ(scripts/build-public.sh がビルド時に生成する成果物)
+dist/
+
+# 依存パッケージ(このサイトでは未使用だが誤追加を防ぐ)
+node_modules/
+
+# OS・エディタの一時ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.tmp
+*.bak
+~$*
+.~lock.*
+
+# ログ
+*.log
+
+# 個人資料・社内文書(必要なものは公開物でないことを確認してから個別に追加すること)
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pptx
