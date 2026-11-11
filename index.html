@@ -420,7 +420,7 @@
       gap: 8px;
       border: 1px solid var(--cyan);
       color: var(--cyan);
-      font-size: 10px;
+      font-size: 12px;
       letter-spacing: 0.3em;
       padding: 5px 14px;
       margin-bottom: 32px;
@@ -443,7 +443,7 @@
     /* SEOキーワードをH1内に自然に表示（Googleが読む・ユーザーにも見える小テキスト） */
     .hero-seo-label {
       display: block;
-      font-size: clamp(10px, 1.4vw, 13px);
+      font-size: clamp(12px, 1.4vw, 13px);
       font-weight: 600;
       color: rgba(214,164,81,0.75);
       letter-spacing: 0.12em;
@@ -472,18 +472,6 @@
       margin-bottom: 20px;
       font-weight: 300;
     }
-    /* 補足テキスト */
-    .hero-subdesc {
-      font-size: 12px;
-      color: var(--gray);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 36px;
-      padding: 10px 14px;
-      border-left: 2px solid var(--gold);
-      background: rgba(214,164,81,0.05);
-      border-radius: 0 6px 6px 0;
-    }
 
     /* AIキーワードタイピング */
     .hero-typing-wrap {
@@ -497,7 +485,7 @@
     }
     .hero-typing-label {
       color: var(--gray);
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.2em;
     }
     #typing-text {
@@ -587,15 +575,6 @@
     section { padding: 108px 7%; position: relative; scroll-margin-top: 64px; }
     .section-inner { max-width: 1160px; margin: 0 auto; }
 
-    .section-label {
-      font-size: 10px;
-      letter-spacing: 0.35em;
-      color: var(--cyan);
-      text-transform: uppercase;
-      font-weight: 600;
-      font-family: 'Inter',sans-serif;
-      margin-bottom: 14px;
-    }
     .section-title {
       font-size: clamp(28px, 3.5vw, 48px);
       font-weight: 900;
@@ -647,57 +626,6 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* ─── PROBLEMS ─── */
-    #problems { background: var(--dark); }
-    #problems::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-    .problems-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1px;
-      margin-top: 56px;
-      background: rgba(255,255,255,0.04);
-    }
-    .problem-card {
-      background: var(--dark2);
-      padding: 36px 30px;
-      border-left: 3px solid transparent;
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .problem-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--cyan));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s ease;
-    }
-    .problem-card:hover { background: #121218; border-left-color: var(--gold); }
-    .problem-card:hover::after { transform: scaleX(1); }
-    .problem-icon {
-      font-size: 26px;
-      margin-bottom: 16px;
-    }
-    .problem-card h3 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--white);
-      line-height: 1.4;
-    }
-    .problem-card p {
-      font-size: 13px;
-      color: var(--gray);
-      line-height: 1.75;
-    }
-
     /* ─── SERVICES ─── */
     #services { background: var(--black); }
     .services-grid {
@@ -737,7 +665,7 @@
     .service-card:hover::after { opacity: 1; }
 
     .service-num {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--cyan);
       letter-spacing: 0.25em;
       font-weight: 600;
@@ -759,7 +687,7 @@
       margin-top: 20px;
     }
     .tag {
-      font-size: 10px;
+      font-size: 12px;
       padding: 4px 10px;
       border: 1px solid rgba(0,229,255,0.25);
       color: var(--cyan);
@@ -939,15 +867,6 @@
       letter-spacing: 0.04em;
     }
 
-    .products-summary {
-      text-align: center;
-      margin-top: 18px;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      color: var(--gold-light);
-      font-weight: 700;
-    }
-    .products-summary span { color: rgba(255,255,255,0.22); margin: 0 12px; font-weight: 400; }
 
     .products-grid {
       position: relative;
@@ -1021,7 +940,7 @@
       border: 1px solid rgba(214,164,81,0.35);
       border-radius: 999px;
       color: rgba(240,196,106,0.85);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.12em;
       background: rgba(214,164,81,0.06);
@@ -1062,10 +981,10 @@
     }
     .product-subtitle { font-size: 15px; color: var(--gold-light); font-weight: 800; line-height: 1.5; margin-bottom: 16px; }
     .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.75; font-weight: 300; margin-bottom: 18px; }
-    .product-tags { font-size: 11px; color: var(--gray); letter-spacing: 0.02em; margin-bottom: 22px; }
+    .product-tags { font-size: 12px; color: var(--gray); letter-spacing: 0.02em; margin-bottom: 22px; }
     .product-audience {
       display: inline-block;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--gold-light);
       border: 1px solid rgba(214,164,81,0.35);
       padding: 5px 12px;
@@ -1291,7 +1210,7 @@
       text-align: center;
     }
     .bch-price-label {
-      font-size: 11px;
+      font-size: 12px;
       letter-spacing: 0.3em;
       color: var(--cyan);
       text-transform: uppercase;
@@ -1417,41 +1336,6 @@
     .step h3 { font-size: 15px; font-weight: 700; margin-bottom: 12px; color: var(--white); }
     .step p { font-size: 12px; color: var(--gray); line-height: 1.75; }
 
-    /* ─── WHY ─── */
-    #why { background: var(--black); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: center;
-      margin-top: 56px;
-    }
-    .why-list { list-style: none; display: flex; flex-direction: column; gap: 16px; }
-    .why-item {
-      display: flex;
-      gap: 18px;
-      padding: 22px 24px;
-      background: var(--dark2);
-      border-left: 2px solid var(--gold);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .why-item::after {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; width: 2px;
-      background: var(--cyan);
-      transform: scaleY(0);
-      transition: transform 0.3s;
-    }
-    .why-item:hover { background: #0e0e14; }
-    .why-item:hover::after { transform: scaleY(1); }
-    .why-item-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-    .why-item h4 { font-size: 14px; font-weight: 700; margin-bottom: 5px; color: var(--white); }
-    .why-item p { font-size: 13px; color: var(--gray); line-height: 1.7; }
-
-
     /* ─── PROFILE ─── */
     #profile { background: var(--dark); }
     #profile::before {
@@ -1567,7 +1451,7 @@
       white-space: nowrap;
     }
     .qual-label {
-      font-size: 10px;
+      font-size: 12px;
       letter-spacing: 0.3em;
       color: var(--cyan);
       text-transform: uppercase;
@@ -1642,7 +1526,7 @@
     }
     .cta-line-btn:hover { background: #05b34c; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(6,199,85,0.3); }
     .cta-note {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--gray);
       margin-top: 18px;
       letter-spacing: 0.08em;
@@ -1708,7 +1592,7 @@
       margin-bottom: 10px;
     }
     .footer-logo span { color: var(--gold); }
-    .footer-tagline { font-size: 11px; color: var(--gray); letter-spacing: 0.1em; }
+    .footer-tagline { font-size: 12px; color: var(--gray); letter-spacing: 0.1em; }
     .footer-nav { display: flex; flex-direction: column; gap: 10px; }
     .footer-nav a {
       font-size: 12px;
@@ -1729,7 +1613,7 @@
       flex-wrap: wrap;
       gap: 12px;
     }
-    .footer-copy { font-size: 11px; color: #444; letter-spacing: 0.08em; font-family: 'Inter',sans-serif; }
+    $1color: var(--gray); letter-spacing: 0.08em; font-family: 'Inter',sans-serif; }
     .footer-gold-bar { width: 32px; height: 1px; background: linear-gradient(90deg,var(--gold),var(--cyan)); }
 
     /* ─── CHARA & SPEECH BUBBLE ─── */
@@ -1765,20 +1649,6 @@
       -webkit-mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
       mask-image: radial-gradient(ellipse 88% 88% at 50% 50%, black 55%, transparent 100%);
     }
-    .section-chara { display: flex; flex-direction: column; align-items: center; margin: 28px 0 4px; gap: 0; }
-
-    /* ─── お悩みセクション用キャラ（chara_nayami.png） ─── */
-    .chara-nayami-wrap {
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-    }
-    .chara-nayami {
-      width: 220px;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 8px 28px rgba(0,0,0,0.4));
-    }
 
     /* ─── スクロールアニメーション ─── */
     .fade-up {
@@ -1806,7 +1676,6 @@
       .hero-chara { display: none; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       .process-steps::before { display: none; }
-      .why-grid { grid-template-columns: 1fr; gap: 40px; }
       .profile-inner { grid-template-columns: 1fr; }
       .profile-img-wrap { max-width: 280px; }
       footer { padding: 40px 5%; }
@@ -1840,7 +1709,7 @@
       .hero-title { font-size: 32px; line-height: 1.2; }
       .hero-title-sub { font-size: 20px; }
       .hero-desc { font-size: 13px; line-height: 1.9; }
-      .hero-badge { font-size: 9px; letter-spacing: 0.15em; margin-bottom: 20px; }
+      .hero-badge { font-size: 12px; letter-spacing: 0.03em; margin-bottom: 20px; }
       /* hero-contentをflex-columnにしてorderでボタンをタイトル直下に移動 */
       .hero-content {
         display: flex;
@@ -1864,9 +1733,8 @@
       }
       .hero-desc    { order: 4; }
       .hero-title-sub { order: 5; }
-      .hero-subdesc { order: 6; }
-      .hero-typing-wrap { order: 7; }
-      .hero-course-pill { order: 8; margin-top: 20px; text-align: center; white-space: normal; }
+      .hero-typing-wrap { order: 7; margin-bottom: 28px; }
+      .hero-course-pill { order: 8; margin-top: 0; text-align: center; white-space: normal; }
 
       /* CTAセクション: スマホでキャラを非表示にしてボタンを中央に */
       .cta-chara-wrap {
@@ -1983,11 +1851,9 @@
     </a>
     <div id="nav-links">
       <a href="#products" class="nav-course">3つの商品</a>
-      <a href="#problems">お悩み</a>
       <a href="#shindan">AI活用診断</a>
       <a href="#demo">デモ</a>
       <a href="#services">サービス</a>
-      <a href="#why">選ばれる理由</a>
       <a href="#profile">代表者紹介</a>
       <a href="ai-course.html" class="nav-course">AI講座</a>
       <a href="https://line.me/ti/p/itU8jz37Ut" class="nav-cta" target="_blank" rel="noopener">無料相談</a>
@@ -2042,9 +1908,6 @@
         難しい開発は不要。小さく始めて、すぐ効果が出ます。
       </p>
       <p class="hero-title-sub">その時間、もっと大切なことに使えます。</p>
-      <p class="hero-subdesc">
-        製造業・飲食業など中小企業に特化。まず1業務だけ試せます。
-      </p>
       <!-- タイピングエフェクト -->
       <div class="hero-typing-wrap">
         <span class="hero-typing-label">AI診断 ▶</span>
@@ -2072,7 +1935,6 @@
     <div class="products-bg-orb products-bg-orb-1"></div>
     <div class="products-bg-orb products-bg-orb-2"></div>
     <div class="section-inner">
-      <p class="section-label fade-up" style="justify-content:center;display:flex;">Our Products</p>
       <h2 class="section-title fade-up" style="text-align:center;">TEZU Intelligenceの<span>3大商品</span></h2>
       <div class="gold-line fade-up" style="margin-left:auto;margin-right:auto;"></div>
       <p class="section-desc fade-up" style="max-width:640px;margin:0 auto;text-align:center;">
@@ -2083,7 +1945,6 @@
       <div style="text-align:center;">
         <p class="products-catch fade-up">まずはこの3つから選べます</p>
       </div>
-      <p class="products-summary fade-up">AI教育<span>｜</span>業務改善<span>｜</span>名刺＋HP作成</p>
 
       <div class="products-grid">
         <a href="ai-course.html" class="product-card fade-up">
@@ -2136,7 +1997,6 @@
   <!-- ─── AIデモ ─── -->
   <section id="demo" style="background:var(--black);">
     <div class="section-inner">
-      <p class="section-label fade-up">Demo</p>
       <h2 class="section-title fade-up">3分でわかる<span>AI活用デモ</span></h2>
       <p class="demo-lead-text fade-up">御社のAI活用を、3分で確認できます</p>
       <div class="gold-line fade-up"></div>
@@ -2228,7 +2088,7 @@
       gap: 20px; margin-bottom: 28px;
     }
     .demo-form-label {
-      display: block; font-size: 11px; font-weight: 600;
+      display: block; font-size: 12px; font-weight: 600;
       color: var(--gray); letter-spacing: 0.08em; margin-bottom: 8px;
       font-family: 'Inter', sans-serif;
     }
@@ -2255,7 +2115,7 @@
       transform: translateY(-50%); color: var(--gray); pointer-events: none; font-size: 12px;
     }
     .demo-input option { background: #1a1a22; color: var(--white); }
-    .demo-err { display: none; font-size: 11px; color: #e05555; margin-top: 5px; }
+    .demo-err { display: none; font-size: 12px; color: #e05555; margin-top: 5px; }
     .demo-err.show { display: block; }
     .demo-run-btn {
       display: block; width: 100%; padding: 15px;
@@ -2389,7 +2249,7 @@
       position: relative; z-index: 1;
     }
     .demo-savings-lbl {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--gray-light);
       font-weight: 600;
       line-height: 1.5;
@@ -2409,7 +2269,7 @@
       border: 1px solid rgba(214,164,81,0.22);
       border-radius: 8px;
       padding: 7px 10px;
-      font-size: 11px;
+      font-size: 12px;
       color: var(--gray-light);
       font-weight: 600;
       text-align: left;
@@ -2444,7 +2304,7 @@
       padding: 24px 28px; margin-bottom: 20px;
     }
     .demo-priority-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      font-size: 12px; font-weight: 700; letter-spacing: 2px;
       color: var(--cyan); margin-bottom: 10px; font-family: 'Inter', sans-serif;
     }
     .demo-priority-title {
@@ -2476,7 +2336,7 @@
     .demo-reduction { font-size: 40px; font-weight: 900; color: var(--gold); letter-spacing: -1px; line-height: 1; text-shadow: 0 0 20px rgba(214,164,81,0.4); }
     .demo-score-note { font-size: 12px; color: var(--gray); margin-bottom: 6px; line-height: 1.5; }
     .demo-score-stars-row { display: flex; align-items: center; gap: 6px; }
-    .demo-recommend-lbl { font-size: 11px; color: var(--gray-light); flex-shrink: 0; }
+    .demo-recommend-lbl { font-size: 12px; color: var(--gray-light); flex-shrink: 0; }
     .demo-stars { font-size: 15px; letter-spacing: 2px; }
     .dson { color: var(--gold); }
     .dsoff { color: rgba(255,255,255,0.1); }
@@ -2524,14 +2384,14 @@
     .demo-effect-loss .demo-effect-lbl { color: #e07070; }
     .demo-effect-loss .demo-effect-val { color: #e07070; }
     .demo-effect-lbl {
-      font-size: 10px; color: var(--gray); letter-spacing: 2px;
+      font-size: 12px; color: var(--gray); letter-spacing: 2px;
       text-transform: uppercase; font-family: 'Inter', sans-serif; margin-bottom: 8px;
     }
     .demo-effect-val {
       font-size: clamp(18px, 3.5vw, 26px); font-weight: 900;
       color: var(--gold-light); line-height: 1.1; margin-bottom: 4px;
     }
-    .demo-effect-unit { font-size: 11px; color: var(--gray); }
+    .demo-effect-unit { font-size: 12px; color: var(--gray); }
     /* ── 経営者向けインサイトセクション（強化版） ── */
     @keyframes goldPulse {
       0%,100% { text-shadow: 0 0 40px rgba(214,164,81,0.8), 0 0 80px rgba(214,164,81,0.35); }
@@ -2597,7 +2457,7 @@
       background: rgba(0,229,255,0.04);
     }
     .demo-insight-tag {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       color: var(--gold);
       letter-spacing: 2px;
@@ -2666,7 +2526,7 @@
     }
     .demo-cta-btn:hover { opacity: 0.85; }
     .demo-cta-note {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--gray);
       margin-top: 12px;
       letter-spacing: 0.05em;
@@ -2692,7 +2552,7 @@
       display: inline-block;
       background: var(--gold);
       color: #000;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.1em;
       padding: 5px 20px;
@@ -2760,7 +2620,7 @@
       padding: 19px 56px;
     }
     .hearing-cta-note {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--gray);
       margin-top: 14px;
       letter-spacing: 0.04em;
@@ -3038,61 +2898,11 @@
     </div>
   </div>
 
-  <!-- ─── PROBLEMS ─── -->
-  <section id="problems">
-    <div class="section-inner">
-      <p class="section-label fade-up">Problems</p>
-      <h2 class="section-title fade-up">こんな<span>お悩み</span>ありませんか？</h2>
-      <div class="gold-line fade-up"></div>
-      <p class="section-desc fade-up">多くの経営者・事業主が直面するAI活用の壁。<br>私たちが丁寧に解決へと導きます。</p>
-      <div class="section-chara fade-up">
-        <div class="speech-bubble">「わかる！」と感じたら<br>ぜひ一度ご相談ください😊</div>
-        <!-- お悩みセクション用キャラ -->
-        <div class="chara-nayami-wrap">
-          <img src="chara_nayami.png" alt="悩んでいるキャラクター" class="chara-nayami">
-        </div>
-      </div>
-      <div class="problems-grid">
-        <div class="problem-card fade-up">
-          <div class="problem-icon">🤔</div>
-          <h3>AIを使いたいが何から始めればいいかわからない</h3>
-          <p>ChatGPTやAIツールは知っているが、実際にどう業務に活かせるか見当がつかない。</p>
-        </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">⏰</div>
-          <h3>業務が多忙すぎて新しいことを学ぶ時間がない</h3>
-          <p>日々の業務に追われ、AI導入の調査・学習に割ける時間が確保できない。</p>
-        </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">💸</div>
-          <h3>コストをかけてもROIが見えない</h3>
-          <p>投資対効果が不明確で、経営判断としてAI導入に踏み切れずにいる。</p>
-        </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">🔧</div>
-          <h3>社内にAIに詳しい人材がいない</h3>
-          <p>IT担当者はいても、AI活用の専門知識を持ったスタッフがいない。</p>
-        </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">📊</div>
-          <h3>競合他社に差をつけられている気がする</h3>
-          <p>他社がAIを活用して効率化・差別化を進めているのに、自社は乗り遅れている。</p>
-        </div>
-        <div class="problem-card fade-up">
-          <div class="problem-icon">🛡️</div>
-          <h3>情報漏洩などセキュリティが不安</h3>
-          <p>AIツールに社内情報を入力することへのセキュリティリスクが心配。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── ミニCTA（サービス上）→ フルCTAデザインに変更 ─── -->
   <section id="cta-mid" style="background:var(--dark); position:relative; overflow:hidden;">
     <!-- 背景グロー装飾 -->
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(214,164,81,0.08) 0%,transparent 70%);pointer-events:none;"></div>
     <div class="section-inner" style="text-align:center; position:relative; z-index:1;">
-      <p class="section-label fade-up" style="justify-content:center; display:flex;">Contact</p>
       <h2 class="cta-title fade-up">AI導入の<span>ご相談</span>は<br>こちらから</h2>
       <p class="cta-desc fade-up">
         まずは無料相談で、<strong style="color:var(--gold);">あなたの会社でAIが使える業務を整理します。</strong><br>
@@ -3118,7 +2928,6 @@
   <section id="shindan" style="background:var(--dark); position:relative; overflow:hidden;">
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:500px;background:radial-gradient(ellipse,rgba(214,164,81,0.07) 0%,transparent 70%);pointer-events:none;"></div>
     <div class="section-inner" style="position:relative;z-index:1;">
-      <p class="section-label fade-up">First Step</p>
       <h2 class="section-title fade-up">AI活用<span>診断</span></h2>
       <div class="gold-line fade-up"></div>
       <p class="section-desc fade-up">現在の業務をヒアリングし、AIで効率化できる業務を整理します。</p>
@@ -3151,11 +2960,10 @@
         </div>
         <!-- 右：カード -->
         <div style="background:linear-gradient(135deg,#0d0a00,#1a1300);border:2px solid var(--gold);border-radius:20px;padding:44px 36px;text-align:center;box-shadow:0 0 60px rgba(214,164,81,0.12);">
-          <p style="font-size:10px;letter-spacing:0.3em;color:var(--cyan);margin-bottom:12px;font-weight:600;font-family:'Inter',sans-serif;">AI CONSULTING</p>
           <h3 style="font-size:clamp(24px,3vw,34px);font-weight:900;margin-bottom:8px;">AI活用診断</h3>
           <p style="font-size:13px;color:var(--gray);margin-bottom:28px;">現状業務のAI化ポテンシャルを整理</p>
           <div style="background:rgba(214,164,81,0.1);border-radius:14px;padding:20px;margin-bottom:16px;">
-            <p style="font-size:11px;color:var(--gold);letter-spacing:0.1em;margin-bottom:8px;">所要時間</p>
+            <p style="font-size:12px;color:var(--gold);letter-spacing:0.1em;margin-bottom:8px;">所要時間</p>
             <p style="font-size:clamp(44px,5vw,64px);font-weight:900;color:var(--gold);line-height:1;">90<span style="font-size:20px;">分</span></p>
             <p style="font-size:12px;color:var(--gray-light);margin-top:6px;">オンライン対応可</p>
           </div>
@@ -3166,7 +2974,6 @@
           <a href="https://line.me/ti/p/itU8jz37Ut" target="_blank" rel="noopener" style="display:block;text-align:center;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:#000;font-size:15px;font-weight:800;padding:16px;border-radius:50px;text-decoration:none;letter-spacing:0.06em;box-shadow:0 6px 30px rgba(214,164,81,0.35);transition:transform 0.2s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
             LINEで申し込む →
           </a>
-          <p style="font-size:11px;color:var(--gray);margin-top:12px;">※ まずは無料相談からでもOK</p>
         </div>
       </div>
     </div>
@@ -3205,7 +3012,6 @@
     <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:900px;background:radial-gradient(ellipse,rgba(214,164,81,0.07) 0%,transparent 70%);pointer-events:none;"></div>
 
     <div class="section-inner" style="position:relative;z-index:1;">
-      <p class="section-label fade-up" style="color:var(--gold);">Menu</p>
       <h2 class="section-title fade-up">入口<span>メニュー</span></h2>
       <div class="gold-line fade-up"></div>
       <p class="section-desc fade-up">まずは気軽に試せるメニューからどうぞ。小さく始めて、大きく変わる。</p>
@@ -3229,16 +3035,15 @@
           box-shadow: 0 0 60px rgba(214,164,81,0.18), 0 0 120px rgba(214,164,81,0.08);
         ">
           <!-- バッジ -->
-          <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),var(--gold-light));color:#000;font-size:11px;font-weight:800;letter-spacing:0.18em;padding:5px 24px;border-radius:20px;white-space:nowrap;">
+          <div style="position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--gold),var(--gold-light));color:#000;font-size:12px;font-weight:800;letter-spacing:0.18em;padding:5px 24px;border-radius:20px;white-space:nowrap;">
             🌟 まずはここから！
           </div>
 
           <div style="text-align:center;margin-bottom:32px;">
-            <p style="font-size:11px;letter-spacing:0.25em;color:var(--gold);margin-bottom:10px;font-weight:600;">AI PROFILE</p>
             <h3 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:0.03em;margin-bottom:18px;line-height:1.2;">AI営業プロフィール<br>作成</h3>
             <!-- 個人価格 -->
             <div style="background:rgba(214,164,81,0.1);border-radius:12px;padding:14px 20px;margin-bottom:10px;">
-              <p style="font-size:11px;color:var(--gold);letter-spacing:0.15em;margin-bottom:4px;font-weight:600;">個人</p>
+              <p style="font-size:12px;color:var(--gold);letter-spacing:0.15em;margin-bottom:4px;font-weight:600;">個人</p>
               <div style="display:flex;align-items:baseline;justify-content:center;gap:6px;">
                 <span style="font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--gold);line-height:1;">¥5,000</span>
                 <span style="font-size:13px;color:var(--gray-light);">/ 1人</span>
@@ -3246,7 +3051,7 @@
             </div>
             <!-- 企業価格 -->
             <div style="background:rgba(214,164,81,0.06);border-radius:12px;padding:14px 20px;">
-              <p style="font-size:11px;color:var(--gray-light);letter-spacing:0.15em;margin-bottom:4px;font-weight:600;">企業向け</p>
+              <p style="font-size:12px;color:var(--gray-light);letter-spacing:0.15em;margin-bottom:4px;font-weight:600;">企業向け</p>
               <div style="display:flex;align-items:baseline;justify-content:center;gap:6px;">
                 <span style="font-size:clamp(28px,3.5vw,40px);font-weight:900;color:var(--white);line-height:1;">¥30,000</span>
                 <span style="font-size:13px;color:var(--gray-light);">/ 10人</span>
@@ -3256,7 +3061,7 @@
 
           <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(214,164,81,0.35),transparent);margin-bottom:24px;"></div>
 
-          <p style="font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:16px;font-weight:600;">CONTENTS</p>
+          <p style="font-size:12px;letter-spacing:0.08em;color:var(--gold);margin-bottom:16px;font-weight:600;">含まれる内容</p>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
             <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(214,164,81,0.06);border-radius:10px;">
               <span style="font-size:20px;">👤</span>
@@ -3299,10 +3104,9 @@
           position: relative;
         ">
           <div style="text-align:center;margin-bottom:32px;">
-            <p style="font-size:11px;letter-spacing:0.25em;color:var(--gold);margin-bottom:10px;font-weight:600;">AI CONSULTING</p>
             <h3 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:0.03em;margin-bottom:18px;line-height:1.2;">AI業務診断</h3>
             <div style="background:rgba(214,164,81,0.08);border-radius:12px;padding:14px 20px;margin-bottom:10px;">
-              <p style="font-size:11px;color:var(--gold);letter-spacing:0.15em;margin-bottom:4px;font-weight:600;">90分 / オンライン対応可</p>
+              <p style="font-size:12px;color:var(--gold);letter-spacing:0.15em;margin-bottom:4px;font-weight:600;">90分 / オンライン対応可</p>
               <div style="display:flex;align-items:baseline;justify-content:center;gap:6px;">
                 <span style="font-size:clamp(32px,4vw,48px);font-weight:900;color:var(--gold);line-height:1;">¥30,000</span>
                 <span style="font-size:13px;color:var(--gray-light);">（税込）</span>
@@ -3312,7 +3116,7 @@
 
           <div style="height:1px;background:linear-gradient(90deg,transparent,rgba(214,164,81,0.25),transparent);margin-bottom:24px;"></div>
 
-          <p style="font-size:11px;letter-spacing:0.2em;color:var(--gold);margin-bottom:16px;font-weight:600;">CONTENTS</p>
+          <p style="font-size:12px;letter-spacing:0.08em;color:var(--gold);margin-bottom:16px;font-weight:600;">含まれる内容</p>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
             <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,0.04);border-radius:10px;">
               <span style="font-size:20px;">🔍</span>
@@ -3350,13 +3154,12 @@
   <!-- ─── SERVICES ─── -->
   <section id="services">
     <div class="section-inner">
-      <p class="section-label fade-up">Services</p>
       <h2 class="section-title fade-up">提供<span>サービス</span></h2>
       <div class="gold-line fade-up"></div>
       <p class="section-desc fade-up">大がかりな開発は不要。まず1つの業務から小さく始めて、確実に成果を出します。</p>
       <div class="services-grid">
         <div class="service-card fade-up">
-          <p class="service-num">01 ／ AI STRATEGY</p>
+          <p class="service-num">$1</p>
           <h3>AI戦略コンサルティング</h3>
           <p>「どの業務からAIを使えばいい？」に答えます。現状をヒアリングして、費用対効果の高い順に整理します。</p>
           <div class="service-tags">
@@ -3366,7 +3169,7 @@
           </div>
         </div>
         <div class="service-card fade-up">
-          <p class="service-num">02 ／ ChatGPT</p>
+          <p class="service-num">$1</p>
           <h3>ChatGPT業務活用支援</h3>
           <p>ChatGPTをその場で一緒に使いながらサポート。「使い方がわからない」から「毎日使える」まで伴走します。</p>
           <div class="service-tags">
@@ -3376,7 +3179,7 @@
           </div>
         </div>
         <div class="service-card fade-up">
-          <p class="service-num">03 ／ AUTOMATION</p>
+          <p class="service-num">$1</p>
           <h3>業務自動化・効率化</h3>
           <p>見積書・日報・メール返信など、毎日繰り返す作業をAIに任せる。社員が本来の仕事に集中できる環境を作ります。</p>
           <div class="service-tags">
@@ -3386,7 +3189,7 @@
           </div>
         </div>
         <div class="service-card fade-up">
-          <p class="service-num">04 ／ TRAINING</p>
+          <p class="service-num">$1</p>
           <h3>AI人材育成・研修</h3>
           <p>経営者から現場スタッフまで、実際に手を動かしながら学ぶ研修。「聞いて終わり」ではなく「明日から使える」を目指します。</p>
           <div class="service-tags">
@@ -3396,7 +3199,7 @@
           </div>
         </div>
         <div class="service-card fade-up">
-          <p class="service-num">05 ／ SUPPORT</p>
+          <p class="service-num">$1</p>
           <h3>継続サポートプラン</h3>
           <p>導入して終わりではありません。毎月一緒に振り返り、使い続けながらAIの効果を育てていきます。</p>
           <div class="service-tags">
@@ -3406,7 +3209,7 @@
           </div>
         </div>
         <div class="service-card fade-up">
-          <p class="service-num">06 ／ SECURITY</p>
+          <p class="service-num">$1</p>
           <h3>AI導入セキュリティ診断</h3>
           <p>「ChatGPTに社内情報を入れて大丈夫？」その不安に答えます。安全に使うためのルール作りまでサポートします。</p>
           <div class="service-tags">
@@ -3422,7 +3225,6 @@
   <!-- ─── AI名刺＋HP作成 ─── -->
   <section id="business-card-hp">
     <div class="section-inner">
-      <p class="section-label fade-up">Business Funnel</p>
       <h2 class="section-title fade-up">AI名刺<span>＋HP作成</span></h2>
       <div class="gold-line fade-up"></div>
       <p class="section-desc fade-up">
@@ -3431,7 +3233,6 @@
       </p>
       <p class="section-desc fade-up">
         AIとCanvaを活用し、営業に使える名刺・ホームページ・QR導線を作成します。<br>
-        「名刺を渡して終わり」ではなく、QRコードからホームページ、LINE、問い合わせにつながる導線まで整えます。<br>
         個人事業主、店舗オーナー、営業職、副業を始めたい方に向いている商品です。
       </p>
 
@@ -3516,7 +3317,6 @@
   <!-- ─── PROCESS ─── -->
   <section id="process">
     <div class="section-inner">
-      <p class="section-label fade-up">Process</p>
       <h2 class="section-title fade-up">AI導入の<span>流れ</span></h2>
       <div class="gold-line fade-up"></div>
       <p class="section-desc fade-up">初回無料相談からアフターサポートまで、4つのステップで丁寧に伴走します。</p>
@@ -3545,51 +3345,9 @@
     </div>
   </section>
 
-  <!-- ─── WHY ─── -->
-  <section id="why">
-    <div class="section-inner">
-      <p class="section-label fade-up">Why Us</p>
-      <h2 class="section-title fade-up">選ばれる<span>理由</span></h2>
-      <div class="gold-line fade-up"></div>
-      <div class="why-grid">
-        <ul class="why-list">
-          <li class="why-item fade-up">
-            <div class="why-item-icon">🤝</div>
-            <div>
-              <h4>AI初心者でも安心</h4>
-              <p>AIって難しそう…でも大丈夫。「何から始めればいいかわからない」という方こそ、まずご相談ください。</p>
-            </div>
-          </li>
-          <li class="why-item fade-up">
-            <div class="why-item-icon">🎯</div>
-            <div>
-              <h4>中小企業向けの実用的なAI活用</h4>
-              <p>高額なシステム開発は不要。製造業の日報・飲食業の口コミ返信など、今ある業務にそのままAIを当てはめます。</p>
-            </div>
-          </li>
-          <li class="why-item fade-up">
-            <div class="why-item-icon">🔄</div>
-            <div>
-              <h4>導入後も継続サポート</h4>
-              <p>「入れたけど使えなくなった」を防ぎます。定期的に使い方を見直して、現場に根づくまで一緒に続けます。</p>
-            </div>
-          </li>
-          <li class="why-item fade-up">
-            <div class="why-item-icon">🔒</div>
-            <div>
-              <h4>安全・安心なAI活用</h4>
-              <p>社内情報の取り扱いが不安な方も安心。リスクを整理した上で、安全に使えるルールをセットで提案します。</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── AI活用例 ─── -->
   <section id="ai-cases" style="background:var(--dark);">
     <div class="section-inner">
-      <p class="section-label fade-up">AI Use Cases</p>
       <h2 class="section-title fade-up">AI<span>活用例</span></h2>
       <p style="color:var(--gray); text-align:center; margin:-4px 0 12px; font-size:0.82rem; letter-spacing:0.05em;">※ 以下はサンプルです</p>
       <div class="gold-line fade-up"></div>
@@ -3680,7 +3438,7 @@
       border: 1px solid rgba(214,164,81,0.4);
       border-radius: 20px;
       padding: 4px 14px;
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       color: var(--gold);
       letter-spacing: 0.08em;
       margin-bottom: 18px;
@@ -3688,7 +3446,7 @@
     .case-title { font-size: 1.05rem; color: var(--white); margin-bottom: 10px; line-height: 1.55; font-weight: 700; }
     .case-desc { color: var(--gray); font-size: 0.84rem; margin-bottom: 24px; line-height: 1.75; }
     .case-compare { display: flex; align-items: center; gap: 16px; justify-content: center; }
-    .compare-label { font-size: 0.7rem; margin-bottom: 4px; letter-spacing: 0.05em; }
+    .compare-label { font-size: 0.78rem; margin-bottom: 4px; letter-spacing: 0.05em; }
     .compare-label.before { color: var(--gray); }
     .compare-label.after { color: var(--gold); }
     .compare-num { font-size: 2rem; font-weight: 700; line-height: 1.1; }
@@ -3704,7 +3462,6 @@
   <!-- ─── PROFILE ─── -->
   <section id="profile">
     <div class="section-inner">
-      <p class="section-label fade-up">Profile</p>
       <h2 class="section-title fade-up">代表者<span>プロフィール</span></h2>
       <div class="gold-line fade-up"></div>
       <div class="profile-inner">
@@ -3811,7 +3568,6 @@
   <!-- ─── CTA ─── -->
   <section id="cta">
     <div class="section-inner" style="text-align:center; position:relative; z-index:1;">
-      <p class="section-label fade-up" style="justify-content:center; display:flex;">Contact</p>
       <h2 class="cta-title fade-up">AI導入の<span>ご相談</span>は<br>こちらから</h2>
       <p class="cta-desc fade-up">
         まずは無料相談で、<strong style="color:var(--gold);">あなたの会社でAIが使える業務を整理します。</strong><br>
@@ -3846,13 +3602,11 @@
       </div>
       <nav class="footer-nav">
         <a href="#products">3つの商品</a>
-        <a href="#problems">お悩み</a>
         <a href="#shindan">AI活用診断</a>
         <a href="#demo">デモ</a>
         <a href="#services">サービス</a>
         <a href="#business-card-hp">名刺＋HP</a>
         <a href="#process">導入の流れ</a>
-        <a href="#why">選ばれる理由</a>
         <a href="#profile">代表者紹介</a>
         <a href="ai-course.html">AI講座</a>
         <a href="#cta">お問い合わせ</a>

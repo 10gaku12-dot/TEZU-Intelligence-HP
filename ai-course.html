@@ -124,7 +124,6 @@
     /* ─── SECTION BASE ─── */
     section { padding: 108px 7%; position: relative; scroll-margin-top: 64px; }
     .section-inner { max-width: 1160px; margin: 0 auto; }
-    .section-label { font-size: 10px; letter-spacing: 0.35em; color: var(--cyan); text-transform: uppercase; font-weight: 600; font-family: 'Inter',sans-serif; margin-bottom: 14px; }
     .section-title { font-size: clamp(26px, 3.2vw, 42px); font-weight: 900; line-height: 1.25; letter-spacing: -0.02em; margin-bottom: 18px; }
     .section-title span { color: var(--gold); }
     .gold-line { width: 48px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--cyan)); margin: 20px 0; }
@@ -132,7 +131,7 @@
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    .tag { font-size: 10px; padding: 4px 10px; border: 1px solid rgba(0,229,255,0.25); color: var(--cyan); letter-spacing: 0.1em; border-radius: 1px; font-family: 'Inter',sans-serif; display: inline-block; }
+    .tag { font-size: 12px; padding: 4px 10px; border: 1px solid rgba(0,229,255,0.25); color: var(--cyan); letter-spacing: 0.1em; border-radius: 1px; font-family: 'Inter',sans-serif; display: inline-block; }
 
     .btn-outline { background: transparent; color: var(--white); padding: 15px 36px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; border: 1px solid rgba(255,255,255,0.2); text-decoration: none; display: inline-block; transition: all 0.25s; border-radius: 2px; }
     .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,229,255,0.15); }
@@ -146,14 +145,14 @@
     #course-hero { min-height: auto; padding: 148px 7% 90px; background: linear-gradient(160deg, #000 0%, #04040a 100%); overflow: hidden; }
     .course-hero-inner { max-width: 720px; position: relative; z-index: 1; }
     .course-hero-logo { width: 240px; height: auto; object-fit: contain; margin-bottom: 26px; opacity: 0.95; filter: drop-shadow(0 0 26px rgba(214,164,81,0.3)); }
-    .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--cyan); color: var(--cyan); font-size: 10px; letter-spacing: 0.25em; padding: 5px 14px; margin-bottom: 24px; text-transform: uppercase; font-weight: 600; font-family: 'Inter',sans-serif; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--cyan); color: var(--cyan); font-size: 12px; letter-spacing: 0.25em; padding: 5px 14px; margin-bottom: 24px; text-transform: uppercase; font-weight: 600; font-family: 'Inter',sans-serif; }
     .hero-badge::before { content: '▶'; font-size: 8px; }
     .course-hero-title { font-size: clamp(30px, 4.6vw, 52px); font-weight: 900; line-height: 1.35; letter-spacing: -0.01em; margin-bottom: 22px; }
     .course-hero-title .gold-text { color: var(--gold); }
     .course-hero-sub { font-size: 15px; color: var(--gray-light); line-height: 1.9; max-width: 520px; margin-bottom: 30px; font-weight: 300; }
     .hero-outcome-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .hero-outcome-badges .tag { border-color: rgba(214,164,81,0.35); color: var(--gold-light); padding: 6px 14px; font-size: 11px; }
-    .hero-safety-note { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 11px; color: var(--gray); letter-spacing: 0.03em; margin-bottom: 36px; }
+    .hero-outcome-badges .tag { border-color: rgba(214,164,81,0.35); color: var(--gold-light); padding: 6px 14px; font-size: 12px; }
+    .hero-safety-note { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12px; color: var(--gray); letter-spacing: 0.03em; margin-bottom: 36px; }
     .hero-safety-note span::before { content: '✓ '; color: var(--gold); }
     .course-hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
@@ -198,7 +197,7 @@
     .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 56px; align-items: stretch; }
     .plan-card { background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); padding: 38px 28px; display: flex; flex-direction: column; position: relative; }
     .plan-card.plan-main { border: 1px solid var(--gold); background: linear-gradient(160deg, rgba(214,164,81,0.1), var(--dark2) 65%); box-shadow: 0 0 40px rgba(214,164,81,0.18); }
-    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 11px; font-weight: 700; padding: 6px 18px; border-radius: 20px; letter-spacing: 0.05em; white-space: nowrap; }
+    .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 12px; font-weight: 700; padding: 6px 18px; border-radius: 20px; letter-spacing: 0.05em; white-space: nowrap; }
     .plan-name { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
     .plan-tagline { font-size: 12px; color: var(--gray); margin-bottom: 18px; line-height: 1.6; }
     .plan-price { font-size: 26px; font-weight: 900; color: var(--gold); font-family: 'Inter',sans-serif; margin-bottom: 20px; }
@@ -216,7 +215,7 @@
     .step-card { text-align: center; }
     .step-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--black); border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; font-size: 17px; font-weight: 900; color: var(--gold); font-family: 'Inter',sans-serif; box-shadow: 0 0 20px rgba(214,164,81,0.2); }
     .step-card h3 { font-size: 13px; font-weight: 700; margin-bottom: 8px; color: var(--white); }
-    .step-card p { font-size: 11px; color: var(--gray); line-height: 1.6; }
+    .step-card p { font-size: 12px; color: var(--gray); line-height: 1.6; }
 
     /* ─── FAQ ─── */
     #faq { background: var(--black); }
@@ -240,7 +239,7 @@
     .final-cta-title { font-size: clamp(26px, 3.4vw, 40px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 18px; }
     .final-cta-desc { font-size: 14px; color: var(--gray-light); max-width: 480px; margin: 0 auto 36px; line-height: 1.85; font-weight: 300; }
     .final-cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 14px; }
-    .final-cta-note { font-size: 11px; color: var(--gray); margin-top: 6px; letter-spacing: 0.05em; }
+    .final-cta-note { font-size: 12px; color: var(--gray); margin-top: 6px; letter-spacing: 0.05em; }
 
     /* ─── FOOTER ─── */
     footer { background: #030305; padding: 60px 7%; border-top: 1px solid rgba(255,255,255,0.05); position: relative; }
@@ -248,12 +247,12 @@
     .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; flex-wrap: wrap; }
     .footer-logo { font-size: 15px; font-weight: 900; letter-spacing: 0.06em; margin-bottom: 10px; }
     .footer-logo span { color: var(--gold); }
-    .footer-tagline { font-size: 11px; color: var(--gray); letter-spacing: 0.1em; }
+    .footer-tagline { font-size: 12px; color: var(--gray); letter-spacing: 0.1em; }
     .footer-nav { display: flex; flex-direction: column; gap: 10px; }
     .footer-nav a { font-size: 12px; color: var(--gray); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
     .footer-nav a:hover { color: var(--gold); }
     .footer-bottom { max-width: 1160px; margin: 36px auto 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-    .footer-copy { font-size: 11px; color: #444; letter-spacing: 0.08em; font-family: 'Inter',sans-serif; }
+    $1color: var(--gray); letter-spacing: 0.08em; font-family: 'Inter',sans-serif; }
     .footer-gold-bar { width: 32px; height: 1px; background: linear-gradient(90deg,var(--gold),var(--cyan)); }
 
     /* ─── レスポンシブ ─── */
@@ -335,7 +334,6 @@
   <!-- ─── PROBLEMS ─── -->
   <section id="course-problems">
     <div class="section-inner">
-      <p class="section-label fade-up">Problems</p>
       <h2 class="section-title fade-up">このような<span>お悩み</span>はありませんか？</h2>
       <div class="gold-line fade-up"></div>
       <div class="section-chara fade-up">
@@ -368,7 +366,6 @@
   <!-- ─── COMPARE ─── -->
   <section id="compare">
     <div class="section-inner">
-      <p class="section-label fade-up">Compare</p>
       <h2 class="section-title fade-up">AI教室でも、<span>ただの外注制作</span>でもありません。</h2>
       <div class="gold-line fade-up"></div>
       <div class="compare-grid">
@@ -395,7 +392,6 @@
   <!-- ─── FEATURES ─── -->
   <section id="features">
     <div class="section-inner">
-      <p class="section-label fade-up">What You Get</p>
       <h2 class="section-title fade-up">この講座で<span>できること</span></h2>
       <div class="gold-line fade-up"></div>
       <div class="features-grid">
@@ -438,7 +434,6 @@
   <!-- ─── PLANS ─── -->
   <section id="plans">
     <div class="section-inner">
-      <p class="section-label fade-up">Plans</p>
       <h2 class="section-title fade-up">3つの<span>プラン</span></h2>
       <div class="gold-line fade-up"></div>
       <div class="plans-grid">
@@ -499,7 +494,6 @@
   <!-- ─── FLOW ─── -->
   <section id="flow">
     <div class="section-inner">
-      <p class="section-label fade-up">Flow</p>
       <h2 class="section-title fade-up">受講の<span>流れ</span></h2>
       <div class="gold-line fade-up"></div>
       <div class="course-steps">
@@ -535,7 +529,6 @@
   <!-- ─── FAQ ─── -->
   <section id="faq">
     <div class="section-inner">
-      <p class="section-label fade-up">FAQ</p>
       <h2 class="section-title fade-up">よくある<span>ご質問</span></h2>
       <div class="gold-line fade-up"></div>
       <div class="faq-list">
@@ -589,7 +582,6 @@
         <a href="https://tezu-intelligence-hp.netlify.app/" class="brand-link">TEZU Intelligence公式HPを見る</a>
       </div>
 
-      <p class="section-label fade-up" style="justify-content:center; display:flex;">Contact</p>
       <h2 class="final-cta-title fade-up">まずは、あなたの事業で<br>何が作れるか確認しましょう。</h2>
       <p class="final-cta-desc fade-up">
         受講するかどうかは、相談後に決めれば大丈夫です。<br>
