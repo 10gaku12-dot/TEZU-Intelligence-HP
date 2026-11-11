@@ -59,7 +59,7 @@ New-TEZU-HP/
 ├── netlify.toml                  # Netlifyリダイレクト設定
 ├── netlify/
 │   └── functions/
-│       └── chat.js               # チャットボット用サーバーレス関数（Claude API）
+│       └── demo.js               # AIデモ診断用サーバーレス関数（Claude API・/api/demo）
 └── CLAUDE.md                     # このファイル
 ```
 
@@ -102,27 +102,12 @@ New-TEZU-HP/
 
 ---
 
-## 🤖 チャットボット（実装済み）
+## 🤖 AIデモ診断API（実装済み）
 
-### 概要
-- **実装方式：** Netlify サーバーレス関数（`/api/chat`）＋ Claude API
-- **UIの場所：** `index.html` 内、右下固定のチャットウィジェット（`.chat-widget`）
+- **実装方式：** Netlify サーバーレス関数（`/api/demo` → `netlify/functions/demo.js`）＋ Claude API
+- **UIの場所：** `index.html` の `#demo` セクション（結果は `renderResult()` が描画）
 - **APIキー管理：** Netlifyダッシュボードの環境変数 `ANTHROPIC_API_KEY` で設定
-
-### ファイル
-```
-netlify/functions/chat.js   ← システムプロンプト・APIロジックはここ
-```
-
-### システムプロンプトの更新方法
-`chat.js` 冒頭の `const SYSTEM_PROMPT = \`...\`` の中身を書き換えてgit pushするだけ。
-
-### チャットボットの設定値
-| 項目 | 値 |
-|------|----|
-| モデル | `claude-opus-4-6` |
-| max_tokens | `600` |
-| 送信メッセージ数 | 直近10件のみ（コスト節約） |
+- ※ 右下のAIチャットボット（`/api/chat`・`chat.js`）は廃止済み。
 
 ### ナビゲーション
 ```html
@@ -204,4 +189,4 @@ netlify/functions/chat.js   ← システムプロンプト・APIロジックは
 - `代表写真.png` のファイル名に日本語を使用している（Windows環境では問題なし。Web公開時はリネーム推奨）
 - 画像は `mix-blend-mode: multiply` を使っているため、**白い背景のセクションでは効果が逆転**する点に注意
 - LINEリンク（`https://line.me/ti/p/itU8jz37Ut`）は変更時に忘れず更新すること
-- チャットボットのAPIキー（`ANTHROPIC_API_KEY`）はNetlifyの環境変数で管理。コードに直書きしないこと
+- AIデモ診断のAPIキー（`ANTHROPIC_API_KEY`）はNetlifyの環境変数で管理。コードに直書きしないこと
