@@ -239,7 +239,7 @@
   }
   </script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -255,8 +255,10 @@
       --cyan: #00e5ff;
       --cyan-dim: rgba(0,229,255,0.15);
       --white: #ffffff;
-      --gray: #777777;
+      --gray: #8a8a8a;
       --gray-light: #bbbbbb;
+      --ivory: #f2ece0;
+      --serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -266,6 +268,7 @@
       font-family: 'Noto Sans JP','Inter',sans-serif;
       overflow-x: hidden;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ─── スクロールバー ─── */
@@ -331,11 +334,11 @@
     #nav-links a.nav-cta {
       background: var(--gold) !important;
       color: #000000 !important;
-      padding: 7px 18px !important;
+      padding: 12px 20px !important;
       border-radius: 2px !important;
       font-weight: 700 !important;
-      font-size: 11px !important;
-      letter-spacing: 0.1em !important;
+      font-size: 12px !important;
+      letter-spacing: 0.06em !important;
     }
     #nav-links a.nav-cta:hover { background: var(--gold-light) !important; color: #000000 !important; }
 
@@ -368,15 +371,11 @@
         linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
       background-size: 80px 80px;
-      animation: gridMove 20s linear infinite;
-    }
-    @keyframes gridMove {
-      0%   { background-position: 0 0; }
-      100% { background-position: 80px 80px; }
     }
 
     /* 走査線 */
     .hero-scanline {
+      display: none;
       position: absolute; inset: 0; z-index: 0; pointer-events: none;
       background: repeating-linear-gradient(
         0deg,
@@ -404,11 +403,6 @@
       width: 200px; height: 200px;
       object-fit: contain;
       filter: drop-shadow(0 0 40px rgba(214,164,81,0.5)) drop-shadow(0 0 80px rgba(0,229,255,0.15));
-      animation: floatLogo 5s ease-in-out infinite;
-    }
-    @keyframes floatLogo {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-10px); }
     }
 
     /* ヒーローコンテンツ */
@@ -417,52 +411,50 @@
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      border: 1px solid var(--cyan);
-      color: var(--cyan);
-      font-size: 12px;
-      letter-spacing: 0.3em;
-      padding: 5px 14px;
-      margin-bottom: 32px;
-      text-transform: uppercase;
-      font-weight: 600;
-      font-family: 'Inter',sans-serif;
-    }
-    .hero-badge::before {
-      content: '▶';
-      font-size: 8px;
+      border: 1px solid rgba(214,164,81,0.5);
+      border-radius: 2px;
+      color: var(--gold-light);
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+      font-weight: 500;
+      font-family: 'Noto Sans JP','Inter',sans-serif;
     }
 
     .hero-title {
-      font-size: clamp(52px, 7vw, 96px);
-      font-weight: 900;
-      line-height: 1.0;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
+      font-family: var(--serif);
+      font-size: clamp(40px, 5.2vw, 76px);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: 0;
+      font-feature-settings: "palt";
+      margin-bottom: 22px;
     }
     /* SEOキーワードをH1内に自然に表示（Googleが読む・ユーザーにも見える小テキスト） */
     .hero-seo-label {
       display: block;
       font-size: clamp(12px, 1.4vw, 13px);
-      font-weight: 600;
+      font-weight: 500;
+      font-family: 'Noto Sans JP','Inter',sans-serif;
       color: rgba(214,164,81,0.75);
       letter-spacing: 0.12em;
       margin-bottom: 10px;
       line-height: 1.5;
     }
     .hero-title em {
-      font-style: italic;
+      font-style: normal;
       color: var(--gold);
       display: block;
-      text-shadow: 0 0 40px rgba(214,164,81,0.4);
     }
     .hero-title-sub {
-      font-size: clamp(26px, 3.5vw, 48px);
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--white);
-      margin-bottom: 28px;
-      letter-spacing: -0.01em;
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.5vw, 34px);
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--ivory);
+      margin-bottom: 26px;
+      letter-spacing: 0;
     }
     .hero-desc {
       font-size: 15px;
@@ -470,7 +462,7 @@
       max-width: 520px;
       line-height: 1.9;
       margin-bottom: 20px;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     /* AIキーワードタイピング */
@@ -505,10 +497,10 @@
     .btn-primary {
       background: var(--gold);
       color: var(--black);
-      padding: 15px 36px;
-      font-size: 13px;
+      padding: 17px 34px;
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.04em;
       border: none;
       text-decoration: none;
       display: inline-block;
@@ -530,17 +522,17 @@
     .btn-outline {
       background: transparent;
       color: var(--white);
-      padding: 15px 36px;
-      font-size: 13px;
+      padding: 17px 34px;
+      font-size: 15px;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      border: 1px solid rgba(255,255,255,0.2);
+      letter-spacing: 0.04em;
+      border: 1px solid rgba(255,255,255,0.28);
       text-decoration: none;
       display: inline-block;
       transition: all 0.25s;
       border-radius: 2px;
     }
-    .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 16px rgba(0,229,255,0.15); }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
     /* ヒーロー内の無料相談ボタンをLINE緑に */
     .btn-line {
       background: #06c755 !important;
@@ -559,41 +551,43 @@
       flex-direction: column;
       align-items: center;
       z-index: 2;
-      animation: floatChara 4s ease-in-out infinite;
     }
-    @keyframes pulse-btn {
-      0%,100% { box-shadow: 0 8px 40px rgba(214,164,81,0.4); }
-      50%      { box-shadow: 0 8px 60px rgba(214,164,81,0.7), 0 0 0 8px rgba(214,164,81,0.1); }
+    .hero-chara .chara-img {
+      width: 210px;
+      mix-blend-mode: normal;
+      -webkit-mask-image: none;
+      mask-image: none;
+      border-radius: 14px;
+      border: 1px solid rgba(214,164,81,0.5);
+      box-shadow: 0 22px 48px rgba(0,0,0,0.55);
     }
-    @keyframes floatChara {
-      0%,100% { transform: translateY(0); }
-      50%      { transform: translateY(-12px); }
-    }
-    .hero-chara .chara-img { width: 210px; }
 
     /* ─── SECTION BASE ─── */
     section { padding: 108px 7%; position: relative; scroll-margin-top: 64px; }
     .section-inner { max-width: 1160px; margin: 0 auto; }
 
     .section-title {
-      font-size: clamp(28px, 3.5vw, 48px);
-      font-weight: 900;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.2vw, 42px);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0;
+      font-feature-settings: "palt";
+      color: var(--ivory);
       margin-bottom: 18px;
     }
-    .section-title span { color: var(--gold); }
+    .section-title span { color: inherit; }
     .section-desc {
       font-size: 15px;
       color: var(--gray-light);
       max-width: 580px;
       line-height: 1.85;
-      font-weight: 300;
+      font-weight: 400;
     }
     .gold-line {
-      width: 48px; height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--cyan));
-      margin: 20px 0;
+      width: 36px; height: 2px;
+      background: var(--gold);
+      margin: 22px 0;
     }
 
     /* ─── AI TICKER（上部スクロール帯） ─── */
@@ -642,27 +636,6 @@
       overflow: hidden;
       transition: background 0.3s;
     }
-    /* ゴールド＆シアンのスキャン演出 */
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
-    .service-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,229,255,0.04), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-    .service-card:hover { background: #0e0e14; }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-card:hover::after { opacity: 1; }
 
     .service-card h3 {
       font-size: 19px;
@@ -671,7 +644,7 @@
       line-height: 1.3;
       color: var(--white);
     }
-    .service-card p { font-size: 13px; color: var(--gray); line-height: 1.8; }
+    .service-card p { font-size: 14px; color: #a6a6a6; line-height: 1.85; }
     .service-tags {
       display: flex;
       flex-wrap: wrap;
@@ -680,12 +653,11 @@
     }
     .tag {
       font-size: 12px;
-      padding: 4px 10px;
-      border: 1px solid rgba(0,229,255,0.25);
-      color: var(--cyan);
-      letter-spacing: 0.1em;
-      border-radius: 1px;
-      font-family: 'Inter',sans-serif;
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.16);
+      color: var(--gray-light);
+      letter-spacing: 0.03em;
+      border-radius: 4px;
     }
 
     /* ─── ヒーロー内：AI講座への小さな導線ピル ─── */
@@ -754,7 +726,6 @@
       opacity: 0.34;
       pointer-events: none;
       z-index: 0;
-      animation: productsGridDrift 26s linear infinite;
     }
     .products-bg-diagonal {
       position: absolute; inset: 0;
@@ -769,7 +740,6 @@
       filter: blur(70px);
       pointer-events: none;
       z-index: 0;
-      animation: productsGlowFloat 9s ease-in-out infinite;
     }
     .products-bg-orb-1 {
       width: 360px; height: 360px;
@@ -781,17 +751,6 @@
       bottom: -130px; right: 6%;
       background: rgba(0,229,255,0.18);
       animation-delay: 3.5s;
-    }
-    @keyframes productsGridDrift {
-      from { background-position: 0 0, 0 0; }
-      to   { background-position: 72px 72px, 72px 72px; }
-    }
-    @keyframes productsGlowFloat {
-      0%, 100% { transform: translate3d(0,0,0) scale(1); opacity: 0.7; }
-      50%      { transform: translate3d(20px,-18px,0) scale(1.08); opacity: 0.95; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .products-bg-grid, .products-bg-orb { animation: none; }
     }
 
     /* ─── ステージ風パネル（section-inner） ─── */
@@ -830,8 +789,8 @@
 
     /* 見出し：セクションの主役として大きく */
     #products .section-title {
-      font-size: clamp(38px, 5.5vw, 72px);
-      line-height: 1.05;
+      font-size: clamp(32px, 4.6vw, 60px);
+      line-height: 1.25;
       text-shadow:
         0 0 32px rgba(214,164,81,0.35),
         0 0 70px rgba(214,164,81,0.18);
@@ -963,16 +922,18 @@
       display: block;
     }
     .product-card h3 {
+      font-family: var(--serif);
       font-size: clamp(26px, 2.4vw, 40px);
-      line-height: 1.16;
-      font-weight: 900;
-      letter-spacing: -0.04em;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      font-feature-settings: "palt";
       color: #ffffff;
       margin-bottom: 18px;
       text-shadow: 0 0 40px rgba(214,164,81,0.3);
     }
     .product-subtitle { font-size: 15px; color: var(--gold-light); font-weight: 800; line-height: 1.5; margin-bottom: 16px; }
-    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.75; font-weight: 300; margin-bottom: 18px; }
+    .product-desc { font-size: 13px; color: var(--gray-light); line-height: 1.75; font-weight: 400; margin-bottom: 18px; }
     .product-tags { font-size: 12px; color: var(--gray); letter-spacing: 0.02em; margin-bottom: 22px; }
     .product-audience {
       display: inline-block;
@@ -1130,13 +1091,6 @@
       font-size: 13px;
       color: var(--gray-light);
       font-weight: 500;
-    }
-    .bch-make-num {
-      font-family: 'Inter',sans-serif;
-      font-size: 13px;
-      font-weight: 900;
-      color: var(--gold);
-      flex-shrink: 0;
     }
 
     /* こんな方におすすめ：チェックリスト */
@@ -1386,6 +1340,7 @@
       border-right: 2px solid var(--cyan);
     }
     .profile-name {
+      font-family: var(--serif);
       font-size: clamp(28px, 3vw, 42px);
       font-weight: 900;
       margin-bottom: 6px;
@@ -1403,7 +1358,7 @@
       font-size: 14px;
       color: var(--gray-light);
       line-height: 2.0;
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 32px;
     }
     .career-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
@@ -1483,21 +1438,23 @@
       pointer-events: none;
     }
     .cta-title {
-      font-size: clamp(32px, 4vw, 54px);
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.6vw, 48px);
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.35;
+      color: var(--ivory);
       margin-bottom: 20px;
       position: relative; z-index: 1;
     }
-    .cta-title span { color: var(--gold); font-style: italic; }
+    .cta-title span { color: inherit; font-style: normal; }
     .cta-desc {
       font-size: 15px;
       color: var(--gray-light);
       max-width: 500px;
       margin: 0 auto 44px;
       line-height: 1.85;
-      font-weight: 300;
+      font-weight: 400;
       position: relative; z-index: 1;
     }
     .cta-line-btn {
@@ -1643,12 +1600,32 @@
     }
 
     /* ─── スクロールアニメーション ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
+    .fade-up { opacity: 0; transition: opacity 0.7s ease; }
+    .fade-up.visible { opacity: 1; }
+
+    /* ─── ヒーロー：ページ表示時の一度きりの演出(サイト内で唯一の自動アニメーション) ─── */
+    @keyframes heroIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .hero-content > * { animation: heroIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.10s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.20s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.28s; }
+    .hero-content > *:nth-child(5) { animation-delay: 0.36s; }
+    .hero-content > *:nth-child(6) { animation-delay: 0.44s; }
+    .hero-content > *:nth-child(7) { animation-delay: 0.52s; }
+    .hero-content > *:nth-child(8) { animation-delay: 0.60s; }
+
+    /* ─── 見出し・本文の折り返しを整える(1文字だけの行・不自然な分断を防ぐ) ─── */
+    .hero-title, .hero-title-sub, .section-title, .cta-title, .product-card h3, .final-cta-title, .course-hero-title { text-wrap: balance; word-break: auto-phrase; }
+    .hero-desc, .section-desc, .product-desc, .cta-desc, .service-card p { text-wrap: pretty; word-break: auto-phrase; }
+
+    /* ─── キーボード操作時のフォーカス表示 ─── */
+    :focus-visible { outline: 2px solid var(--gold-light); outline-offset: 3px; }
+
+    /* ─── 視覚効果を減らす設定の端末では動きを止める ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .fade-up { opacity: 1; }
     }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ─── レスポンシブ ─── */
     /* ナビ項目増加(3つの商品/AI講座)により900px以前から窮屈になるため、1100pxから先行してコンパクト化 */
@@ -1698,7 +1675,7 @@
       .hero-logo-wrap .logo-text { font-size: 9px; }
 
       .hero-content { max-width: 100%; }
-      .hero-title { font-size: 32px; line-height: 1.2; }
+      .hero-title { font-size: clamp(24px, 7vw, 30px); line-height: 1.35; }
       .hero-title-sub { font-size: 20px; }
       .hero-desc { font-size: 13px; line-height: 1.9; }
       .hero-badge { font-size: 12px; letter-spacing: 0.03em; margin-bottom: 20px; }
@@ -2385,10 +2362,6 @@
     }
     .demo-effect-unit { font-size: 12px; color: var(--gray); }
     /* ── 経営者向けインサイトセクション（強化版） ── */
-    @keyframes goldPulse {
-      0%,100% { text-shadow: 0 0 40px rgba(214,164,81,0.8), 0 0 80px rgba(214,164,81,0.35); }
-      50%      { text-shadow: 0 0 70px rgba(214,164,81,1),   0 0 130px rgba(214,164,81,0.6), 0 0 20px rgba(255,230,140,0.9); }
-    }
     @keyframes insightFadeIn {
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -2482,7 +2455,6 @@
       display: block;
       text-align: center;
       line-height: 1;
-      animation: goldPulse 2.5s ease-in-out infinite;
       margin: 18px 0 16px;
       letter-spacing: -3px;
     }
@@ -2580,23 +2552,7 @@
       text-decoration: none;
       letter-spacing: 0.05em;
       box-shadow: 0 4px 20px rgba(214,164,81,0.35);
-      /* ① パルスグロー：呼吸するような光の膨らみ */
-      animation: pulse-btn 1.5s ease-in-out infinite;
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-    }
-    /* ② シマー：光が左から右へ流れる */
-    .hearing-cta-btn::after {
-      content: '';
-      position: absolute;
-      top: 0; left: -80%;
-      width: 55%; height: 100%;
-      background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.38) 50%, transparent 80%);
-      animation: hearing-shimmer 2.8s ease-in-out infinite;
-      pointer-events: none;
-    }
-    @keyframes hearing-shimmer {
-      0%      { left: -80%; opacity: 1; }
-      55%, 100% { left: 130%; opacity: 0.6; }
     }
     /* ③ ホバー：浮き上がり＋パルス停止でクリック感を強調 */
     .hearing-cta-btn:hover {
@@ -2605,7 +2561,6 @@
       box-shadow: 0 10px 36px rgba(214,164,81,0.55);
       animation: none;
     }
-    .hearing-cta-btn:hover::after { animation: none; }
     /* 常時表示セクション用：ボタンを少し大きく */
     .hearing-cta--standalone .hearing-cta-btn {
       font-size: 16px;
@@ -3081,7 +3036,6 @@
             text-decoration:none;letter-spacing:0.06em;
             box-shadow:0 6px 30px rgba(214,164,81,0.4);
             transition:transform 0.2s;
-            animation:pulse-btn 2s ease-in-out infinite;
           " onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
             LINEで申し込む →
           </a>
@@ -3236,12 +3190,12 @@
       <!-- この商品で作るもの -->
       <h3 class="bch-subheading fade-up">この商品で作るもの</h3>
       <div class="bch-make-grid">
-        <div class="bch-make-card fade-up"><span class="bch-make-num">01</span>事業コンセプト整理</div>
-        <div class="bch-make-card fade-up"><span class="bch-make-num">02</span>名刺デザイン</div>
-        <div class="bch-make-card fade-up"><span class="bch-make-num">03</span>QRコード設計</div>
-        <div class="bch-make-card fade-up"><span class="bch-make-num">04</span>ホームページ構成</div>
-        <div class="bch-make-card fade-up"><span class="bch-make-num">05</span>GitHub / Vercel公開</div>
-        <div class="bch-make-card fade-up"><span class="bch-make-num">06</span>LINE / Instagram / フォーム導線</div>
+        <div class="bch-make-card fade-up">事業コンセプト整理</div>
+        <div class="bch-make-card fade-up">名刺デザイン</div>
+        <div class="bch-make-card fade-up">QRコード設計</div>
+        <div class="bch-make-card fade-up">ホームページ構成</div>
+        <div class="bch-make-card fade-up">GitHub / Vercel公開</div>
+        <div class="bch-make-card fade-up">LINE / Instagram / フォーム導線</div>
       </div>
 
       <!-- こんな方におすすめ -->
