@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tezu-intelligence-hp.vercel.app/sitemap.xml
+Sitemap: https://tezu-intelligence-hp.netlify.app/sitemap.xml

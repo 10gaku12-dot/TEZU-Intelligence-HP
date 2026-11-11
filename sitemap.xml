@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://tezu-intelligence-hp.vercel.app/</loc>
+    <loc>https://tezu-intelligence-hp.netlify.app/</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://tezu-intelligence-hp.vercel.app/ai-course.html</loc>
+    <loc>https://tezu-intelligence-hp.netlify.app/ai-course.html</loc>
     <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
