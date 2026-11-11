@@ -1,7 +1,9 @@
 # Netlify 設定ファイル — 株式会社TEZU Intelligence HP
 
 [build]
-  publish = "."
+  # 公開フォルダはビルド時に dist/ を生成(許可リスト方式)。内部ファイルは公開されない。
+  command = "sh scripts/build-public.sh"
+  publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
